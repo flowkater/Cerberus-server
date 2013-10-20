@@ -1,4 +1,3 @@
-# encoding: UTF-8
 require 'spec_helper'
 
 describe Project do
@@ -13,7 +12,13 @@ describe Project do
 	let(:report2){Report.new(appversion: 1.0)}
 
   it {should respond_to(:name)}
+  it {should respond_to(:user)}
+  it {should respond_to(:api_key)}
+  it {should respond_to(:reports)}
+  it {should respond_to(:scenarios)}
+  # it {should respond_to(:events)}
   its(:name){should match(/todaybreaker/)}
+
 
   it "include reports" do
   	project.reports.should include(report1)

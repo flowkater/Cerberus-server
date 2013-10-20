@@ -11,4 +11,9 @@ describe Report do
 
 	its(:appversion){should be_an_instance_of(Float)}
 	its(:project){should == project}
+
+	it{should respond_to(:memory)}
+	it{should respond_to(:cpu)}
+	it{should respond_to(:network)}
+	it{should respond_to(:battery)}
 end

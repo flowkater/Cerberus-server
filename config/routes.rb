@@ -1,6 +1,14 @@
 CerberusServer::Application.routes.draw do
   devise_for :users
 
+  resources 'projects' do
+    collection do
+      get 'exec'
+    end
+  end
+
+  root to: "projects#show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

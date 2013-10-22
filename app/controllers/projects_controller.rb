@@ -1,10 +1,5 @@
 class ProjectsController < ApplicationController
-  def exec
-    @result = ""
-    Dir.chdir("#{Rails.root}/lib/") do
-      @result = `lint /Users/flowkater/repo/autoscheduleproto/res/layout/activity_task_edit.xml`
-    end
-  end
+  before_filter :authenticate_user!
 
   def index
   end
@@ -26,4 +21,11 @@ class ProjectsController < ApplicationController
 
   def destroy
   end
+  
+  # def exec
+  #   @result = ""
+  #   Dir.chdir("#{Rails.root}/lib/") do
+  #     @result = `lint /Users/flowkater/repo/autoscheduleproto/res/layout/activity_task_edit.xml`
+  #   end
+  # end
 end

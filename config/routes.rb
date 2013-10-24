@@ -2,12 +2,12 @@ CerberusServer::Application.routes.draw do
   devise_for :users, path_names: {sign_in: 'login', sign_up: 'register', sign_out: 'logout'}
 
   resources 'projects' do
-    collection do
-      get 'exec'
+    member do
+      get 'profile'
     end
   end
 
-  root to: "projects#show"
+  root to: "projects#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

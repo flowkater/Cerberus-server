@@ -1,2 +1,79 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<div class="container">
+	<div class="add">
+		<%= link_to "#modal-project-new", class: "btn btn-large btn-default add-project-button", data: {toggle: "modal"} do %>
+			<span>Add + </span>
+		<% end %>
+	</div>
+
+	<div id="modal-project-new" class="modal fade", style="display: none;" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+					<h5>Project New</h5>
+				</div>
+				<div class="modal-body">
+					<%= simple_form_for @project do |f| %>
+						<%= f.input :name %>
+						<%= f.button :submit, "Create" %>
+					<% end  %>
+				</div>
+				<div class="modal-footer">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-8 col-md-offset-2">
+
+		<div class="padded">
+
+			<div class="scrore-bar">
+				<div class="progress" style="height:20px;">
+					<div class="progress-bar progress-red tip" title data-percent="30">
+					</div>
+					<div class="progress-bar progress-orange tip" title data-percent="40">
+					</div>
+					<div class="progress-bar progress-green tip" title data-percent="30">
+					</div>
+				</div>
+			</div>
+
+			<div class="title">
+				<button class="btn btn-large btn-default" style="width: 350px;height: 50px;text-align: left;font-size: 25px;cursor:default;">My Projects</button>
+			</div>
+			
+			<div class="container">
+				<div class="row padded" style="font-size:18px;">
+
+					<% @projects.each do |p| %>
+						<div class="col-md-6">
+							<div class="box">
+								<div class="box-content padded">
+									<div class="row">
+										<div id="item" class="col-md-8">
+											<%= link_to p do %>
+												<p><%= p.name %></p>
+											<% end  %>
+										</div>
+										<div class="col-md-4">
+											<i class="icon-signal"></i>
+											<span>(아이콘이 들어가는 자리)</span>
+											<div class="button btn btn-large btn-default" style="width: 100%;margin-top: 30px;">
+												<a href="../profile/profile_1depth.html">Profile now(프로파일 바로가기 버튼)</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					<% end %>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>

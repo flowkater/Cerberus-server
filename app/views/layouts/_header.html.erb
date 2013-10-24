@@ -26,7 +26,9 @@
 
       <ul class="nav navbar-nav navbar-left">
         <li class="cdrop">
-          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          <% if user_session %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          <% end %>
         </li>
       </ul>
 
@@ -35,6 +37,7 @@
           <a href="#" class="dropdown-toggle dropdown-avatar" data-toggle="dropdown">
           <span>
             <img class="menu-avatar" src="http://riojavega.files.wordpress.com/2013/07/profilejaewoo.jpg?w=220&h=300" /> <span>Carter Cho <i class="icon-caret-down"></i></span>
+            
             <span class="badge badge-dark-red">5</span>
           </span>
           </a>

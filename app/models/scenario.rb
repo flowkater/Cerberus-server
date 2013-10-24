@@ -4,4 +4,6 @@ class Scenario < ActiveRecord::Base
 
   validates :name, presence: true
   validates :description, presence: true
+
+  has_many :reports
 end

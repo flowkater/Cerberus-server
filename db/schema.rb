@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20131020050922) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.integer  "api_key"
+    t.string   "api_key"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -48,8 +48,9 @@ ActiveRecord::Schema.define(:version => 20131020050922) do
   create_table "reports", :force => true do |t|
     t.float    "appversion"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "scenario_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "scenarios", :force => true do |t|

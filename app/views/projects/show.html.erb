@@ -1,2 +1,97 @@
-<h1>Show</h1>
-<i class="icon-user"></i>
+<%= render 'project/sidebar' %>
+<div class="main-content">
+	<div class="container">
+		<div class="row">
+			<div class="area-top clearfix">
+				<div class="pull-left header">
+					<h3 class="title">
+						<i class="icon-dashboard"></i>
+						Dashboard
+					</h3>
+					<h5>
+						<span>
+							Total progress status
+						</span>
+					</h5>
+				</div>
+			</div>
+		</div>
+
+		<div class="container padded">
+			<div class="box">
+				<div class="box-content">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-2">
+								<div class="version">
+									<h2><%= @report_latest_appversion %></h2>
+								</div>
+							</div>
+							<div class="col-md-5">
+								<div class="profiling-reports">
+									<span>Profiling report number</span>
+									<span><%= @profile_report_number %></span>
+								</div>
+								<div class="event-paths">
+									<span>Event Paths(프로파일링에 사용되는 이벤트 경로 수)</span>
+									<span>12</span>
+								</div>
+							</div>
+							<div class="col-md-5">
+								<div class="problems">
+									<span>Problems</span>
+									<span>(카테고리 아이콘)</span>
+								</div>
+								<div class="reporting period">
+									<span>Reporting Period</span>
+									<span><%= @reports_period %></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container padded">
+			<h2>Event Paths used for profiling</h2>
+		</div>
+
+		<div class="container padded">
+			<h2>Latest Reports of each Scenario on Current Version</h2>
+			<div class="box">
+				<div class="box-content">
+					<table class="table table-normal">
+						<thead>
+							<tr>
+								<td style="width:10px;"></td>
+								<td>Scenario</td>
+								<td style="width:150px;">Memory Leak Suspect</td>
+								<td style="width:150px;">CPU Usage</td>
+								<td style="width:150px;">Network Latency</td>
+								<td style="width:150px;">Battery</td>
+								<td style="width:150px;">Time for Profiling</td>
+							</tr>
+						</thead>
+						<tbody>
+							<% @scenarios.each do |s| %>
+								<tr>
+									<td></td>
+									<td><h3><%= s.name %></h3>
+										<p><%= s.description %></p>
+									</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							<% end  %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -6204,7 +6204,7 @@ html {
 /* line 15, /home/andrei/core-admin-release/core-admin/source/stylesheets/base.scss */
 body {
   font: normal 12px 'Open Sans', HelveticaNeue, Helvetica, Arial;
-  background: url("../images/bg.png");
+  background: url("/assets/bg.png");
   min-height: 100%;
   color: #707070;
   overflow-x: hidden; }
@@ -6896,8 +6896,8 @@ h1, h2, h3, h4, h5, h6, th {
  */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../font/fontawesome-webfont.eot?v=3.0.1");
-  src: url("../font/fontawesome-webfont.eot?#iefix&v=3.0.1") format("embedded-opentype"), url("../font/fontawesome-webfont.woff?v=3.0.1") format("woff"), url("../font/fontawesome-webfont.ttf?v=3.0.1") format("truetype");
+  src: url("/assets/fontawesome-webfont.eot?v=3.0.1");
+  src: url("/assets/fontawesome-webfont.eot?#iefix&v=3.0.1") format("embedded-opentype"), url("/assets/fontawesome-webfont.woff?v=3.0.1") format("woff"), url("/assets/fontawesome-webfont.ttf?v=3.0.1") format("truetype");
   font-weight: normal;
   font-style: normal; }
 

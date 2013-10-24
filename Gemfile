@@ -26,6 +26,8 @@ group :production do
 end
 
 group :development, :test do
+	gem 'better_errors'
+	gem 'binding_of_caller'
 	gem 'sqlite3'
 	gem 'rails-erd'
 	gem 'rspec-rails'

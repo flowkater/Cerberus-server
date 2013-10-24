@@ -1,9 +1,18 @@
 CerberusServer::Application.routes.draw do
+  get "reports/index"
+
   devise_for :users, path_names: {sign_in: 'login', sign_up: 'register', sign_out: 'logout'}
 
   resources 'projects' do
     member do
+      get 'select_category_profile'
+      get 'select_scenario_profile'
+      get 'select_check_profile'
       get 'profile'
+    end
+
+    resources 'reports' do
+
     end
   end
 

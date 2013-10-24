@@ -36,6 +36,20 @@ class ProjectsController < ApplicationController
   def destroy
   end
 
+  def select_category_profile
+    @project = Project.find(params[:id])
+    @report = @project.reports.build
+    @scenarios = @project.scenarios
+  end
+
+  def select_scenario_profile
+    
+  end
+
+  def select_check_profile
+    
+  end
+
   def profile
     
   end

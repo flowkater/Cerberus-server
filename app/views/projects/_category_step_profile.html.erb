@@ -1,0 +1,66 @@
+<div>
+	<h1>Select Category for Profiling</h1>
+	<%= link_to "#" do %>
+		<span> 현재 어플리케이션에 SDK를 Import 하셨나요? </span>	
+	<% end  %>
+	<span>API Key : <%= @project.api_key %></span>
+</div>
+	
+<div class="container">
+	<div class="row">
+		<div class="col-md-12" >
+			<div class="box" >
+				<div class="box-content">
+					<table class="table table-normal">
+						<tbody>
+							<tr>
+								<td>
+									<h2 style="margin-top: 5px;">Memory </h2>
+									<span>
+										메모리는 현재 안드로이드 어플리케이션의 메모리 누수와 과도한 메모리 사용에 대한 문제점을 체크해줍니다
+									</span>
+								</td>
+								<td>
+									<%= f.check_box :memory_checked, class: "iButton-icons-tab", label: false, checked: true %>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h2 style="margin-top: 5px;">CPU </h2>
+									<span>
+										설
+									</span>
+								</td>
+								<td>
+									<%= f.check_box :cpu_checked, class: "iButton-icons-tab", label: false %>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h2 style="margin-top: 5px;">Network </h2>
+									<span>
+										설명 
+									</span>
+								</td>
+								<td>
+									 <%= f.check_box :network_checked, class: "iButton-icons-tab", label: false %>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h2 style="margin-top: 5px;">Battery </h2>
+									<span>
+										설명
+									</span>
+								</td>
+								<td>
+									 <%= f.check_box :battery_checked, class: "iButton-icons-tab", label: false %>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

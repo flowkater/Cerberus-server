@@ -1,0 +1,80 @@
+<div>
+	<h1>Select Scenario for Profiling</h1>
+	
+	<%= link_to "#" do %>
+		<span> 테스트 시나리오를 만드셨나요? </span>
+	<% end  %>
+	<span> 시나리오 없이 프로파일링 가능합니다</span>
+</div>
+
+<div class="container">
+					
+	<div class="row" style="margin: 15px;">
+	<a href="./profile_3depth.html" class="pull-right"><button class="btn btn-default">시나리오 테스트 없이 진행</button></a>
+	</div>
+	<div class="row">
+	
+		<div class="col-md-12" >
+		
+			<div class="box" >
+				<div class="box-content">
+					<table class="table table-normal">
+						<thead>
+							<tr>
+								<td>Scnario</td>
+								<td>Event Paths</td>
+								<td>Based on User</td>
+								<td>Date</td>
+								<td></td>
+							</tr>
+						</thead>
+						<tbody>
+							<%= f.fields_for :scenario do |s| %>
+								<tr id="scenario_item">
+									<td>
+										<h2 style="margin-top: 5px;"><%= :name %></h2>
+										<span>
+											<%= :description %>
+										</span>
+									</td>
+									<td>
+										 14
+									</td>
+									<td>
+										 check
+									</td>
+									<td>
+										 01 Oct
+									</td>
+									<td>
+										 <%= s.radio_button :scenario, 1 %>
+									</td>
+								</tr>
+							<% end  %>
+								<!-- <tr id="scenario_item">
+									<td>
+										<h2 style="margin-top: 5px;">s.name</h2>
+										<span>
+											s.description
+										</span>
+									</td>
+									<td>
+										 14
+									</td>
+									<td>
+										 check
+									</td>
+									<td>
+										 01 Oct
+									</td>
+									<td>
+										 <input type="checkbox">
+									</td>
+								</tr>							 -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

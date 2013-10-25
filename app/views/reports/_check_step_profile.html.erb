@@ -22,25 +22,20 @@
 			</div>
 		</div>
 		<div class="col-md-6" >
-		
-			<div class="box" >
-				<div class="box-header">
-					<span class="title">Profile Scenario</span>
-				</div>
-				<% if @report.scenario %>
+			<% if @report.scenario %>
+				<div class="box" >
+					<div class="box-header">
+						<span class="title">Profile Scenario</span>
+					</div>
+					
 					<div class="box-content" style="padding: 15px;">
 						<h2 style="margin-top: 5px;"><%= @report.scenario.name %></h2>
 						<span>
 							<%= @report.scenario.description %>
 						</span>
 					</div>
-				<% end %>
-			</div>
+				</div>
+			<% end %>
 		</div>
 	</div>
-	
-	<div class="row">
-		<button class="btn btn-default">Profile</button>
-	</div>
-	
 </div>

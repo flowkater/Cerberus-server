@@ -15,6 +15,7 @@
 			<div class="container" >
 				<div class="pull-right">
 					<%= f.submit "Continue", class: "btn btn-large btn-default" %>
+					or <%= link_to "skip this step", next_wizard_path, class: "btn btn-large btn-default" %>
 				</div>
 			</div>			
 		<% end %>

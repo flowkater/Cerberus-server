@@ -1,32 +1,29 @@
 class ReportsController < ApplicationController
   def index
+    @project = Project.find(params[:project_id])
+    @reports = @project.reports
   end
   
   def create
-  	session[:report_params].deep_merge!(params[:report]) if params[:report]
   	@project = Project.find(params[:project_id])
-  	@scenarios = @project.scenarios
-    @report = @project.reports.build(params[:report_params])
-    @report.current_step = session[:report_step]
-    if params[:back_button]
-    	@report.previous_button
-    elsif @report.last_step?
-    	@report.save
-    else
-    	@report.next_step	
-    end
-    session[:report_step] = @report.current_step
+    @report = @project.reports.build(params[:report])
+    @scenarios = @project.scenarios
 
-    if @report.new_record?
-    	render "projects/select_category_profile"
-    else
-    	session[:report_step] = session[:report_params] = nil
-    	flash[:notice] = "Report saved."
-    	redirect_to @report
+    if @report.save
+    	redirect_to [@project,@report], notice: "report is created"
+		else
+			render 'new'
     end
   end
 
   def show
-  	
+  	@report = Report.find(params[:id])
+    @project = @report.project
+  end
+
+  def new
+  	@project = Project.find(params[:project_id])
+    @report = @project.reports.build
+    @scenarios = @project.scenarios
   end
 end

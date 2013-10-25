@@ -1,2 +1,155 @@
-<h1>Reports#index</h1>
-<p>Find me in app/views/reports/index.html.erb</p>
+<%= render 'projects/sidebar' %>
+<div class="main-content">
+	<div class="container">
+		<div class="row">
+			<div class="area-top clearfix">
+				<div class="pull-left header">
+					<h3 class="title">
+						Report List
+					</h3>
+					<h5>
+						<span>
+							Report List
+						</span>
+					</h5>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="box">
+				<div class="box-header">
+					<div class="title">Filter</div>
+				</div>
+				<div class="box-content">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td>App Version</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" checked id="icheck1">
+									<label for="icheck1">All</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck2">
+									<label for="icheck2">0.1</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck3">
+									<label for="icheck2">1.0</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck4">
+									<label for="icheck2">2.5</label>
+								</td>
+							</tr>
+							<tr>
+								<td>OS Version</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" checked id="icheck1">
+									<label for="icheck1">All</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck2">
+									<label for="icheck2">0.1</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck3">
+									<label for="icheck2">1.0</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck4">
+									<label for="icheck2">2.5</label>
+								</td>
+							</tr>
+							<tr>
+								<td>Category</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" checked id="icheck1">
+									<label for="icheck1">All</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck2">
+									<label for="icheck2">Memory</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck3">
+									<label for="icheck2">CPU</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck3">
+									<label for="icheck2">Network</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck3">
+									<label for="icheck2">Battery</label>
+								</td>
+							</tr>
+							<tr>
+								<td>Scenario Test</td>
+								<td class="in-checkbox">
+									<input type="radio" name="optionsRadios[test]" class="icheck" checked id="iradio1">
+                  <label for="iradio1">Yes</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="radio" name="optionsRadios[test]" class="icheck" id="iradio2">
+                  <label for="iradio2">No</label>
+								</td>
+							</tr>
+							<tr>
+								<td>Error Occurred</td>
+								<td class="in-checkbox">
+									<input type="radio" name="optionsRadios[error]" class="icheck" id="iradio1">
+                  <label for="iradio3">Yes</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="radio" name="optionsRadios[error]" class="icheck" checked id="iradio4">
+                  <label for="iradio2">No</label>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="box">
+				<div class="box-content">
+					<table id="dataList" class="table table-normal">
+						<thead>
+							<tr>
+								<td></td>
+								<td></td>
+								<td>Status</td>
+								<td>Time for Profiling (프로파일링 걸린 시간)</td>
+								<td>Date</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+								<td>0.1</td>
+								<td>카테고리 아이콘</td>
+								<td>체크 or X</td>
+								<td>체크(붉은색 음영처리)</td>
+								<td>sec 단위</td>
+								<td>Date (날짜) </td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="text-center">
+				<ul class="pagination">
+					<li><a href="#">Prev</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">Next</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

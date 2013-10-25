@@ -1,1 +1,193 @@
-show.html.erb
+<%= render 'projects/sidebar' %>
+<div class="main-content">
+	<div class="container">
+		<div class="row">
+			<div class="area-top clearfix">
+				<div class="pull-left header">
+					<h3 class="title">
+						Report
+					</h3>
+					<h5>
+						<span>
+							Report
+						</span>
+					</h5>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="scrore-bar">
+				<div class="progress" style="height:20px;">
+					<div class="progress-bar progress-red tip" title data-percent="30">
+					</div>
+					<div class="progress-bar progress-orange tip" title data-percent="40">
+					</div>
+					<div class="progress-bar progress-green tip" title data-percent="30">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="box">
+				<div class="box-content">
+					<div class="container padded">
+						<div class="row">
+							<div class="col-md-3">
+								<p>Name</p>
+								<p>App Version</p>
+								<p>OS Version</p>
+							</div>
+							<div class="col-md-3">
+								<p>Time for profiling</p>
+								<p>Date</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+
+		<div class="container">
+			<h2>Event path</h2>
+			<p>이벤트 패스에 대한 노드가 그려져야 (javascript)</p>
+		</div>
+
+		<div class="container">
+			<div class="box">
+				<div class="box-header">
+					<span class="title">Memory <a href="memory.html">(more 링크 제공)</a></span>
+				</div>
+				<div class="box-content">
+					<table class="table table-normal">
+						<thead>
+							<tr>
+								<td>Method</td>
+								<td style="width:200px;">Leak Suspect(%)</td>
+								<td style="width:200px;">Heap Size</td>
+							</tr>
+						</thead>
+						<tbody >
+							<tr>
+								<td>com.sw.taskShow.onCreate</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>com.sw.taskShow.onCreate</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>com.sw.taskShow.onCreate</td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="box">
+				<div class="box-header">
+					<span class="title">CPU <a href="#">(more 링크 제공)</a></span>
+				</div>
+				<div class="box-content">
+					<table class="table table-normal">
+						<thead>
+							<tr>
+								<td>Method</td>
+								<td style="width:200px;">Utilization Time</td>
+								<td style="width:200px;">Utilization Ratio</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>com.sw.taskShow.onCreate</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>com.sw.taskShow.onCreate</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>com.sw.taskShow.onCreate</td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="box">
+				<div class="box-header">
+					<span class="title">Network <a href="network.html">(more 링크 제공)</a></span>
+				</div>
+				<div class="box-content">
+					<table class="table table-normal">
+						<thead>
+							<tr>
+								<td>Method</td>
+								<td style="width:200px;">Latency</td>
+								<td style="width:200px;">Bandwidth</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>com.sw.taskShow.onCreate</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>com.sw.taskShow.onCreate</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>com.sw.taskShow.onCreate</td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="box">
+				<div class="box-header">
+					<span class="title">Battery <a href="battery.html">(more 링크 제공)</a> </span>
+				</div>
+				<div >
+					<table class="table table-normal">
+						<thead>
+							<tr>
+								<td>Total</td>
+								<td>CPU</td>
+								<td>GPS</td>
+								<td>Network</td>
+							</tr>
+						</thead>
+						<tbody id="batterylist">
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -14,14 +14,14 @@
 
 		<li class="">
 			<span class="glow"></span>
-			<%= link_to select_category_profile_project_path(@project) do %>
+			<%= link_to new_project_report_path(@project) do %>
 				<span>Profile</span>
 			<% end %>
 		</li>
 
 		<li class="">
 			<span class="glow"></span>
-			<%= link_to "#" do %>
+			<%= link_to project_reports_path(@project) do %>
 				<span>Report List</span>
 			<% end %>
 		</li>
@@ -35,7 +35,7 @@
 
 		<li class="">
 			<span class="glow"></span>
-			<%= link_to "#" do %>
+			<%= link_to project_scenarios_path(@project) do %>
 				<span>Test List</span>
 			<% end %>
 		</li>

@@ -4,6 +4,7 @@ CerberusServer::Application.routes.draw do
   resources 'projects', except: :new do
     resources 'scenarios'
     resources 'reports'
+    resources 'profile_steps'
   end
 
   root to: "projects#index"

@@ -10,8 +10,8 @@
 				</div>
 			</div>
 		</div>
-		<%= form_for [@project, @report] do |f| %>
-			<%= render "reports/category_step_profile", f: f %>
+		<%= form_for [@project, @report], url: wizard_path do |f| %>
+			<%= render "reports/check_step_profile", f: f %>
 			<div class="container" >
 				<div class="pull-right">
 					<%= f.submit "Continue", class: "btn btn-large btn-default" %>

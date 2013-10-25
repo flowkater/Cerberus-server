@@ -21,7 +21,7 @@
 									</span>
 								</td>
 								<td>
-									<%= f.check_box :memory, class: "iButton-icons-tab", label: false, checked: true %>
+									<%= f.check_box :memory_checked, class: "iButton-icons-tab", label: false, checked: true %>
 								</td>
 							</tr>
 							<tr>
@@ -32,7 +32,7 @@
 									</span>
 								</td>
 								<td>
-									<%= f.check_box :cpu, class: "iButton-icons-tab", label: false %>
+									<%= f.check_box :cpu_checked, class: "iButton-icons-tab", label: false, checked: false %>
 								</td>
 							</tr>
 							<tr>
@@ -43,7 +43,7 @@
 									</span>
 								</td>
 								<td>
-									 <%= f.check_box :network, class: "iButton-icons-tab", label: false %>
+									<%= f.check_box :network_checked, class: "iButton-icons-tab", label: false, checked: false %>
 								</td>
 							</tr>
 							<tr>
@@ -54,7 +54,7 @@
 									</span>
 								</td>
 								<td>
-									 <%= f.check_box :battery, class: "iButton-icons-tab", label: false %>
+									<%= f.check_box :battery_checked, class: "iButton-icons-tab", label: false, checked: false %> 
 								</td>
 							</tr>
 						</tbody>

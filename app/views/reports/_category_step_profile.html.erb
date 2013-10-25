@@ -1,8 +1,8 @@
 <div>
 	<h1>Select Category for Profiling</h1>
 	<%= link_to "#" do %>
-		<span> 현재 어플리케이션에 SDK를 Import 하셨나요? </span>	
-	<% end  %>
+		<span> 현재 어플리케이션에 SDK를 Import 하셨나요? </span>
+	<% end %>
 	<span>API Key : <%= @project.api_key %></span>
 </div>
 	
@@ -21,7 +21,7 @@
 									</span>
 								</td>
 								<td>
-									<%= f.check_box :memory_checked, class: "iButton-icons-tab", label: false, checked: true %>
+									<%= f.check_box :memory, class: "iButton-icons-tab", label: false, checked: true %>
 								</td>
 							</tr>
 							<tr>
@@ -32,7 +32,7 @@
 									</span>
 								</td>
 								<td>
-									<%= f.check_box :cpu_checked, class: "iButton-icons-tab", label: false %>
+									<%= f.check_box :cpu, class: "iButton-icons-tab", label: false %>
 								</td>
 							</tr>
 							<tr>
@@ -43,7 +43,7 @@
 									</span>
 								</td>
 								<td>
-									 <%= f.check_box :network_checked, class: "iButton-icons-tab", label: false %>
+									 <%= f.check_box :network, class: "iButton-icons-tab", label: false %>
 								</td>
 							</tr>
 							<tr>
@@ -54,7 +54,7 @@
 									</span>
 								</td>
 								<td>
-									 <%= f.check_box :battery_checked, class: "iButton-icons-tab", label: false %>
+									 <%= f.check_box :battery, class: "iButton-icons-tab", label: false %>
 								</td>
 							</tr>
 						</tbody>

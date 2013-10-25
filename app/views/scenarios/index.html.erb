@@ -62,7 +62,9 @@
 									<% @scenarios.each do |s| %>
 										<tr>
 											<td id="content">
-												<h2 style="margin-top: 5px;"><%= s.name %> </h2>
+												<%= link_to [@project, s] do %>
+													<h2 style="margin-top: 5px;"><%= s.name %> </h2>
+												<% end  %>
 												<span>
 													<%= s.description %>
 												</span>

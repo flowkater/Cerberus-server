@@ -34,14 +34,29 @@
 				<div class="box-content">
 					<div class="container padded">
 						<div class="row">
-							<div class="col-md-3">
-								<p>Name</p>
-								<p>App Version</p>
-								<p>OS Version</p>
+							<div class="col-md-4">
+								<div class="report-name">
+									<span>Name</span>
+									<span><%= @project.name %></span>
+								</div>
+								<div class="report-appversion">
+									<span>App Version</span>
+									<span><%= @report.appversion %></span>
+								</div>
+								<div class="report-osversion">
+									<span>OS Version</span>
+									<span><%= @report.osversion %></span>
+								</div>
 							</div>
-							<div class="col-md-3">
-								<p>Time for profiling</p>
-								<p>Date</p>
+							<div class="col-md-4">
+								<div class="report-time-for-profiling">
+									<span>Time for profiling</span>
+									<span><%= @report.time_for_profiling %></span>
+								</div>
+								<div class="report-date">
+									<span>Date</span> 
+									<span><%= @report.created_at_date %></span>
+								</div>
 							</div>
 						</div>
 					</div>

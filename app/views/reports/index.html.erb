@@ -120,22 +120,24 @@
 						<thead>
 							<tr>
 								<td></td>
-								<td></td>
+								<td>App version</td>
+								<td>Category(icon)</td>
 								<td>Status</td>
-								<td>Time for Profiling (프로파일링 걸린 시간)</td>
+								<td>Time for Profiling</td>
 								<td>Date</td>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td></td>
-								<td>0.1</td>
-								<td>카테고리 아이콘</td>
-								<td>체크 or X</td>
-								<td>체크(붉은색 음영처리)</td>
-								<td>sec 단위</td>
-								<td>Date (날짜) </td>
-							</tr>
+							<% @reports.each do |report| %>
+								<tr>
+									<td></td>
+									<td><%= link_to report.appversion, [@project, report] %></td>
+									<td><%= report.categories %></td>
+									<td>Status</td>
+									<td><%= report.time_for_profiling %></td>
+									<td><%= report.created_at_date %></td>
+								</tr>
+							<% end  %>
 						</tbody>
 					</table>
 				</div>

@@ -11,13 +11,14 @@
 			</div>
 		</div>
 		<%= form_for [@project, @report] do |f| %>
-			<%= render 'category_step_profile', :f => f %>
-			<%= render 'scenario_step_profile', :f => f %>
+			<%= render "reports/#{@report.current_step}_step_profile", f: f %>
 			<div class="container" >
 				<div class="pull-right">
+					<%= f.submit "Back", name: "previous_button", class: "
+					btn btn-large btn-default" unless @report.first_step? %>
 					<%= f.submit "Next", class: "btn btn-large btn-default" %>
 				</div>
 			</div>			
-		<% end  %>
+		<% end %>
 	</div>
 </div>

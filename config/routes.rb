@@ -1,6 +1,4 @@
 CerberusServer::Application.routes.draw do
-  get "reports/index"
-
   devise_for :users, path_names: {sign_in: 'login', sign_up: 'register', sign_out: 'logout'}
 
   resources 'projects' do
@@ -11,9 +9,8 @@ CerberusServer::Application.routes.draw do
       get 'profile'
     end
 
-    resources 'reports' do
-
-    end
+    resources 'scenarios'
+    resources 'reports'
   end
 
   root to: "projects#index"

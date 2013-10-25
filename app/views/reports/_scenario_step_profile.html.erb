@@ -29,12 +29,12 @@
 							</tr>
 						</thead>
 						<tbody>
-							<%= f.fields_for :scenario do |s| %>
+							<% @scenarios.each do |s| %>
 								<tr id="scenario_item">
 									<td>
-										<h2 style="margin-top: 5px;"><%= :name %></h2>
+										<h2 style="margin-top: 5px;"><%= s.name %></h2>
 										<span>
-											<%= :description %>
+											<%= s.description %>
 										</span>
 									</td>
 									<td>
@@ -47,10 +47,10 @@
 										 01 Oct
 									</td>
 									<td>
-										 <%= s.radio_button :scenario, 1 %>
+										 <%= f.radio_button :scenario_id, s.id.to_i %>
 									</td>
 								</tr>
-							<% end  %>
+							<% end %>
 								<!-- <tr id="scenario_item">
 									<td>
 										<h2 style="margin-top: 5px;">s.name</h2>

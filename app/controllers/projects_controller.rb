@@ -37,9 +37,10 @@ class ProjectsController < ApplicationController
   end
 
   def select_category_profile
+    session[:report_params] ||= {}
     @project = Project.find(params[:id])
     @report = @project.reports.build
-    @scenarios = @project.scenarios
+    @report.current_step = session[:report_step]
   end
 
   def select_scenario_profile

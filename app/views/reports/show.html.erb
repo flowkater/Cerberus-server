@@ -68,141 +68,148 @@
 			<h2>Event path</h2>
 			<p>이벤트 패스에 대한 노드가 그려져야 (javascript)</p>
 		</div>
-
-		<div class="container">
-			<div class="box">
-				<div class="box-header">
-					<span class="title">Memory <a href="memory.html">(more 링크 제공)</a></span>
-				</div>
-				<div class="box-content">
-					<table class="table table-normal">
-						<thead>
-							<tr>
-								<td>Method</td>
-								<td style="width:200px;">Leak Suspect(%)</td>
-								<td style="width:200px;">Heap Size</td>
-							</tr>
-						</thead>
-						<tbody >
-							<tr>
-								<td>com.sw.taskShow.onCreate</td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>com.sw.taskShow.onCreate</td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>com.sw.taskShow.onCreate</td>
-								<td></td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-
-		<div class="container">
-			<div class="box">
-				<div class="box-header">
-					<span class="title">CPU <a href="#">(more 링크 제공)</a></span>
-				</div>
-				<div class="box-content">
-					<table class="table table-normal">
-						<thead>
-							<tr>
-								<td>Method</td>
-								<td style="width:200px;">Utilization Time</td>
-								<td style="width:200px;">Utilization Ratio</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>com.sw.taskShow.onCreate</td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>com.sw.taskShow.onCreate</td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>com.sw.taskShow.onCreate</td>
-								<td></td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
+	
+		<% unless @memory.nil? %>
+			<div class="container">
+				<div class="box">
+					<div class="box-header">
+						<span class="title">Memory <%= link_to "more",report_memory_path(@report) %></span>
+					</div>
+					<div class="box-content">
+						<table class="table table-normal">
+							<thead>
+								<tr>
+									<td>Method</td>
+									<td style="width:200px;">Leak Suspect(%)</td>
+									<td style="width:200px;">Heap Size</td>
+								</tr>
+							</thead>
+							<tbody >
+								<tr>
+									<td>com.sw.taskShow.onCreate</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>com.sw.taskShow.onCreate</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>com.sw.taskShow.onCreate</td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
-		</div>
+		<% end  %>
 
-		<div class="container">
-			<div class="box">
-				<div class="box-header">
-					<span class="title">Network <a href="network.html">(more 링크 제공)</a></span>
-				</div>
-				<div class="box-content">
-					<table class="table table-normal">
-						<thead>
-							<tr>
-								<td>Method</td>
-								<td style="width:200px;">Latency</td>
-								<td style="width:200px;">Bandwidth</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>com.sw.taskShow.onCreate</td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>com.sw.taskShow.onCreate</td>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>com.sw.taskShow.onCreate</td>
-								<td></td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
+		<% unless @cpu.nil?  %>
+			<div class="container">
+				<div class="box">
+					<div class="box-header">
+						<span class="title">CPU <%= link_to "more",report_cpu_path(@report) %></span>
+					</div>
+					<div class="box-content">
+						<table class="table table-normal">
+							<thead>
+								<tr>
+									<td></td>
+									<td>Method</td>
+									<td>Call Index</td>
+									<td>Self %</td>
+									<td>Sum %</td>
+									<td>Sec</td>
+								</tr>
+							</thead>
+							<tbody>
+								<% @trace_methods.each do |trace_method| %>
+									<tr>
+										<td></td>
+										<td><%= trace_method.name %></td>
+										<td><%= trace_method.call_index %></td>
+										<td><%= trace_method.self_time_rate %></td>
+										<td><%= trace_method.sum_time_rate %></td>
+										<td><%= trace_method.usecs %></td>
+									</tr>
+								<% end  %>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
-		</div>
+		<% end  %>
 
-		<div class="container">
-			<div class="box">
-				<div class="box-header">
-					<span class="title">Battery <a href="battery.html">(more 링크 제공)</a> </span>
-				</div>
-				<div >
-					<table class="table table-normal">
-						<thead>
-							<tr>
-								<td>Total</td>
-								<td>CPU</td>
-								<td>GPS</td>
-								<td>Network</td>
-							</tr>
-						</thead>
-						<tbody id="batterylist">
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
+		<% unless @network.nil?  %>
+			<div class="container">
+				<div class="box">
+					<div class="box-header">
+						<span class="title">Network <%= link_to "more",report_network_path(@report) %></span>
+					</div>
+					<div class="box-content">
+						<table class="table table-normal">
+							<thead>
+								<tr>
+									<td>Method</td>
+									<td style="width:200px;">Latency</td>
+									<td style="width:200px;">Bandwidth</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>com.sw.taskShow.onCreate</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>com.sw.taskShow.onCreate</td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>com.sw.taskShow.onCreate</td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
-		</div>
+		<% end  %>
+
+		<% unless @battery.nil?  %>
+			<div class="container">
+				<div class="box">
+					<div class="box-header">
+						<span class="title">Battery <%= link_to "more",report_battery_path(@report) %></span>
+					</div>
+					<div >
+						<table class="table table-normal">
+							<thead>
+								<tr>
+									<td>Total</td>
+									<td>CPU</td>
+									<td>GPS</td>
+									<td>Network</td>
+								</tr>
+							</thead>
+							<tbody id="batterylist">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		<% end  %>
+
 	</div>
 </div>

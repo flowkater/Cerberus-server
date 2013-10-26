@@ -33,6 +33,13 @@ class ReportsController < ApplicationController
 
   def show
   	@report = Report.find(params[:id])
+
+    @memory = @report.memory
+    @cpu = @report.cpu
+    @trace_methods = @cpu.trace_methods.limit(5) unless @cpu.nil?
+    @network = @report.network
+    @battery = @report.battery
+    
     @project = @report.project
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131025120940) do
+ActiveRecord::Schema.define(:version => 20131026062541) do
 
   create_table "batteries", :force => true do |t|
     t.string   "report_id"
@@ -83,6 +83,19 @@ ActiveRecord::Schema.define(:version => 20131025120940) do
   end
 
   add_index "scenarios", ["project_id"], :name => "index_scenarios_on_project_id"
+
+  create_table "trace_methods", :force => true do |t|
+    t.string   "name"
+    t.float    "self_time_rate"
+    t.float    "sum_time_rate"
+    t.integer  "call_index"
+    t.float    "usecs"
+    t.integer  "cpu_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "trace_methods", ["cpu_id"], :name => "index_trace_methods_on_cpu_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

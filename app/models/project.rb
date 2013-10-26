@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   belongs_to :user
   has_many :reports
   has_many :scenarios
+  has_many :events
 
   validates :name, presence: true
 

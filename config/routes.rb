@@ -1,10 +1,17 @@
 CerberusServer::Application.routes.draw do
   devise_for :users, path_names: {sign_in: 'login', sign_up: 'register', sign_out: 'logout'}
 
-  resources 'projects', except: :new do
+  resources 'projects', except: [:new] do
     resources 'scenarios'
     resources 'reports'
     resources 'profile_steps'
+  end
+
+  resources 'reports' do
+    resource 'memory', only: [:show]
+    resource 'cpu', only: [:show]
+    resource 'network', only: [:show]
+    resource 'battery', only: [:show]
   end
 
   root to: "projects#index"

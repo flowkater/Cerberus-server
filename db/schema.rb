@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131020050922) do
+ActiveRecord::Schema.define(:version => 20131025120940) do
 
   create_table "batteries", :force => true do |t|
     t.string   "report_id"
@@ -19,11 +19,30 @@ ActiveRecord::Schema.define(:version => 20131020050922) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "components", :force => true do |t|
+    t.string   "name"
+    t.decimal  "joule"
+    t.integer  "battery_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "components", ["battery_id"], :name => "index_components_on_battery_id"
+
   create_table "cpus", :force => true do |t|
     t.string   "report_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "events", :force => true do |t|
+    t.string   "tag_name"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "events", ["project_id"], :name => "index_events_on_project_id"
 
   create_table "memories", :force => true do |t|
     t.string   "report_id"

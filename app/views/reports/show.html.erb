@@ -153,27 +153,25 @@
 						<table class="table table-normal">
 							<thead>
 								<tr>
+									<td></td>
+									<td>Class</td>
 									<td>Method</td>
-									<td style="width:200px;">Latency</td>
-									<td style="width:200px;">Bandwidth</td>
+									<td>Latency(ms)</td>
+									<td>Code Line Number</td>
+									<td>Request URL</td>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>com.sw.taskShow.onCreate</td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>com.sw.taskShow.onCreate</td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>com.sw.taskShow.onCreate</td>
-									<td></td>
-									<td></td>
-								</tr>
+								<% @latency_methods.each do |latency_method| %>
+									<tr>
+										<td></td>
+										<td><%= latency_method.class_name %></td>
+										<td><%= latency_method.name %></td>
+										<td><%= latency_method.latency %></td>
+										<td><%= latency_method.line_number %></td>
+										<td><%= latency_method.request_url %></td>
+									</tr>
+								<% end  %>							
 							</tbody>
 						</table>
 					</div>
@@ -192,17 +190,23 @@
 							<thead>
 								<tr>
 									<td>Total</td>
-									<td>CPU</td>
-									<td>GPS</td>
-									<td>Network</td>
+									<td><%= @components[0].name %></td>
+									<td><%= @components[1].name %></td>
+									<td><%= @components[2].name %></td>
+									<td><%= @components[3].name %></td>
+									<td><%= @components[4].name %></td>
+									<td><%= @components[5].name %></td>
 								</tr>
 							</thead>
 							<tbody id="batterylist">
 								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
+									<td>Total</td>
+									<td><%= @components[0].joule %></td>
+									<td><%= @components[1].joule %></td>
+									<td><%= @components[2].joule %></td>
+									<td><%= @components[3].joule %></td>
+									<td><%= @components[4].joule %></td>
+									<td><%= @components[5].joule %></td>
 								</tr>
 							</tbody>
 						</table>

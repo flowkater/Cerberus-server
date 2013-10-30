@@ -1,1 +1,85 @@
-<%= @battery %>
+<%= render 'projects/sidebar' %>
+<div class="main-content">
+	<div class="container">
+		<div class="row">
+			<div class="area-top clearfix">
+				<div class="pull-left header">
+					<h3 class="title">
+						Battery
+					</h3>
+					<h5>
+						<span>
+							Battery
+						</span>
+					</h5>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<h2>Energy Comsumption</h2>
+				<p>컴퍼넌트 그래프</p>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="box">
+						<div class="box-header">
+							<div class="title">Feedback</div>
+						</div>
+						<div class="box-content padded">
+							<p>Lorem ipsum Component Feedback this here~</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="box">
+						<div class="box-header">
+							<div class="title">Component</div>
+						</div>
+						<div class="box-content">
+							<table class="table table-normal">
+								<thead>
+									<tr>
+										<td style="width:100px;">Component</td>
+										<td>Comsumption(J)</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><%= @components[0].name %></td>
+										<td><%= @components[0].joule %></td>
+									</tr>
+									<tr>
+										<td><%= @components[1].name %></td>
+										<td><%= @components[1].joule %></td>
+									</tr>
+									<tr>
+										<td><%= @components[2].name %></td>
+										<td><%= @components[2].joule %></td>
+									</tr>
+									<tr>
+										<td><%= @components[3].name %></td>
+										<td><%= @components[3].joule %></td>
+									</tr>
+									<tr>
+										<td><%= @components[4].name %></td>
+										<td><%= @components[4].joule %></td>
+									</tr>
+									<tr>
+										<td><%= @components[5].name %></td>
+										<td><%= @components[5].joule %></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>	
+</div>	

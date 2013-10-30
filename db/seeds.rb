@@ -84,4 +84,19 @@
 @cpu.trace_methods.create(name: 'java/lang/String._getChars (II[CI)V' , self_time_rate: 0.75, sum_time_rate: 69.42, call_index: 73, usecs: 32)
 @cpu.trace_methods.create(name: 'android/os/SystemProperties.native_get_long (Ljava/lang/String;J)J' , self_time_rate: 0.70, sum_time_rate: 70.12, call_index: 87, usecs: 30)
 
+# Network latency_methods dummy data
+@network.latency_methods.create(name: "doInBackground", class_name: "NetworkTask", request_url: "http://10.0.2.2:8080/JsonTest", line_number: 114, latency: 2014)
+@network.latency_methods.create(name: "postNetworkExecute", class_name: "JsonNetwork", request_url: "http://search.naver.com/search.naver?where=nexearch&query=%3%2&ie=utf8&sm=tab_she&qdt=0", line_number: 76, latency: 1099)
+@network.latency_methods.create(name: "getWebImage", class_name: "WebImageLoader", request_url: "http://postfiles3.naver.net/20130528_130/dh9289_1369720453251oXLWc_JPEG/naver_com_20130528_145325.jpg?type=w3", line_number: 43, latency: 3018)
+@network.latency_methods.create(name: "doInBackground", class_name: "NetworkTask", request_url: "http://10.0.2.2:8080/JsonTest", line_number: 114, latency: 2010)
+@network.latency_methods.create(name: "getImageList", class_name: "BoardActivity", request_url: "http://10.0.2.2:8080/file/image.do", line_number: 298, latency: 3097)
+@network.latency_methods.create(name: "getImageList", class_name: "BoardActivity", request_url: "http://10.0.2.2:8080/file/image.do", line_number: 298, latency: 3088)
+@network.latency_methods.create(name: "getImageList", class_name: "BoardActivity", request_url: "http://10.0.2.2:8080/file/image.do", line_number: 298, latency: 3109)
 
+# Battery componetns dummy data
+@battery.components.create(name: "GPS", joule: 58)
+@battery.components.create(name: "LCD", joule: 855)
+@battery.components.create(name: "CPU", joule: 120)
+@battery.components.create(name: "WIFI", joule: 38)
+@battery.components.create(name: "3G", joule: 90)
+@battery.components.create(name: "Audio", joule: 45)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131026062541) do
+ActiveRecord::Schema.define(:version => 20131030160418) do
 
   create_table "batteries", :force => true do |t|
     t.string   "report_id"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20131026062541) do
 
   create_table "components", :force => true do |t|
     t.string   "name"
-    t.decimal  "joule"
+    t.float    "joule"
     t.integer  "battery_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(:version => 20131026062541) do
   end
 
   add_index "events", ["project_id"], :name => "index_events_on_project_id"
+
+  create_table "latency_methods", :force => true do |t|
+    t.float    "latency"
+    t.string   "name"
+    t.string   "class_name"
+    t.integer  "line_number"
+    t.string   "request_url"
+    t.integer  "network_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "latency_methods", ["network_id"], :name => "index_latency_methods_on_network_id"
 
   create_table "memories", :force => true do |t|
     t.string   "report_id"

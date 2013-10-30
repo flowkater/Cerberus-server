@@ -35,10 +35,18 @@ class ReportsController < ApplicationController
   	@report = Report.find(params[:id])
 
     @memory = @report.memory
+
+    # CPU 
     @cpu = @report.cpu
     @trace_methods = @cpu.trace_methods.limit(5) unless @cpu.nil?
+
+    # Network
     @network = @report.network
+    @latency_methods = @network.latency_methods.limit(5) unless @network.nil?
+
+    # Battery
     @battery = @report.battery
+    @components = @battery.components unless @battery.nil?
     
     @project = @report.project
   end

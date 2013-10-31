@@ -15,3 +15,4 @@
 //= require application_init
 //= require d3
 //= require network_latency_bar_chart
+//= require battery_treemap

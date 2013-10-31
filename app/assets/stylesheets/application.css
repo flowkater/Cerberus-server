@@ -12,4 +12,5 @@
  *= require application_init
  *= require custom
  *= require network_latency_bar_chart
+ *= require battery_treemap
  */

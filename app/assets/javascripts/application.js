@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require application_init
 //= require d3
+//= require network_latency_bar_chart

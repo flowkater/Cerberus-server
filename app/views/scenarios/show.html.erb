@@ -45,33 +45,30 @@
 			</div>
 			
 			<div id="row">
-				<table class="table table-normal">
-								<thead>
-									<tr>
-										<td>Act</td>
-										<td>Info</td>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											Wait for Activity
-										</td>
-										<td>
-											MainActivity
-										</td>
-									</tr>
-									<tr>
-										<td>
-											Sleep
-										</td>
-										<td>
-											<a href="#" data-type="text" data-pk="1" data-original-title="Enter username" class="editable editable-click editable-empty">3.6s</a>
-										</td>
-									</tr>
-									
-								</tbody>
-							</table>
+				<div class="box">
+					<div class="box-content">
+						<table class="table table-normal">
+							<thead>
+								<tr>
+									<td></td>
+									<td>Type</td>
+									<td>View</td>
+									<td>Param</td>
+								</tr>
+							</thead>
+							<tbody>
+							<% @records.each do |record| %>					
+								<tr>
+									<td><%= record.id %></td>
+									<td><%= record.act_type %></td>
+									<td><%= record.view %></td>
+									<td><%= record.param %></td>
+								</tr>
+							<% end  %>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 			
 		</div>

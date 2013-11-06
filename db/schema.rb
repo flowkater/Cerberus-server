@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131030160418) do
+ActiveRecord::Schema.define(:version => 20131106085859) do
 
   create_table "batteries", :force => true do |t|
     t.string   "report_id"
@@ -35,14 +35,19 @@ ActiveRecord::Schema.define(:version => 20131030160418) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "events", :force => true do |t|
-    t.string   "tag_name"
-    t.integer  "project_id"
+  create_table "eventpaths", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "events", ["project_id"], :name => "index_events_on_project_id"
+  create_table "events", :force => true do |t|
+    t.string   "tag_name"
+    t.integer  "eventpath_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "events", ["eventpath_id"], :name => "index_events_on_eventpath_id"
 
   create_table "latency_methods", :force => true do |t|
     t.float    "latency"
@@ -76,6 +81,17 @@ ActiveRecord::Schema.define(:version => 20131030160418) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "records", :force => true do |t|
+    t.string   "act_type"
+    t.string   "view"
+    t.integer  "param"
+    t.integer  "scenario_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "records", ["scenario_id"], :name => "index_records_on_scenario_id"
 
   create_table "reports", :force => true do |t|
     t.float    "appversion"

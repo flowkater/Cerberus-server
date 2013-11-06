@@ -6,4 +6,5 @@ class Scenario < ActiveRecord::Base
   validates :description, presence: true
 
   has_many :reports
+  has_many :records
 end

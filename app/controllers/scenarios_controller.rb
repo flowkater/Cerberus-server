@@ -12,6 +12,7 @@ class ScenariosController < ApplicationController
 
   def show
   	@scenario = Scenario.find(params[:id])
+    @records = @scenario.records
     @project = @scenario.project
   end
 

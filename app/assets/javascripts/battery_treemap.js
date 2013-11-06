@@ -17,7 +17,9 @@ $(document).ready(function(){
       .style("left", margin.left + "px")
       .style("top", margin.top + "px");
 
-  d3.json("battery.json", function(error, root) {
+  var url = window.location.pathname.split('/');
+
+  d3.json("/reports/" + url[url.length - 1] + "/battery.json", function(error, root) {
       var node = div.datum(root).selectAll(".node")
           .data(treemap)
           .enter().append("div")

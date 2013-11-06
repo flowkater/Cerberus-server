@@ -38,11 +38,11 @@ class ReportsController < ApplicationController
 
     # CPU 
     @cpu = @report.cpu
-    @trace_methods = @cpu.trace_methods.limit(5) unless @cpu.nil?
+    @trace_methods = @cpu.trace_methods unless @cpu.nil?
 
     # Network
     @network = @report.network
-    @latency_methods = @network.latency_methods.limit(5) unless @network.nil?
+    @latency_methods = @network.latency_methods unless @network.nil?
 
     # Battery
     @battery = @report.battery

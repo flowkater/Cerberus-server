@@ -1,5 +1,4 @@
-<%= render 'projects/sidebar' %>
-<div class="main-content">
+<div class="container">
 	<div class="container">
 		<div class="row">
 			<div class="area-top clearfix">
@@ -57,149 +56,19 @@
 		</div>
 	
 		<% unless @memory.nil? %>
-			<div class="container">
-				<div class="box">
-					<div class="box-header">
-						<span class="title">Memory <%= link_to "more",report_memory_path(@report) %></span>
-					</div>
-					<div class="box-content">
-						<table class="table table-normal">
-							<thead>
-								<tr>
-									<td>Method</td>
-									<td style="width:200px;">Leak Suspect(%)</td>
-									<td style="width:200px;">Heap Size</td>
-								</tr>
-							</thead>
-							<tbody >
-								<tr>
-									<td>com.sw.taskShow.onCreate</td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>com.sw.taskShow.onCreate</td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>com.sw.taskShow.onCreate</td>
-									<td></td>
-									<td></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
+			<%= render "memories/memory" %>
 		<% end  %>
 
 		<% unless @cpu.nil?  %>
-			<div class="container">
-				<div class="box">
-					<div class="box-header">
-						<span class="title">CPU <%= link_to "more",report_cpu_path(@report) %></span>
-					</div>
-					<div class="box-content">
-						<table class="table table-normal">
-							<thead>
-								<tr>
-									<td></td>
-									<td>Method</td>
-									<td>Call Index</td>
-									<td>Self %</td>
-									<td>Sum %</td>
-									<td>Sec</td>
-								</tr>
-							</thead>
-							<tbody>
-								<% @trace_methods.each do |trace_method| %>
-									<tr>
-										<td></td>
-										<td><%= trace_method.name %></td>
-										<td><%= trace_method.call_index %></td>
-										<td><%= trace_method.self_time_rate %></td>
-										<td><%= trace_method.sum_time_rate %></td>
-										<td><%= trace_method.usecs %></td>
-									</tr>
-								<% end  %>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
+			<%= render "cpus/cpu" %>
 		<% end  %>
 
 		<% unless @network.nil?  %>
-			<div class="container">
-				<div class="box">
-					<div class="box-header">
-						<span class="title">Network <%= link_to "more",report_network_path(@report) %></span>
-					</div>
-					<div class="box-content">
-						<table class="table table-normal">
-							<thead>
-								<tr>
-									<td></td>
-									<td>Class</td>
-									<td>Method</td>
-									<td>Latency(ms)</td>
-									<td>Code Line Number</td>
-									<td>Request URL</td>
-								</tr>
-							</thead>
-							<tbody>
-								<% @latency_methods.each do |latency_method| %>
-									<tr>
-										<td></td>
-										<td><%= latency_method.class_name %></td>
-										<td><%= latency_method.name %></td>
-										<td><%= latency_method.latency %></td>
-										<td><%= latency_method.line_number %></td>
-										<td><%= latency_method.request_url %></td>
-									</tr>
-								<% end  %>							
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
+			<%= render 'networks/network' %>
 		<% end  %>
 
 		<% unless @battery.nil?  %>
-			<div class="container">
-				<div class="box">
-					<div class="box-header">
-						<span class="title">Battery <%= link_to "more",report_battery_path(@report) %></span>
-					</div>
-					<div >
-						<table class="table table-normal">
-							<thead>
-								<tr>
-									<td>Total</td>
-									<td><%= @components[0].name %></td>
-									<td><%= @components[1].name %></td>
-									<td><%= @components[2].name %></td>
-									<td><%= @components[3].name %></td>
-									<td><%= @components[4].name %></td>
-									<td><%= @components[5].name %></td>
-								</tr>
-							</thead>
-							<tbody id="batterylist">
-								<tr>
-									<td>Total</td>
-									<td><%= @components[0].joule %></td>
-									<td><%= @components[1].joule %></td>
-									<td><%= @components[2].joule %></td>
-									<td><%= @components[3].joule %></td>
-									<td><%= @components[4].joule %></td>
-									<td><%= @components[5].joule %></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
+			<%= render 'batteries/battery' %>
 		<% end  %>
 
 	</div>

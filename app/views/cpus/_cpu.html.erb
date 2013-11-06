@@ -1,15 +1,14 @@
-<%= render 'projects/sidebar' %>
-<div class="main-content">
+<div class="container">
 	<div class="container">
 		<div class="row">
 			<div class="area-top clearfix">
 				<div class="pull-left header">
 					<h3 class="title">
-						Memory
+						CPU
 					</h3>
 					<h5>
 						<span>
-							Memory
+							CPU
 						</span>
 					</h5>
 				</div>
@@ -18,16 +17,8 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
-					<div id="leak-suspect-pie">
-						
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div id="heap-size-pie">
-						
-					</div>
-				</div>
+				<h2>CPU Time Rate Graph</h2>
+				<p>막대 그래프</p>
 			</div>
 		</div>
 
@@ -37,17 +28,23 @@
 					<table class="table table-normal">
 						<thead>
 							<tr>
+								<td></td>
 								<td>Method</td>
-								<td style="width:200px;">Leak Suspect(%)</td>
-								<td style="width:200px;">Heap Size</td>
+								<td>Call Index</td>
+								<td>Self %</td>
+								<td>Sum %</td>
+								<td>Sec</td>
 							</tr>
 						</thead>
-						<tbody >
-							<% 10.times do %>
+						<tbody>
+							<% @trace_methods.each do |trace_method| %>
 								<tr>
-									<td>com.sw.taskShow.onCreate</td>
-									<td>54</td>
-									<td>98732</td>
+									<td></td>
+									<td><%= trace_method.name %></td>
+									<td><%= trace_method.call_index %></td>
+									<td><%= trace_method.self_time_rate %></td>
+									<td><%= trace_method.sum_time_rate %></td>
+									<td><%= trace_method.usecs %></td>
 								</tr>
 							<% end  %>
 						</tbody>

@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    session[:project] = @project
     @profile_report_number = @project.profile_report_number
     @report_latest_appversion = @project.report_latest_appversion
     @reports_period = @project.reports_period

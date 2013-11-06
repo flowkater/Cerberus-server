@@ -17,7 +17,9 @@ $(document).ready(function(){
 				.append("g")
 				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	d3.json("network.json", function(error, data){
+	var url = window.location.pathname.split('/');
+
+	d3.json("/reports/" + url[url.length - 1] + "/network.json", function(error, data){
 
 		data.forEach(function (d) {
 			d.latency = +d.latency;

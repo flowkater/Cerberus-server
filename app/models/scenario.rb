@@ -1,10 +1,15 @@
 class Scenario < ActiveRecord::Base
-  belongs_to :project
-  attr_accessible :description, :name
+	before_create :auto_generate_name
 
-  validates :name, presence: true
-  validates :description, presence: true
-
+	belongs_to :project
   has_many :reports
   has_many :records
+
+	attr_accessible :description, :name
+
+  private
+
+  def auto_generate_name
+  	self.name = "Scenario Tests created at #{Time.now}"
+  end
 end

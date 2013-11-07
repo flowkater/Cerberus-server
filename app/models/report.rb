@@ -3,6 +3,7 @@ class Report < ActiveRecord::Base
 
   attr_accessible :appversion, :project, :scenario_id, :time_for_profiling, :osversion,
                 :memory_checked, :cpu_checked, :network_checked, :battery_checked
+                
   attr_writer :memory_checked, :cpu_checked, :network_checked, :battery_checked
 
   belongs_to :project
@@ -10,8 +11,8 @@ class Report < ActiveRecord::Base
   
   has_one :memory
   has_one :cpu
-  has_one :network
-  has_one :battery
+  has_one :network, autosave: false
+  has_one :battery, autosave: false
 
 	# validates :appversion, presence: true
 

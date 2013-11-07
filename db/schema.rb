@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(:version => 20131106085859) do
   create_table "records", :force => true do |t|
     t.string   "act_type"
     t.string   "view"
-    t.integer  "param"
+    t.string   "param"
     t.integer  "scenario_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

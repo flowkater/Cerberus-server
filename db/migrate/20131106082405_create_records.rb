@@ -3,7 +3,7 @@ class CreateRecords < ActiveRecord::Migration
     create_table :records do |t|
       t.string :act_type
       t.string :view
-      t.integer :param
+      t.string :param
       t.references :scenario
 
       t.timestamps

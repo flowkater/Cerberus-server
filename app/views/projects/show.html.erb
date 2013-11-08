@@ -73,17 +73,17 @@
 							</tr>
 						</thead>
 						<tbody>
-							<% @scenarios.each do |s| %>
+							<% @scenarios.each.with_index do |s, i| %>
 								<tr>
 									<td></td>
 									<td><h3><%= s.name %></h3>
 										<p><%= s.description %></p>
 									</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
+									 <td><div id="g<%= i %>1" class='g'></div></td>
+				                   <td><div id="g<%= i %>2" class='g'></div></td>
+				                   <td><div id="g<%= i %>3" class='g'></div></td>
+				                   <td><div id="g<%= i %>4" class='g'></div></td>
+				                   <td>950S</td>
 								</tr>
 							<% end  %>
 						</tbody>
@@ -94,3 +94,58 @@
 
 	</div>
 </div>
+<style>
+       
+       .g {
+         width:100px; height:80px;
+ /*        display: inline-block;*/
+         margin: 1em;
+       }
+         
+     </style>
+     
+     <script>
+    var g1, g2, g3, g4;
+    
+    window.onload = function(){
+      for (var i=0;i< <%= @scenarios.count %> ;i++)
+      {
+        var g1 = new JustGage({
+        id: "g" + i + "1", 
+        value: 60, 
+        min: 0,
+        max: 100,
+        title: "Memory",
+        label: "Mbyte"
+      });
+      
+      var g2 = new JustGage({
+        id: "g"+i + "2", 
+        value: 10, 
+        min: 0,
+        max: 100,
+        title: "CPU",
+        label: "%"
+      });
+      
+      var g3 = new JustGage({
+        id: "g"+i + "3", 
+        value: 20, 
+        min: 0,
+        max: 100,
+        title: "Network",
+        label: "ms"
+      });
+      
+      var g4 = new JustGage({
+        id: "g"+i + "4", 
+        value: 30, 
+        min: 0,
+        max: 100,
+        title: "Battery",
+        label: "J"
+      });
+      }
+      
+    };
+  </script>

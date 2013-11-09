@@ -19,6 +19,5 @@
 //= require raphael-min
 //= require g-raphael-min
 //= require g-pie-min
-//= require g-line-min
 //= require cpu_call_tree
 //= require memory_pie_chart

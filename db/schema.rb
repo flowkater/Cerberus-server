@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131106085859) do
+ActiveRecord::Schema.define(:version => 20131107082348) do
 
   create_table "batteries", :force => true do |t|
     t.string   "report_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20131106085859) do
 
   create_table "cpus", :force => true do |t|
     t.string   "report_id"
+    t.string   "trace"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -62,8 +63,18 @@ ActiveRecord::Schema.define(:version => 20131106085859) do
 
   add_index "latency_methods", ["network_id"], :name => "index_latency_methods_on_network_id"
 
+  create_table "leak_instances", :force => true do |t|
+    t.string   "name"
+    t.integer  "memory_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "leak_instances", ["memory_id"], :name => "index_leak_instances_on_memory_id"
+
   create_table "memories", :force => true do |t|
     t.string   "report_id"
+    t.string   "hprof"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -96,11 +107,12 @@ ActiveRecord::Schema.define(:version => 20131106085859) do
   create_table "reports", :force => true do |t|
     t.float    "appversion"
     t.float    "osversion"
-    t.integer  "project_id"
+    t.integer  "project_id",                            :null => false
     t.integer  "scenario_id"
     t.decimal  "time_for_profiling"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.boolean  "completed",          :default => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
   create_table "scenarios", :force => true do |t|

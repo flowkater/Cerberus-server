@@ -51,19 +51,23 @@ class Api::V1::ReportsController < ApplicationController
 
 	def update
 		@report = Report.find(params[:id])
+		@memory = @report.memory
+		@cpu = @report.cpu
 		@network = @report.network
 		@battery = @report.battery
-		 
+		
+		@memory.hprof = params[:hprof]  if @memory
+		@cpu.trace = params[:trace] if @cpu
 		@latency_methods = @network.latency_methods.build(JSON.parse(params[:latency_methods])) if @network
 		@components = @battery.components.build(JSON.parse(params[:components])) if @battery
-
+		
 		Report.transaction do
 			begin
 				LatencyMethod.import @latency_methods if @network
 				Component.import @components if @battery
 				@report.update_attributes(osversion: params[:osversion], appversion: params[:appversion], time_for_profiling: params[:time_for_profiling])
 
-				render status: :created, json: {response: "success profiling update"}
+				render status: :created, json: {response: "success profiling update", trace:  params[:trace], hprof: params[:hprof]}
 			rescue Exception => e
 				render status: :unprocessable_entity, json: {response: "error #{e}"}
 				raise ActiveRecord::Rollback

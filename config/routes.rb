@@ -4,7 +4,7 @@ CerberusServer::Application.routes.draw do
     namespace :v1 do
       resources :scenarios, only: [:create, :index]
       resources :records, only: [:create]
-      resources :reports, only: [:create, :update]
+      resources :reports, only: [:create, :update] 
     end
   end
 

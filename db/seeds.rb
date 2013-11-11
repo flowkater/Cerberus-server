@@ -19,16 +19,11 @@
 @project.scenarios.create!(name: "D Scenario", description: "Many users used this D Scenario")
 
 # Record dummy data
-@scenario.records.create!(act_type: "StartActivity", view: "MainActivity", param: "")
-@scenario.records.create!(act_type: "Sleep", view: "", param: 3000)
-@scenario.records.create!(act_type: "Click", view: "R.id.button1", param: "")
-@scenario.records.create!(act_type: "Sleep", view: "", param: 2600)
-@scenario.records.create!(act_type: "EditTextClick", view: "R.id.edit1", param: 0)
-@scenario.records.create!(act_type: "Sleep", view: "", param: 5000)
-@scenario.records.create!(act_type: "enterText", view: "Test", param: "")
-@scenario.records.create!(act_type: "Sleep", view: "", param: 4000)
-@scenario.records.create!(act_type: "Click", view: "R.id.button2", param: "")
-@scenario.records.create!(act_type: "Sleep", view: "", param: 3000)
+@s = @scenario.records.create!(act_type: "StartActivity", view: "MainActivity", param: "", sleep: 3000, parent_id: nil)
+@s1 = @scenario.records.create!(act_type: "Click", view: "R.id.button1", param: "", parent_id: @s.id)
+@s2 = @scenario.records.create!(act_type: "EditTextClick", view: "R.id.edit1", param: 0, parent_id: @s1.id)
+@s3 = @scenario.records.create!(act_type: "enterText", view: "Test", param: "", parent_id: @s2.id)
+@s4 = @scenario.records.create!(act_type: "Click", view: "R.id.button2", param: "", parent_id: @s3.id)
 
 @report1 = @project.reports.create!(appversion: 1.0,osversion: 4.1 ,scenario_id: @scenario.id, time_for_profiling: 120)
 @report2 = @project.reports.create!(appversion: 1.2,osversion: 4.1, scenario_id: @scenario.id, time_for_profiling: 720)

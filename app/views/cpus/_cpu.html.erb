@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+	<%= javascript_include_tag "cpu_call_tree.js" %>
+<% end %>
 <div class="container">
 	<div class="container">
 		<div class="row">
@@ -18,7 +21,7 @@
 		<div class="container">
 			<div class="row">
 				<h2>CPU Time Profiling Graph</h2>
-				<div id="cpu-time-chart"></div>
+				<div id="cpu-call-tree"></div>
 			</div>
 		</div>
 

@@ -2,7 +2,7 @@ CerberusServer::Application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      resources :scenarios, only: [:create, :index]
+      resources :scenarios, only: [:create, :index, :show]
       resources :records, only: [:create]
       resources :reports, only: [:create, :update]  
     end

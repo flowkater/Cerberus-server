@@ -1,3 +1,6 @@
+<% content_for :javascript_includes do %>
+	<%= javascript_include_tag "trend_graph.js" %>
+<% end %>
 <div class="container">
 	<div class="container">
 		<div class="row">
@@ -53,7 +56,63 @@
 		</div>
 
 		<div class="container padded">
-			<h2>Event Paths used for profiling</h2>
+			<h2>Trend Graph</h2>
+	
+			<div class='row'>
+				<div class="col-md-6">
+					<div class="box">
+						<div class="box-header">
+							<h3>&nbsp;&nbsp;Memory</h3>
+						</div>
+						<div class="box-content">
+							<div id="memory-trend-graph" style="height:200px;">
+								
+							</div>
+						</div>	
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="box">
+						<div class="box-header">
+							<h3>&nbsp;&nbsp;CPU</h3>
+						</div>
+						<div class="box-content">
+							<div id="cpu-trend-graph" style="height:200px;">
+								
+							</div>
+						</div>	
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="box">
+						<div class="box-header">
+							<h3>&nbsp;&nbsp;Network</h3>
+						</div>
+						<div class="box-content">
+							<div id="network-trend-graph" style="height:200px;">
+								
+							</div>
+						</div>	
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="box">
+						<div class="box-header">
+							<h3>&nbsp;&nbsp;Battery</h3>
+						</div>
+						<div class="box-content">
+							<div id="battery-trend-graph" style="height:200px;">
+								
+							</div>
+						</div>	
+					</div>
+				</div>
+
+			</div>
+			
 		</div>
 
 		<div class="container padded">
@@ -73,17 +132,17 @@
 							</tr>
 						</thead>
 						<tbody>
-							<% @scenarios.each.with_index do |s, i| %>
+							<% @scenarios.each do |s| %>
 								<tr>
 									<td></td>
 									<td><h3><%= s.name %></h3>
 										<p><%= s.description %></p>
 									</td>
-									 <td><div id="g<%= i %>1" class='g'></div></td>
-				                   <td><div id="g<%= i %>2" class='g'></div></td>
-				                   <td><div id="g<%= i %>3" class='g'></div></td>
-				                   <td><div id="g<%= i %>4" class='g'></div></td>
-				                   <td>950S</td>
+									 <td></td>
+                   <td></td>
+                   <td><%= s.dashboard_top_latency %></td>
+                   <td><%= s.dashboard_top_joule %></td>
+                   <td><%= s.dashboard_report_profiling_time %></td>
 								</tr>
 							<% end  %>
 						</tbody>
@@ -94,58 +153,3 @@
 
 	</div>
 </div>
-<style>
-       
-       .g {
-         width:100px; height:80px;
- /*        display: inline-block;*/
-         margin: 1em;
-       }
-         
-     </style>
-     
-     <script>
-    var g1, g2, g3, g4;
-    
-    window.onload = function(){
-      for (var i=0;i< <%= @scenarios.count %> ;i++)
-      {
-        var g1 = new JustGage({
-        id: "g" + i + "1", 
-        value: 60, 
-        min: 0,
-        max: 100,
-        title: "Memory",
-        label: "Mbyte"
-      });
-      
-      var g2 = new JustGage({
-        id: "g"+i + "2", 
-        value: 10, 
-        min: 0,
-        max: 100,
-        title: "CPU",
-        label: "%"
-      });
-      
-      var g3 = new JustGage({
-        id: "g"+i + "3", 
-        value: 20, 
-        min: 0,
-        max: 100,
-        title: "Network",
-        label: "ms"
-      });
-      
-      var g4 = new JustGage({
-        id: "g"+i + "4", 
-        value: 30, 
-        min: 0,
-        max: 100,
-        title: "Battery",
-        label: "J"
-      });
-      }
-      
-    };
-  </script>

@@ -97,6 +97,8 @@ ActiveRecord::Schema.define(:version => 20131107082348) do
     t.string   "act_type"
     t.string   "view"
     t.string   "param"
+    t.integer  "sleep"
+    t.integer  "parent_id"
     t.integer  "scenario_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

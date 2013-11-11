@@ -4,6 +4,8 @@ class CreateRecords < ActiveRecord::Migration
       t.string :act_type
       t.string :view
       t.string :param
+      t.integer :sleep
+      t.integer :parent_id
       t.references :scenario
 
       t.timestamps

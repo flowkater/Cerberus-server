@@ -22,4 +22,10 @@ class Api::V1::ScenariosController < ApplicationController
 		@scenarios = @project.scenarios.joins(:records)
 		render "scenarios/v1/index"
 	end
+
+	def show
+		@scenario = Scenario.find(params[:id])
+		@record = @scenario.records.first
+		render 'scenarios/v1/show'
+	end
 end

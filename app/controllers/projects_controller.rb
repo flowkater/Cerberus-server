@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
     @profile_report_number = @project.profile_report_number
     @report_latest_appversion = @project.report_latest_appversion
     @reports_period = @project.reports_period
-    @scenarios = @project.scenarios.limit(5)
+    @scenarios = @project.scenarios.top4
   end
 
   def create

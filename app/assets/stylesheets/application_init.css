@@ -13972,7 +13972,7 @@ table.dataTable th:active {
   right: 40px; }
 
 /*----------------------------
-	Thumbnails
+  Thumbnails
 -----------------------------*/
 /* line 154, /home/andrei/core-admin-release/core-admin/source/stylesheets/touchTouch.scss */
 #thumbs {
@@ -15227,8 +15227,8 @@ a.editable-click.editable-disabled {
   border-radius: 4px;
   direction: ltr;
   /*.dow {
-		border-top: 1px solid #ddd !important;
-	}*/ }
+    border-top: 1px solid #ddd !important;
+  }*/ }
 
 /* line 226, /home/andrei/core-admin-release/core-admin/source/stylesheets/bootstrap-editable.scss */
 .datepicker-inline {

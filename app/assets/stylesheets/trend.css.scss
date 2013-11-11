@@ -1,0 +1,35 @@
+#memory-trend-graph .xchart .color0 .line {
+  stroke: #3880aa; }
+/* line 18, /home/andrei/core-admin-release/core-admin/source/stylesheets/xcharts.scss */
+#memory-trend-graph .xchart .color0 rect,#memory-trend-graph .xchart .color0 circle {
+  fill: #3880aa; }
+
+#memory-trend-graph .xchart .color0 .fill {
+  fill: rgba(56, 128, 170, 0.1); }
+
+#cpu-trend-graph .xchart .color0 .line {
+  stroke: #4da944; }
+/* line 18, /home/andrei/core-admin-release/core-admin/source/stylesheets/xcharts.scss */
+#cpu-trend-graph .xchart .color0 rect,#cpu-trend-graph .xchart .color0 circle {
+  fill: #4da944; }
+
+#cpu-trend-graph .xchart .color0 .fill {
+  fill: rgba(77, 169, 68, 0.1); }
+
+#network-trend-graph .xchart .color0 .line {
+  stroke: #f26522; }
+/* line 18, /home/andrei/core-admin-release/core-admin/source/stylesheets/xcharts.scss */
+#network-trend-graph .xchart .color0 rect,#network-trend-graph .xchart .color0 circle {
+  fill: #f26522; }
+
+#network-trend-graph .xchart .color0 .fill {
+  fill: rgba(242, 101, 34, 0.1); }
+
+#battery-trend-graph .xchart .color0 .line {
+  stroke: #c6080d; }
+/* line 18, /home/andrei/core-admin-release/core-admin/source/stylesheets/xcharts.scss */
+#battery-trend-graph .xchart .color0 rect,#battery-trend-graph .xchart .color0 circle {
+  fill: #c6080d; }
+
+#battery-trend-graph .xchart .color0 .fill {
+  fill: rgba(198, 8, 13, 0.1); }

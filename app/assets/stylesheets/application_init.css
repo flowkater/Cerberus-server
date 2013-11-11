@@ -1056,7 +1056,8 @@ pre {
   .col-md-9,
   .col-md-10,
   .col-md-11 {
-    float: left; }
+    float: left; 
+  padding: 16px;}
 
   /* line 212, /home/andrei/core-admin-release/core-admin/source/stylesheets/bootstrap/_grid.scss */
   .col-md-1 {
@@ -6276,7 +6277,8 @@ i {
 /* line 95, /home/andrei/core-admin-release/core-admin/source/stylesheets/base.scss */
 h1, h2, h3, h4, h5, h6, th {
   color: #5f5f5f;
-  font-weight: 600; }
+  font-weight: 600; 
+line-height: 2em;}
 
 /* line 101, /home/andrei/core-admin-release/core-admin/source/stylesheets/base.scss */
 .the-icons {
@@ -6351,7 +6353,8 @@ h1, h2, h3, h4, h5, h6, th {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px; 
+cursor: pointer; cursor: hand;}
   /* line 12, /home/andrei/core-admin-release/core-admin/source/stylesheets/box.scss */
   .box .box-header, .box .box-footer {
     *zoom: 1;
@@ -15977,7 +15980,24 @@ a.editable-click.editable-disabled {
   .chat-box.timeline + .closable-chat-box {
     margin-left: 0; } }
 /*
-
+/* Override Section */
+   
+  .version h2{
+    margin:0;
+    line-height: 1em;
+  }
+   
+   
+  #dataList td{
+    padding: 16px
+  }
+ 
+  /* dataList Icon */
+  #dataList img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
 
 
 

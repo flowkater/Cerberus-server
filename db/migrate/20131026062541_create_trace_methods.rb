@@ -1,11 +1,13 @@
 class CreateTraceMethods < ActiveRecord::Migration
   def change
     create_table :trace_methods do |t|
-      t.string :name
-      t.float :self_time_rate
-      t.float :sum_time_rate
-      t.integer :call_index
-      t.float :usecs
+      t.string :methodName
+      t.integer :index
+      t.float :total
+      t.float :self
+      t.integer :calls
+      t.float :excl
+      t.integer :parent_id
       t.references :cpu
 
       t.timestamps

@@ -31,14 +31,13 @@
 					<table class="table table-normal" id="cpu-depth-table">
 						<thead>
 							<tr>
-								<td></td>
 								<td>Method</td>
-								<td>Call Index</td>
-								<td>Sum %</td>
+								<td>Exclusive Time</td>
+								<td>Total %</td>
 							</tr>
 						</thead>
 						<tbody>
-
+							<%= render 'cpus/trace_methods', object: @trace_methods %>
 						</tbody>
 					</table>
 				</div>

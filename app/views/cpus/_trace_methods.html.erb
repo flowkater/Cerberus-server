@@ -1,0 +1,8 @@
+<% object.each do |root|  %>
+	<tr>
+		<td><div style="margin-left:<%= root.parent_level * 20 %>px;"><%= root.methodName %><div></td>
+		<td><%= root.excl %></td>
+		<td><%= root.total %></td>
+	</tr>
+	<%= render 'cpus/trace_methods', object: root.children %>
+<% end  %>

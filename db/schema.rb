@@ -128,14 +128,16 @@ ActiveRecord::Schema.define(:version => 20131107082348) do
   add_index "scenarios", ["project_id"], :name => "index_scenarios_on_project_id"
 
   create_table "trace_methods", :force => true do |t|
-    t.string   "name"
-    t.float    "self_time_rate"
-    t.float    "sum_time_rate"
-    t.integer  "call_index"
-    t.float    "usecs"
+    t.string   "methodName"
+    t.integer  "index"
+    t.float    "total"
+    t.float    "self"
+    t.integer  "calls"
+    t.float    "excl"
+    t.integer  "parent_id"
     t.integer  "cpu_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "trace_methods", ["cpu_id"], :name => "index_trace_methods_on_cpu_id"

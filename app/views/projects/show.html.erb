@@ -122,7 +122,8 @@
 					<table class="table table-normal">
 						<thead>
 							<tr>
-								<td>Scenario</td>
+								<td style="width:10px;"></td>
+ 				               <td><strong style="font-size: 15px;">Scenario</strong></td>
 								<td style="width:150px;">Memory Leak Suspect</td>
 								<td style="width:150px;">CPU Usage</td>
 								<td style="width:150px;">Network Latency</td>
@@ -131,16 +132,20 @@
 							</tr>
 						</thead>
 						<tbody>
-							<% @scenarios.each do |s| %>
+							<% @scenarios.each.with_index do |s, i| %>
 								<tr>
-									<td><h3><%= s.name %></h3>
+									<td></td>
+                   <td style="vertical-align:middle"><strong style="font-size: 25px;"><%= s.name %></strong>
 										<p><%= s.description %></p>
 									</td>
-									 <td></td>
-                   <td></td>
-                   <td><%= s.dashboard_top_latency %></td>
-                   <td><%= s.dashboard_top_joule %></td>
-                   <td><%= s.dashboard_report_profiling_time %></td>
+                  <td><div id="g<%= i %>1" class='g'></div></td>
+                   <td><div id="g<%= i %>2" class='g'></div></td>
+                   <td><div id="g<%= i %>3" class='g'></div></td>
+                   <td><div id="g<%= i %>4" class='g'></div></td>
+                   <td>
+                   <div>
+                   <input class="knob" data-width="100" data-min="0" data-max="1000" data-displayPrevious=false value="950" readOnly="true" data-height="100"fgColor="#FF0000">
+                   </div></td>
 								</tr>
 							<% end  %>
 						</tbody>
@@ -151,3 +156,68 @@
 
 	</div>
 </div>
+
+
+
+
+ 
+   <style>
+   
+   .g {
+     width:100px; height:80px;
+ /*        display: inline-block;*/
+     margin: 1em;
+   }
+     
+ </style>
+ 
+ <script>
+   var g1, g2, g3, g4;
+   
+   window.onload = function(){
+     for (var i=0;i< <%= @scenarios.count %> ;i++)
+     {
+       var g1 = new JustGage({
+       id: "g" + i + "1", 
+       value: 60, 
+       min: 0,
+       max: 100,
+       title: "Memory",
+       label: "Mbyte"
+     });
+     
+     var g2 = new JustGage({
+       id: "g"+i + "2", 
+       value: 10, 
+       min: 0,
+       max: 100,
+       title: "CPU",
+       label: "%"
+     });
+     
+     var g3 = new JustGage({
+       id: "g"+i + "3", 
+       value: 20, 
+       min: 0,
+       max: 100,
+       title: "Network",
+       label: "ms"
+     });
+     
+     var g4 = new JustGage({
+       id: "g"+i + "4", 
+       value: 30, 
+       min: 0,
+       max: 100,
+       title: "Battery",
+       label: "J"
+     });
+     }
+     
+   };
+ </script>
+ <%= javascript_include_tag "jquery.min" %>
+ <%= javascript_include_tag "jquery.knob" %>
+ <script>
+         $(function($) {$(".knob").knob({});  });
+ </script>

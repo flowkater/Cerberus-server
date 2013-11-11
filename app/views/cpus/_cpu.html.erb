@@ -1,6 +1,103 @@
-<% content_for :javascript_includes do %>
-	<%= javascript_include_tag "cpu_call_tree.js" %>
-<% end %>
+<style>
+.fancyprogress {
+  height: 20px;
+  background: #ebebeb;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-radius: 10px;
+}
+.fancyprogress > span {
+  position: relative;
+  float: left;
+  margin: 0px;
+  min-width: 30px;
+  height: 18px;
+  line-height: 16px;
+  text-align: right;
+  background: #cccccc;
+  border: 1px solid;
+  border-color: #bfbfbf #b3b3b3 #9e9e9e;
+  border-radius: 10px;
+  background-image: -webkit-linear-gradient(top, #f0f0f0, #dbdbdb 70%, #cccccc);
+  background-image: -moz-linear-gradient(top, #f0f0f0, #dbdbdb 70%, #cccccc);
+  background-image: -o-linear-gradient(top, #f0f0f0, #dbdbdb 70%, #cccccc);
+  background-image: linear-gradient(to bottom, #f0f0f0, #dbdbdb 70%, #cccccc);
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.fancyprogress > span > span {
+  padding: 0 8px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #404040;
+  color: rgba(0, 0, 0, 0.7);
+  text-shadow: 0 1px rgba(255, 255, 255, 0.4);
+}
+.fancyprogress > span:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 25px;
+  background: url( <%= asset_path 'progress.png' %>) 0 0 repeat-x;
+  border-radius: 10px;
+}
+.fancyprogress .green {
+  background: #85c440;
+  border-color: #78b337 #6ba031 #568128;
+  background-image: -webkit-linear-gradient(top, #b7dc8e, #99ce5f 70%, #85c440);
+  background-image: -moz-linear-gradient(top, #b7dc8e, #99ce5f 70%, #85c440);
+  background-image: -o-linear-gradient(top, #b7dc8e, #99ce5f 70%, #85c440);
+  background-image: linear-gradient(to bottom, #b7dc8e, #99ce5f 70%, #85c440);
+}
+.fancyprogress .red {
+  background: #db3a27;
+  border-color: #c73321 #b12d1e #8e2418;
+  background-image: -webkit-linear-gradient(top, #ea8a7e, #e15a4a 70%, #db3a27);
+  background-image: -moz-linear-gradient(top, #ea8a7e, #e15a4a 70%, #db3a27);
+  background-image: -o-linear-gradient(top, #ea8a7e, #e15a4a 70%, #db3a27);
+  background-image: linear-gradient(to bottom, #ea8a7e, #e15a4a 70%, #db3a27);
+}
+.fancyprogress .orange {
+  background: #f2b63c;
+  border-color: #f0ad24 #eba310 #c5880d;
+  background-image: -webkit-linear-gradient(top, #f8da9c, #f5c462 70%, #f2b63c);
+  background-image: -moz-linear-gradient(top, #f8da9c, #f5c462 70%, #f2b63c);
+  background-image: -o-linear-gradient(top, #f8da9c, #f5c462 70%, #f2b63c);
+  background-image: linear-gradient(to bottom, #f8da9c, #f5c462 70%, #f2b63c);
+}
+.fancyprogress .blue {
+  background: #5aaadb;
+  border-color: #459fd6 #3094d2 #277db2;
+  background-image: -webkit-linear-gradient(top, #aed5ed, #7bbbe2 70%, #5aaadb);
+  background-image: -moz-linear-gradient(top, #aed5ed, #7bbbe2 70%, #5aaadb);
+  background-image: -o-linear-gradient(top, #aed5ed, #7bbbe2 70%, #5aaadb);
+  background-image: linear-gradient(to bottom, #aed5ed, #7bbbe2 70%, #5aaadb);
+}
+			.axis path,
+			.axis line {
+				fill: none;
+				stroke: black;
+				shape-rendering: crispEdges;
+			}
+			.axis text {
+				font-family: sans-serif;
+				font-size: 11px;
+			}
+
+			rect {
+				-moz-transition: all 0.3s;
+				-webkit-transition: all 0.3s;
+				-o-transition: all 0.3s;
+				transition: all 0.3s;
+			}
+			rect:hover{
+				fill: orange;
+			}
+</style>
 <div class="container">
 	<div class="container">
 		<div class="row">
@@ -20,24 +117,49 @@
 
 		<div class="container">
 			<div class="row">
-				<h2>CPU Time Profiling Graph</h2>
-				<div id="cpu-call-tree"></div>
+				<h2>CPU Time Rate Graph</h2>
 			</div>
+			<button id="sort" onclick="sortBars()">Sort</button>
+		    <button id="reset" onclick="reset()">Reset</button>
+		    <div id="cpu_bars">
 		</div>
+		
 
+	</div>
 		<div class="container">
 			<div class="box">
 				<div class="box-content">
-					<table class="table table-normal" id="cpu-depth-table">
+					<table class="table table-normal">
 						<thead>
 							<tr>
+								<td></td>
 								<td>Method</td>
-								<td>Exclusive Time</td>
-								<td>Total %</td>
+<!-- 								<td>Call Index</td>
+								<td>Self %</td>
+								<td>Sum %</td> -->
+								<td>Sec</td>
 							</tr>
 						</thead>
 						<tbody>
-							<%= render 'cpus/trace_methods', object: @trace_methods %>
+							<% @trace_methods.each do |trace_method| %>
+								<tr>
+									<td></td>
+ 									<td><%= trace_method.name %></td>
+<!--									<td><%= trace_method.call_index %></td>
+									<td><%= trace_method.self_time_rate %></td>
+									<td><%= trace_method.sum_time_rate %></td> -->
+									<td width="20%">
+									<div class="fancyprogress">
+									<% percent = trace_method.usecs.to_i *  100/ @trace_methods.max_by { |x| x.usecs }.usecs  %>
+									<% if percent > 75 then color = "red" %>
+									<% elsif percent > 50 then color = "orange" %>
+									<% elsif percent > 25 then color = "blue" %>
+									<% elsif color ="green" %>
+									<% end %>
+								  <span class=" <%= color %>" style="width: <%= percent %>%;"><span><%= trace_method.usecs %></span></span>
+							    </div></td>
+								</tr>
+							<% end  %>
 						</tbody>
 					</table>
 				</div>
@@ -46,3 +168,216 @@
 
 	</div>	
 </div>
+ <script src="/assets/d3.v3.min.js"></script>
+		<script type="text/javascript">
+		var w = 900;
+		var h = 250;
+
+		var dataset = [ 
+			{ key: 0, value: 5 },
+			{ key: 1, value: 10 },
+			{ key: 2, value: 13 },
+			{ key: 3, value: 19 },
+			{ key: 4, value: 21 },
+			{ key: 5, value: 25 },
+			{ key: 6, value: 22 },
+			{ key: 7, value: 18 },
+			{ key: 8, value: 15 },
+			{ key: 9, value: 13 },
+			{ key: 10, value: 11 },
+			{ key: 11, value: 12 },
+			{ key: 12, value: 15 },
+			{ key: 13, value: 20 },
+			{ key: 14, value: 18 },
+			{ key: 15, value: 17 },
+			{ key: 16, value: 16 },
+			{ key: 17, value: 18 },
+			{ key: 18, value: 23 },
+			{ key: 19, value: 25 } ];
+
+		var xScale = d3.scale.ordinal()
+						.domain(d3.range(dataset.length))
+						.rangeRoundBands([0, w], 0.05); 
+
+		var yScale = d3.scale.linear()
+						.domain([0, d3.max(dataset, function(d) {return d.value;})])
+						.range([0, h]);
+
+		var key = function(d) {
+			return d.key;
+		};
+
+		//Create SVG element
+		var svg = d3.select("#cpu_bars")
+					.append("svg")
+					// .attr("width", w)
+					.attr("height", h);
+
+		//Create bars
+		svg.selectAll("rect")
+		   .data(dataset, key)
+		   .enter()
+		   .append("rect")
+		   .attr("x", function(d, i) {
+				return xScale(i);
+		   })
+		   .attr("y", function(d) {
+				return h - yScale(d.value);
+		   })
+		   .attr("width", xScale.rangeBand())
+		   .attr("height", function(d) {
+				return yScale(d.value);
+		   })
+		   .attr("fill", function(d) {
+				return "rgb(0, 0, " + (d.value * 10) + ")";
+		   })
+
+			//Tooltip
+			.on("mouseover", function(d) {
+				//Get this bar's x/y values, then augment for the tooltip
+				var xPosition = parseFloat(d3.select(this).attr("x")) + xScale.rangeBand() / 2;
+				var yPosition = parseFloat(d3.select(this).attr("y")) + 14;
+				
+				//Update Tooltip Position & value
+				d3.select("#tooltip")
+					.style("left", xPosition + "px")
+					.style("top", yPosition + "px")
+					.select("#value")
+					.text(d.value);
+				d3.select("#tooltip").classed("hidden", false)
+			})
+			.on("mouseout", function() {
+				//Remove the tooltip
+				d3.select("#tooltip").classed("hidden", true);
+			})	;
+
+		//Create labels
+		svg.selectAll("text")
+		   .data(dataset, key)
+		   .enter()
+		   .append("text")
+		   .text(function(d) {
+				return d.value;
+		   })
+		   .attr("text-anchor", "middle")
+		   .attr("x", function(d, i) {
+				return xScale(i) + xScale.rangeBand() / 2;
+		   })
+		   .attr("y", function(d) {
+				return h - yScale(d.value) + 14;
+		   })
+		   .attr("font-family", "sans-serif") 
+		   .attr("font-size", "11px")
+		   .attr("fill", "white");
+		   
+		var sortOrder = false;
+		var sortBars = function () {
+		    sortOrder = !sortOrder;
+		    
+		    sortItems = function (a, b) {
+		        if (sortOrder) {
+		            return a.value - b.value;
+		        }
+		        return b.value - a.value;
+		    };
+
+		    svg.selectAll("rect")
+		        .sort(sortItems)
+		        .transition()
+		        .delay(function (d, i) {
+		        return i * 50;
+		    })
+		        .duration(1000)
+		        .attr("x", function (d, i) {
+		        return xScale(i);
+		    });
+
+		    svg.selectAll('text')
+		        .sort(sortItems)
+		        .transition()
+		        .delay(function (d, i) {
+		        return i * 50;
+		    })
+		        .duration(1000)
+		        .text(function (d) {
+		        return d.value;
+		    })
+		        .attr("text-anchor", "middle")
+		        .attr("x", function (d, i) {
+		        return xScale(i) + xScale.rangeBand() / 2;
+		    })
+		        .attr("y", function (d) {
+		        return h - yScale(d.value) + 14;
+		    });
+		};
+		// Add the onclick callback to the button
+		d3.select("cpuinput").on("click", sortBars);
+		d3.select("#sort").on("click", sortBars);
+		d3.select("#reset").on("click", reset);
+		function randomSort() {
+
+			
+			svg.selectAll("rect")
+		        .sort(sortItems)
+		        .transition()
+		        .delay(function (d, i) {
+		        return i * 50;
+		    })
+		        .duration(1000)
+		        .attr("x", function (d, i) {
+		        return xScale(i);
+		    });
+
+		    svg.selectAll('text')
+		        .sort(sortItems)
+		        .transition()
+		        .delay(function (d, i) {
+		        return i * 50;
+		    })
+		        .duration(1000)
+		        .text(function (d) {
+		        return d.value;
+		    })
+		        .attr("text-anchor", "middle")
+		        .attr("x", function (d, i) {
+		        return xScale(i) + xScale.rangeBand() / 2;
+		    })
+		        .attr("y", function (d) {
+		        return h - yScale(d.value) + 14;
+		    });
+		}
+		function reset() {
+			svg.selectAll("rect")
+				.sort(function(a, b){
+					return a.key - b.key;
+				})
+				.transition()
+		        .delay(function (d, i) {
+		        return i * 50;
+				})
+		        .duration(1000)
+		        .attr("x", function (d, i) {
+		        return xScale(i);
+				});
+				
+			svg.selectAll('text')
+		        .sort(function(a, b){
+					return a.key - b.key;
+				})
+		        .transition()
+		        .delay(function (d, i) {
+		        return i * 50;
+		    })
+		        .duration(1000)
+		        .text(function (d) {
+		        return d.value;
+		    })
+		        .attr("text-anchor", "middle")
+		        .attr("x", function (d, i) {
+		        return xScale(i) + xScale.rangeBand() / 2;
+		    })
+		        .attr("y", function (d) {
+		        return h - yScale(d.value) + 14;
+		    });
+		};
+		</script>

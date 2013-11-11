@@ -1,83 +1,132 @@
 <style>
- .fancyprogress {
- height: 25px;
- background: #ebebeb;
- border-left: 1px solid transparent;
- border-right: 1px solid transparent;
- border-radius: 10px;
- }
- .fancyprogress > span {
- position: relative;
- float: left;
- margin: 0px;
- min-width: 30px;
- height: 24px;
- line-height: 16px;
- text-align: right;
- background: #cccccc;
- border: 1px solid;
- border-color: #bfbfbf #b3b3b3 #9e9e9e;
- border-radius: 10px;
- background-image: -webkit-linear-gradient(top, #f0f0f0, #dbdbdb 70%, #cccccc);
- background-image: -moz-linear-gradient(top, #f0f0f0, #dbdbdb 70%, #cccccc);
- background-image: -o-linear-gradient(top, #f0f0f0, #dbdbdb 70%, #cccccc);
- background-image: linear-gradient(to bottom, #f0f0f0, #dbdbdb 70%, #cccccc);
- -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
- box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
- }
- .fancyprogress > span > span {
- padding: 0 8px;
- font-size: 20px;
- font-weight: bold;
- color: #404040;
- color: rgba(0, 0, 0, 0.7);
- text-shadow: 0 1px rgba(255, 255, 255, 0.4);
- }
- .fancyprogress > span:before {
- content: '';
- position: absolute;
- top: 0;
- bottom: 0;
- left: 0;
- right: 0;
- z-index: 1;
- height: 25px;
- background: url('../images/progress.png') 0 0 repeat-x;
- border-radius: 10px;
- }
- .fancyprogress .green {
- background: #85c440;
- border-color: #78b337 #6ba031 #568128;
- background-image: -webkit-linear-gradient(top, #b7dc8e, #99ce5f 70%, #85c440);
- background-image: -moz-linear-gradient(top, #b7dc8e, #99ce5f 70%, #85c440);
- background-image: -o-linear-gradient(top, #b7dc8e, #99ce5f 70%, #85c440);
- background-image: linear-gradient(to bottom, #b7dc8e, #99ce5f 70%, #85c440);
- }
- .fancyprogress .red {
- background: #db3a27;
- border-color: #c73321 #b12d1e #8e2418;
- background-image: -webkit-linear-gradient(top, #ea8a7e, #e15a4a 70%, #db3a27);
- background-image: -moz-linear-gradient(top, #ea8a7e, #e15a4a 70%, #db3a27);
- background-image: -o-linear-gradient(top, #ea8a7e, #e15a4a 70%, #db3a27);
- background-image: linear-gradient(to bottom, #ea8a7e, #e15a4a 70%, #db3a27);
- }
- .fancyprogress .orange {
- background: #f2b63c;
- border-color: #f0ad24 #eba310 #c5880d;
- background-image: -webkit-linear-gradient(top, #f8da9c, #f5c462 70%, #f2b63c);
- background-image: -moz-linear-gradient(top, #f8da9c, #f5c462 70%, #f2b63c);
- background-image: -o-linear-gradient(top, #f8da9c, #f5c462 70%, #f2b63c);
- background-image: linear-gradient(to bottom, #f8da9c, #f5c462 70%, #f2b63c);
- }
- .fancyprogress .blue {
- background: #5aaadb;
- border-color: #459fd6 #3094d2 #277db2;
- background-image: -webkit-linear-gradient(top, #aed5ed, #7bbbe2 70%, #5aaadb);
- background-image: -moz-linear-gradient(top, #aed5ed, #7bbbe2 70%, #5aaadb);
- background-image: -o-linear-gradient(top, #aed5ed, #7bbbe2 70%, #5aaadb);
- background-image: linear-gradient(to bottom, #aed5ed, #7bbbe2 70%, #5aaadb);
- }
- </style>
+.fancyprogress {
+  height: 25px;
+  background: #ebebeb;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer; cursor: hand;
+}
+.fancyprogress > span {
+  position: relative;
+  float: left;
+  margin: 0px;
+  min-width: 30px;
+  height: 24px;
+  line-height: 16px;
+  text-align: right;
+  background: #cccccc;
+  border: 1px solid;
+  border-color: #bfbfbf #b3b3b3 #9e9e9e;
+  border-radius: 10px;
+  background-image: -webkit-linear-gradient(top, #f0f0f0, #dbdbdb 70%, #cccccc);
+  background-image: -moz-linear-gradient(top, #f0f0f0, #dbdbdb 70%, #cccccc);
+  background-image: -o-linear-gradient(top, #f0f0f0, #dbdbdb 70%, #cccccc);
+  background-image: linear-gradient(to bottom, #f0f0f0, #dbdbdb 70%, #cccccc);
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.fancyprogress > span > span {
+  padding: 0 8px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #404040;
+  color: rgba(0, 0, 0, 0.7);
+  text-shadow: 0 1px rgba(255, 255, 255, 0.4);
+}
+.fancyprogress > span:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 25px;
+  background: url( <%= asset_path 'progress.png' %>) 0 0 repeat-x;
+
+  border-radius: 10px;
+}
+.fancyprogress .green {
+  background: #85c440;
+  border-color: #78b337 #6ba031 #568128;
+  background-image: -webkit-linear-gradient(top, #b7dc8e, #99ce5f 70%, #85c440);
+  background-image: -moz-linear-gradient(top, #b7dc8e, #99ce5f 70%, #85c440);
+  background-image: -o-linear-gradient(top, #b7dc8e, #99ce5f 70%, #85c440);
+  background-image: linear-gradient(to bottom, #b7dc8e, #99ce5f 70%, #85c440);
+}
+.fancyprogress .green2 {
+  background: #568128;
+  border-color: #000000 #000000 #000000;
+  background-image: -webkit-linear-gradient(top, #000000, #99ce5f 50%, #000000);
+  background-image: -moz-linear-gradient(top, #000000, #99ce5f 50%, #000000);
+  background-image: -o-linear-gradient(top, #000000, #99ce5f 50%, #000000);
+  background-image: linear-gradient(to bottom, #568128, #99ce5f 50%, #568128);
+}
+.fancyprogress .red {
+  background: #db3a27;
+  border-color: #c73321 #b12d1e #8e2418;
+  background-image: -webkit-linear-gradient(top, #ea8a7e, #e15a4a 70%, #db3a27);
+  background-image: -moz-linear-gradient(top, #ea8a7e, #e15a4a 70%, #db3a27);
+  background-image: -o-linear-gradient(top, #ea8a7e, #e15a4a 70%, #db3a27);
+  background-image: linear-gradient(to bottom, #ea8a7e, #e15a4a 70%, #db3a27);
+}
+.fancyprogress .red2 {
+  background: #8e2418;
+  border-color: #000000 #000000 #000000;
+  background-image: -webkit-linear-gradient(top, #000000, #e15a4a 50%, #000000);
+  background-image: -moz-linear-gradient(top, #000000, #e15a4a 50%, #000000);
+  background-image: -o-linear-gradient(top, #000000, #e15a4a 50%, #000000);
+  background-image: linear-gradient(to bottom, #8e2418, #e15a4a 50%, #8e2418);
+}
+.fancyprogress .orange {
+  background: #f2b63c;
+  border-color: #f0ad24 #eba310 #c5880d;
+  background-image: -webkit-linear-gradient(top, #f8da9c, #f5c462 70%, #f2b63c);
+  background-image: -moz-linear-gradient(top, #f8da9c, #f5c462 70%, #f2b63c);
+  background-image: -o-linear-gradient(top, #f8da9c, #f5c462 70%, #f2b63c);
+  background-image: linear-gradient(to bottom, #f8da9c, #f5c462 70%, #f2b63c);
+}
+.fancyprogress .orange2 {
+  background: #c5880d;
+  border-color: #000000 #000000 #000000;
+  background-image: -webkit-linear-gradient(top, #000000, #f5c462 50%, #000000);
+  background-image: -moz-linear-gradient(top, #000000, #f5c462 50%, #000000);
+  background-image: -o-linear-gradient(top, #000000, #f5c462 50%, #000000);
+  background-image: linear-gradient(to bottom, #c5880d, #f5c462 50%, #c5880d);
+}
+.fancyprogress .blue {
+  background: #5aaadb;
+  border-color: #459fd6 #3094d2 #277db2;
+  background-image: -webkit-linear-gradient(top, #aed5ed, #7bbbe2 70%, #5aaadb);
+  background-image: -moz-linear-gradient(top, #aed5ed, #7bbbe2 70%, #5aaadb);
+  background-image: -o-linear-gradient(top, #aed5ed, #7bbbe2 70%, #5aaadb);
+  background-image: linear-gradient(to bottom, #aed5ed, #7bbbe2 70%, #5aaadb);
+}
+.fancyprogress .blue2 {
+  background: #277db2;
+  border-color: #000000 #000000 #000000;
+  background-image: -webkit-linear-gradient(top, #000000, #7bbbe2 50%, #000000);
+  background-image: -moz-linear-gradient(top, #000000, #7bbbe2 50%, #000000);
+  background-image: -o-linear-gradient(top, #000000, #7bbbe2 50%, #000000);
+  background-image: linear-gradient(to bottom, #277db2, #7bbbe2 50%, #277db2);
+}
+</style>
+<script type="text/javascript" >
+function myFunction(clicked_id)
+{
+	if (document.getElementById(clicked_id).className == "orange"){ document.getElementById(clicked_id).className = "orange2"; }
+	else if (document.getElementById(clicked_id).className == "orange2"){ document.getElementById(clicked_id).className = "orange";}
+	else if (document.getElementById(clicked_id).className == "red"){ document.getElementById(clicked_id).className = "red2";}
+	else if (document.getElementById(clicked_id).className == "red2"){ document.getElementById(clicked_id).className = "red";}
+	else if (document.getElementById(clicked_id).className == "blue"){ document.getElementById(clicked_id).className = "blue2";}
+	else if (document.getElementById(clicked_id).className == "blue2"){ document.getElementById(clicked_id).className = "blue";}
+	else if (document.getElementById(clicked_id).className == "green"){ document.getElementById(clicked_id).className = "green2";}
+	else if (document.getElementById(clicked_id).className == "green2"){ document.getElementById(clicked_id).className = "green";}
+
+}
+</script>
 <div class="container">
 	<div class="container">
 		<div class="row">
@@ -106,76 +155,106 @@
 							<tr>
 								<td>App Version</td>
 								<td class="in-checkbox">
-									<input type="checkbox" class="icheck" checked id="icheck1">
+									<button style="width:100%" onclick="myFunction()">
+									<!-- <input type="checkbox" class="icheck" checked id="icheck1"> -->
 									<label for="icheck1">All</label>
+									</button>
 								</td>
-			             <td colspan="4">
-			                <div class="fancyprogress">
-			                <% firstversion = 40 %>
-			                <% secondversion = 20 %>
-			                <% thirdversion = 40 %>
-			                <span class="green" style="width: <%= firstversion %>%;"><span>1.5</span></span>
-			                  <span class="orange" style="width: <%= secondversion %>%;"><span>1.6</span></span>
-			                  <span class="blue" style="width: <%= thirdversion %>%;"><span>1.8</span></span>
-			                </div>
-			                </td>
+								<td colspan="4">
+							    <div class="fancyprogress">
+							    <% firstversion = 40 %>
+							    <% secondversion = 30 %>
+							    <% thirdversion = 30 %>
+								  <span onclick="myFunction(this.id)" id="first" class="orange" style="width: <%= firstversion %>%;"><span>1.5</span></span>
+							      <span onclick="myFunction(this.id)" id="second" class="orange" style="width: <%= secondversion %>%;"><span>1.6</span></span>
+							      <span onclick="myFunction(this.id)" id="third" class="blue" style="width: <%= thirdversion %>%;"><span>1.8</span></span>
+							    </div>
+							    </td>
 							</tr>
 							<tr>
 								<td>OS Version</td>
 								<td class="in-checkbox">
-									<input type="checkbox" class="icheck" checked id="icheck1">
+								<button style="width:100%">
+									<!-- <input type="checkbox" class="icheck" checked id="icheck1"> -->
 									<label for="icheck1">All</label>
+									</button>
 								</td>
-								<td class="in-checkbox">
-									<input type="checkbox" class="icheck" id="icheck2">
-									<label for="icheck2">0.1</label>
-								</td>
-								<td class="in-checkbox">
-									<input type="checkbox" class="icheck" id="icheck3">
-									<label for="icheck2">1.0</label>
-								</td>
-								<td class="in-checkbox">
-									<input type="checkbox" class="icheck" id="icheck4">
-									<label for="icheck2">2.5</label>
-								</td>
+								<td colspan="4">
+							    <div class="fancyprogress">
+							    <% firstversion = 40 %>
+							    <% secondversion = 40 %>
+							    <% thirdversion = 20 %>
+								  <span onclick="myFunction(this.id)" id="fourth" class="green" style="width: <%= firstversion %>%;"><span>1.5</span></span>
+							      <span onclick="myFunction(this.id)" id="fifth" class="orange" style="width: <%= secondversion %>%;"><span>2.1</span></span>
+							      <span onclick="myFunction(this.id)" id="sixth" class="blue" style="width: <%= thirdversion %>%;"><span>4.1</span></span>
+							    </div>
+							    </td>
 							</tr>
 							<tr>
 								<td>Category</td>
 								<td class="in-checkbox">
-									<input type="checkbox" class="icheck" checked id="icheck1">
+								<!-- 	<input type="checkbox" class="icheck" checked id="icheck1"> -->
+								<button style="width:100%">
 									<label for="icheck1">All</label>
+									</button>
 								</td>
-				             <td colspan="4">
-				                <div class="fancyprogress">
-				                <% firstversion = 40 %>
-				                <% secondversion = 40 %>
-				                <% thirdversion = 20 %>
-				                <span class="green" style="width: <%= firstversion %>%;"><span>1.5</span></span>
-				                  <span class="orange" style="width: <%= secondversion %>%;"><span>2.1</span></span>
-				                  <span class="blue" style="width: <%= thirdversion %>%;"><span>4.1</span></span>
-				                </div>
-				                </td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck2">
+									<label for="icheck2">									
+									<%= image_tag("Memory-icon.png", :size => "48x48", :alt => "Edit Entry") %> Memory
+									</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck3">
+									<label for="icheck2">
+									<%= image_tag("kcm-processor-icon.png", :size => "48x48", :alt => "Edit Entry") %> CPU
+									</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck3">
+									<label for="icheck2"> 
+									<%= image_tag("Devices-network-wireless-connected-100-icon.png", :size => "48x48", :alt => "Edit Entry")%>Network
+									</label>
+								</td>
+								<td class="in-checkbox">
+									<input type="checkbox" class="icheck" id="icheck3">
+									<label for="icheck2">
+									 <%= image_tag("Battery-icon.png", :size => "48x48", :alt => "Edit Entry")  %>Battery
+									 </label>
+								</td>
 							</tr>
 							<tr>
 								<td>Scenario Test</td>
+																<td class="in-checkbox">
+								<button style="width:100%">
+									<!-- <input type="checkbox" class="icheck" checked id="icheck1"> -->
+									<label for="icheck1">All</label>
+									</button>
+								</td>
 								<td class="in-checkbox">
 									<input type="radio" name="optionsRadios[test]" class="icheck" checked id="iradio1">
-                  <label for="iradio1">Yes</label>
+                					  <label for="iradio1">Yes</label>
 								</td>
 								<td class="in-checkbox">
 									<input type="radio" name="optionsRadios[test]" class="icheck" id="iradio2">
-                  <label for="iradio2">No</label>
+               						   <label for="iradio2">No</label>
 								</td>
 							</tr>
 							<tr>
 								<td>Error Occurred</td>
+																<td class="in-checkbox">
+								<button style="width:100%">
+									<!-- <input type="checkbox" class="icheck" checked id="icheck1"> -->
+									<label for="icheck1">All</label>
+									</button>
+								</td>
 								<td class="in-checkbox">
 									<input type="radio" name="optionsRadios[error]" class="icheck" id="iradio1">
-                  <label for="iradio3">Yes</label>
+              						    <label for="iradio3">Yes</label>
 								</td>
 								<td class="in-checkbox">
 									<input type="radio" name="optionsRadios[error]" class="icheck" checked id="iradio4">
-                  <label for="iradio2">No</label>
+             					     <label for="iradio2">No</label>
 								</td>
 							</tr>
 						</tbody>
@@ -203,7 +282,12 @@
 								<tr>
 									<td></td>
 									<td><%= link_to report.appversion, [@project, report] %></td>
-									<td><%= report.categories %></td>
+									<td>
+									<%= image_tag("Memory-icon.png", :alt => "Edit Entry")  if report.categories.include? 'Memory'%>
+									<%= image_tag("kcm-processor-icon.png", :alt => "Edit Entry")  if report.categories.include? 'CPU'%>
+									<%= image_tag("Devices-network-wireless-connected-100-icon.png", :alt => "Edit Entry") if report.categories.include? 'Network' %>
+									<%= image_tag("Battery-icon.png", :alt => "Edit Entry") if report.categories.include? 'Battery'  %>
+									</td>
 									<td>Status</td>
 									<td><%= report.time_for_profiling %></td>
 									<td><%= report.created_at_date %></td>

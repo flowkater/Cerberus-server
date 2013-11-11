@@ -2,7 +2,6 @@ class ProjectsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    session[:project] = nil
     @project = current_user.projects.build
     @projects = Project.all
   end
@@ -13,7 +12,7 @@ class ProjectsController < ApplicationController
     @profile_report_number = @project.profile_report_number
     @report_latest_appversion = @project.report_latest_appversion
     @reports_period = @project.reports_period
-    @scenarios = @project.scenarios.top4
+    @scenarios = @project.scenarios.limit(5)
   end
 
   def create

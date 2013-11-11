@@ -51,6 +51,7 @@ $(document).ready(function(){
 					.attr("width", x.rangeBand())
 					.attr("y", function(d){return y(d.latency);})
 					.attr("height", function(d){return height - y(d.latency);});
+					// .attr("fill", function(d) { return "rgb(0, 0,100)";
 
 		d3.select("input").on("change", change);
 

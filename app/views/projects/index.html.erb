@@ -37,25 +37,36 @@
 				<div class="row padded" style="font-size:18px;">
 
 					<% @projects.each do |p| %>
-						<div class="col-md-6">
+						<div class="col-md-12" onclick="myFunction()">
+						<%= link_to p do %>
 							<div class="box">
 								<div class="box-content padded">
 									<div class="row">
-										<div id="item" class="col-md-8">
-											<%= link_to p do %>
-												<p><%= p.name %></p>
-											<% end  %>
+										<div id="item" class="col-md-6">
+											<p style="font-size: 15pt"><b><%= p.name %></b></p>
 										</div>
 										<div class="col-md-4">
-											<i class="icon-signal"></i>
-											<span>(아이콘이 들어가는 자리)</span>
-											<div class="button btn btn-large btn-default" style="width: 100%;margin-top: 30px;">
+<!-- 											<i class="icon-signal"></i> -->
+											<span>App Version</span><br>
+											<span>Scenario ID</span><br>
+											<span>Profiling Time</span><br>
+											<span>Os Version</span><br>
+											<span>Status</span>
+										</div>
+										<div class="col-md-2">		
+											<span><%= p.reports[0].appversion unless p.reports.count == 0 %></span><br>
+											<span><%= p.reports[0].scenario_id unless p.reports.count == 0 %></span><br>
+											<span><%= p.reports[0].time_for_profiling unless p.reports.count == 0 %></span><br>
+											<span><%= p.reports[0].osversion unless p.reports.count == 0 %></span>	<br>	
+											<span>Success</span>	
+<!-- 											<div class="button btn btn-large btn-default" style="width: 100%;margin-top: 30px;">
 												<a href="../profile/profile_1depth.html">Profile now(프로파일 바로가기 버튼)</a>
-											</div>
+											</div> -->
 										</div>
 									</div>
 								</div>
 							</div>
+						<% end  %>
 						</div>
 					<% end %>
 

@@ -17,7 +17,9 @@ $(document).ready(function() {
 	    .append("svg:g")
 	    .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-	d3.json("/user_tree_dmtrace.json", function(json) {
+	var url = window.location.pathname.split('/');
+	
+	d3.json("/api/v1/cpus/4", function(json) {
 	    root = json;
 	    root.x0 = h / 2;
 	    root.y0 = 0;
@@ -44,7 +46,7 @@ $(document).ready(function() {
 	    var nodes = tree.nodes(root).reverse();
 
 	    // Normalize for fixed-depth.
-	    nodes.forEach(function(d) { d.y = d.depth * 180; });
+	    // nodes.forEach(function(d) { d.y = d.depth * 180; });
 
 	    // Update the nodes…
 	    var node = vis.selectAll("g.node")
@@ -74,7 +76,7 @@ $(document).ready(function() {
 	        .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
 	    nodeUpdate.select("circle")
-	        .attr("r", function(d){return d.index == 1 ? 4.5 : d.excl / 3000;})
+	        .attr("r", function(d){return d.total;})
 	        .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
 	    nodeUpdate.select("text")

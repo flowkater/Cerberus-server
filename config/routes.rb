@@ -5,6 +5,7 @@ CerberusServer::Application.routes.draw do
       resources :scenarios, only: [:create, :index, :show]
       resources :records, only: [:create]
       resources :reports, only: [:create, :update]  
+      resources :cpus, only: [:show]
     end
   end
 

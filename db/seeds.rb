@@ -6,7 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
 @user = User.create(email: "foobar@foobar.com", password:"foobarfoo", password_confirmation:"foobarfoo")
 @project = @user.projects.create!(name: "Today Breaker")
 @user.projects.create!(name: "KaKaoTalk")
@@ -24,7 +23,12 @@
 @s2 = @scenario.records.create!(act_type: "EditTextClick", view: "R.id.edit1", param: 0, parent_id: @s1.id)
 @s3 = @scenario.records.create!(act_type: "enterText", view: "Test", param: "", parent_id: @s2.id)
 @s4 = @scenario.records.create!(act_type: "Click", view: "R.id.button2", param: "", parent_id: @s3.id)
-
+@s5 = @scenario.records.create!(act_type: "Click", view: "R.id.button2", param: "", parent_id: @s4.id)
+@s6 = @scenario.records.create!(act_type: "Click", view: "R.id.button2", param: "", parent_id: @s5.id)
+@s7 = @scenario.records.create!(act_type: "Click", view: "R.id.button2", param: "", parent_id: @s6.id)
+@s8 = @scenario.records.create!(act_type: "Click", view: "R.id.button2", param: "", parent_id: @s7.id)
+@s9 = @scenario.records.create!(act_type: "Click", view: "R.id.button2", param: "", parent_id: @s8.id)
+@s10 = @scenario.records.create!(act_type: "Click", view: "R.id.button2", param: "", parent_id: @s9.id)
 
 @report1 = @project.reports.create!(appversion: 1.0,osversion: 4.1 ,scenario_id: @scenario.id, time_for_profiling: 120)
 @report2 = @project.reports.create!(appversion: 1.2,osversion: 4.1, scenario_id: @scenario.id, time_for_profiling: 720)

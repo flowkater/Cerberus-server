@@ -16,6 +16,16 @@ class ScenariosController < ApplicationController
     @project = @scenario.project
   end
 
+  def update
+    @scenario = Scenario.find(params[:id])
+    @project = @scenario.project
+    if @scenario.update_attributes(params[:scenario])
+      redirect_to [@project, @scenario]
+    else
+      render 'show'      
+    end
+  end
+
   def destroy
  		@scenario = Scenario.find(params[:id])
     @project = @scenario.project

@@ -49,7 +49,6 @@
 								<thead>
 									<tr>
 										<td style="width: 90%;">Scenario Info</td>
-										<td style="width: 10%;">Remove</td>
 									</tr>
 								</thead>
 								<tbody>
@@ -62,9 +61,6 @@
 												<span>
 													<%= s.description %>
 												</span>
-											</td>
-											<td>
-												<%= link_to "remove", [@project, s], confirm: "Are you sure?", method: :delete, class: "btn btn-red" %>
 											</td>
 										</tr>
 									<% end  %>

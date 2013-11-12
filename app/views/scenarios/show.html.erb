@@ -3,6 +3,28 @@
 <% end %>
 
 <div class="container">
+
+	<div id="modal-scenario-edit" class="modal fade", style="display: none;" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+					<h5>Scenario Edit</h5>
+				</div>
+				<div class="modal-body">
+					<%= simple_form_for [@project,@scenario] do |f| %>
+						<%= f.input :name %>
+						<%= f.input :description %>
+						<%= f.button :submit, "Update" %>
+					<% end  %>
+				</div>
+				<div class="modal-footer">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="container">
 		<div class="row">
 			<div class="area-top clearfix">
@@ -39,8 +61,14 @@
 								<div class="padded">
 									<div class="form-group">
 										<label class="control-label col-lg-2">Scenario Name</label>
-										<div class="col-sm-10">
+										<div class="col-sm-8">
 											<span><%= @scenario.name %></span>
+										</div>
+										<div class="col-sm-1">
+											<%= link_to "Edit", "#modal-scenario-edit", class: "btn btn-large btn-blue", data: {toggle: "modal"} %>
+										</div>
+										<div class="col-sm-1">
+											<%= link_to "Remove", [@project, @scenario], confirm: "Are you sure?", method: :delete, class: "btn btn-red" %>
 										</div>
 									</div>
 									<div class="form-group">

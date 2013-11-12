@@ -15998,6 +15998,25 @@ a.editable-click.editable-disabled {
    height: 30px;
    margin-right: 10px;
  }
+=======
+/* Override Section */
+   
+  .version h2{
+    margin:0;
+    line-height: 1em;
+  }
+   
+   
+  #dataList td{
+    padding: 16px
+  }
+ 
+  /* dataList Icon */
+  #dataList img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
 
 
 

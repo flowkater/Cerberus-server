@@ -25,6 +25,7 @@
 @s3 = @scenario.records.create!(act_type: "enterText", view: "Test", param: "", parent_id: @s2.id)
 @s4 = @scenario.records.create!(act_type: "Click", view: "R.id.button2", param: "", parent_id: @s3.id)
 
+
 @report1 = @project.reports.create!(appversion: 1.0,osversion: 4.1 ,scenario_id: @scenario.id, time_for_profiling: 120)
 @report2 = @project.reports.create!(appversion: 1.2,osversion: 4.1, scenario_id: @scenario.id, time_for_profiling: 720)
 @report3 = @project.reports.create!(appversion: 1.3,osversion: 4.1, scenario_id: @scenario.id, time_for_profiling: 620)

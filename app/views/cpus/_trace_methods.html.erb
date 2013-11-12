@@ -1,6 +1,6 @@
 <% object.each do |root|  %>
 	<tr>
-		<td><div style="margin-left:<%= root.parent_level * 20 %>px;"><%= root.methodName %><div></td>
+		<td><div style="margin-left:<%= root.parent_level * 20 %>px;"><%= root.parent_level %>  <%= root.methodName %><div></td>
 		<td><%= root.excl %></td>
 		<td><%= root.total %></td>
 	</tr>

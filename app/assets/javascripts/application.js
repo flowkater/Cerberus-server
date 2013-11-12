@@ -14,10 +14,5 @@
 //= require jquery_ujs
 //= require application_init
 //= require d3
-//= require network_latency_bar_chart
-//= require battery_treemap
-//= require raphael-min
-//= require g-raphael-min
-//= require g-pie-min
-//= require cpu_call_tree
-//= require memory_pie_chart
+
+

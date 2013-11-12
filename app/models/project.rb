@@ -20,7 +20,7 @@ class Project < ActiveRecord::Base
 
   def reports_period
     "#{reports.first.created_at_date} ~ #{reports.last.created_at_date}"
-  end
+  end  
 
   private 
 

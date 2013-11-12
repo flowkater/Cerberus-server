@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    session[:project] = nil
     @project = current_user.projects.build
     @projects = Project.all
   end

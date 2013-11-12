@@ -4,7 +4,7 @@ $(document).ready(function(){
 			pieWidth = width / 2;
 
   var r = Raphael("leak-suspect-pie"),
-          pie = r.piechart(pieWidth, 150, radius, [55, 20, 13, 32, 5, 1, 2, 10, 56, 78], { legend: ["%%.%% - onCreate", "%%.%% - getImage", "%%.%% - getBitmap", "%%.%% - downloadNetwork"], legendpos: "west", href: ["http://raphaeljs.com", "http://g.raphaeljs.com"], colors: ['red', 'orange', 'yellow','green','springgreen','cyan','blue']});
+          pie = r.piechart(pieWidth, 150, radius, [55, 20, 13, 32, 5, 1, 2, 10, 56, 78], { legend: ["%%.%% - onCreate", "%%.%% - getImage", "%%.%% - getBitmap", "%%.%% - downloadNetwork"], legendpos: "west", href: ["http://raphaeljs.com", "http://g.raphaeljs.com"]});
 
   r.text(pieWidth, 10, "Leak Suspect").attr({ font: "20px sans-serif" });
 

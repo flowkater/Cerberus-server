@@ -1,4 +1,6 @@
 class BatteriesController < ApplicationController
+  before_filter :authenticate_user!
+  
   def show
 		@report = Report.find(params[:report_id])
 		@project = @report.project

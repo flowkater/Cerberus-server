@@ -10,18 +10,19 @@ class ReportsController < ApplicationController
   	@report = Report.find(params[:id])
 
     @memory = @report.memory
+    @leak_instances = @memory.leak_instances
 
     # CPU 
     @cpu = @report.cpu
-    @trace_methods = @cpu.trace_methods unless @cpu.nil?
+    @trace_methods = @cpu.trace_methods# unless @cpu.nil?
 
     # Network
     @network = @report.network
-    @latency_methods = @network.latency_methods unless @network.nil?
+    @latency_methods = @network.latency_methods# unless @network.nil?
 
     # Battery
     @battery = @report.battery
-    @components = @battery.components unless @battery.nil?
+    @components = @battery.components# unless @battery.nil?
     
     @project = @report.project
   end

@@ -1,0 +1,1233 @@
+[
+  {
+    "instanceid": "0x42a4ff00",
+    "instancename": "byte[]",
+    "size": 1536008,
+    "leak_suspect": "10.36%",
+    "children_attributes": [
+      {
+        "instancename": "byte[]",
+        "size": 1536008,
+        "instanceid": "0x42a4ff00",
+        "children_attributes": [
+          {
+            "instancename": "android.graphics.Bitmap",
+            "size": 42,
+            "instanceid": "0x42a43dd0",
+            "children_attributes": [
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x42a47568",
+                "children_attributes": [
+                  {
+                    "instancename": "android.widget.LinearLayout",
+                    "size": 502,
+                    "instanceid": "0x42a4fb98",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.view.View[]",
+                        "size": 56,
+                        "instanceid": "0x42a4ec28",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.widget.FrameLayout",
+                            "size": 487,
+                            "instanceid": "0x42a4e988",
+                            "children_attributes": []
+                          }
+                        ]
+                      },
+                      {
+                        "instancename": "android.widget.FrameLayout",
+                        "size": 487,
+                        "instanceid": "0x42a32840",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.view.View[]",
+                            "size": 56,
+                            "instanceid": "0x42a323d8",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.view.ViewGroup$3",
+                            "size": 12,
+                            "instanceid": "0x42a46e68",
+                            "children_attributes": []
+                          }
+                        ]
+                      },
+                      {
+                        "instancename": "android.widget.TextView",
+                        "size": 625,
+                        "instanceid": "0x42a32cd8",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.widget.TextView$IClipboardDataPasteEventImpl",
+                            "size": 16,
+                            "instanceid": "0x42a43c28",
+                            "children_attributes": []
+                          }
+                        ]
+                      },
+                      {
+                        "instancename": "android.widget.LinearLayout",
+                        "size": 502,
+                        "instanceid": "0x42a32160",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.view.ViewGroup$3",
+                            "size": 12,
+                            "instanceid": "0x42a4f3e0",
+                            "children_attributes": []
+                          }
+                        ]
+                      },
+                      {
+                        "instancename": "java.lang.ref.WeakReference",
+                        "size": 24,
+                        "instanceid": "0x42a32440",
+                        "children_attributes": []
+                      },
+                      {
+                        "instancename": "android.widget.FrameLayout",
+                        "size": 487,
+                        "instanceid": "0x42a372c8",
+                        "children_attributes": []
+                      },
+                      {
+                        "instancename": "android.view.ViewGroup$3",
+                        "size": 12,
+                        "instanceid": "0x42a2b398",
+                        "children_attributes": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "instanceid": "0x42a2d168",
+                "children_attributes": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "instanceid": "0x4211de90",
+    "instancename": "byte[]",
+    "size": 1127528,
+    "leak_suspect": "7.61%",
+    "children_attributes": [
+      {
+        "instancename": "byte[]",
+        "size": 1127528,
+        "instanceid": "0x4211de90",
+        "children_attributes": [
+          {
+            "instancename": "android.graphics.Bitmap",
+            "size": 42,
+            "instanceid": "0x420da078",
+            "children_attributes": [
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x42d2c388",
+                "children_attributes": [
+                  {
+                    "instancename": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "instanceid": "0x42d27ed0",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.widget.ListView",
+                        "size": 994,
+                        "instanceid": "0x42cab658",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.widget.LinearLayout",
+                            "size": 502,
+                            "instanceid": "0x42ec2178",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.widget.AbsListView$4",
+                            "size": 12,
+                            "instanceid": "0x42d2fc78",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "java.lang.ref.FinalizerReference",
+                            "size": 36,
+                            "instanceid": "0x42d27ea8",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.widget.LinearLayout",
+                            "size": 502,
+                            "instanceid": "0x42c061a8",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.widget.LinearLayout",
+                            "size": 502,
+                            "instanceid": "0x42cbb268",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "java.lang.ref.WeakReference",
+                            "size": 24,
+                            "instanceid": "0x42d3df80",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.view.View$ScrollabilityCache",
+                            "size": 69,
+                            "instanceid": "0x42d2f080",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.widget.AbsListView$RecycleBin",
+                            "size": 44,
+                            "instanceid": "0x42d2fbf8",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.widget.LinearLayout",
+                            "size": 502,
+                            "instanceid": "0x42c0ef30",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.view.View[]",
+                            "size": 56,
+                            "instanceid": "0x42eddf08",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "edu.umich.PowerTutor.ui.MiscView$1",
+                            "size": 57,
+                            "instanceid": "0x42d3e108",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.view.ViewGroup$3",
+                            "size": 12,
+                            "instanceid": "0x42d2f410",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.widget.LinearLayout",
+                            "size": 502,
+                            "instanceid": "0x42d260b8",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x42d2f018",
+                "children_attributes": [
+                  {
+                    "instancename": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "instanceid": "0x42d2c420",
+                    "children_attributes": []
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x42d08940",
+                "children_attributes": [
+                  {
+                    "instancename": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "instanceid": "0x42d08830",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.widget.ListView",
+                        "size": 994,
+                        "instanceid": "0x42c86628",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.widget.LinearLayout",
+                            "size": 502,
+                            "instanceid": "0x42c07080",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.view.ViewGroup$3",
+                            "size": 12,
+                            "instanceid": "0x42c7ae30",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.view.ViewRootImpl",
+                            "size": 459,
+                            "instanceid": "0x42e988a0",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.widget.LinearLayout",
+                            "size": 502,
+                            "instanceid": "0x42cb39e8",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.widget.LinearLayout",
+                            "size": 502,
+                            "instanceid": "0x42eb0a10",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.view.View$ScrollabilityCache",
+                            "size": 69,
+                            "instanceid": "0x42e63d50",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "java.lang.ref.WeakReference",
+                            "size": 24,
+                            "instanceid": "0x42ce0598",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.widget.LinearLayout",
+                            "size": 502,
+                            "instanceid": "0x42ceecc0",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.widget.AbsListView$4",
+                            "size": 12,
+                            "instanceid": "0x42c86d98",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "edu.umich.PowerTutor.ui.MiscView$1",
+                            "size": 57,
+                            "instanceid": "0x42ec7658",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "java.lang.ref.FinalizerReference",
+                            "size": 36,
+                            "instanceid": "0x42c03e88",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.widget.LinearLayout",
+                            "size": 502,
+                            "instanceid": "0x42ec1ea0",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.widget.AbsListView$RecycleBin",
+                            "size": 44,
+                            "instanceid": "0x42c7aea8",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "instanceid": "0x41fee5b8",
+                "children_attributes": []
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x42d4c160",
+                "children_attributes": [
+                  {
+                    "instancename": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "instanceid": "0x42d4c050",
+                    "children_attributes": [
+                      {
+                        "instancename": "edu.umich.PowerTutor.ui.PowerViewer$1",
+                        "size": 615,
+                        "instanceid": "0x42d4bd90",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.view.ViewGroup$3",
+                            "size": 12,
+                            "instanceid": "0x42d55c58",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.view.View$ScrollabilityCache",
+                            "size": 69,
+                            "instanceid": "0x42d4c360",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.widget.LinearLayout",
+                            "size": 502,
+                            "instanceid": "0x42c96878",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.view.View[]",
+                            "size": 56,
+                            "instanceid": "0x42c82de0",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x42d4c2e8",
+                "children_attributes": [
+                  {
+                    "instancename": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "instanceid": "0x42d4c1d8",
+                    "children_attributes": []
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x42bda058",
+                "children_attributes": [
+                  {
+                    "instancename": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "instanceid": "0x42bf3380",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.widget.ScrollView",
+                        "size": 611,
+                        "instanceid": "0x42bffde0",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.widget.LinearLayout",
+                            "size": 502,
+                            "instanceid": "0x42c44af0",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.view.ViewGroup$3",
+                            "size": 12,
+                            "instanceid": "0x42a21108",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.view.View[]",
+                            "size": 56,
+                            "instanceid": "0x42a20de8",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.view.View$ScrollabilityCache",
+                            "size": 69,
+                            "instanceid": "0x42bf5b98",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x42c1cc78",
+                "children_attributes": [
+                  {
+                    "instancename": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "instanceid": "0x42bf31d8",
+                    "children_attributes": []
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x42c0c760",
+                "children_attributes": [
+                  {
+                    "instancename": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "instanceid": "0x42c0c650",
+                    "children_attributes": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "instanceid": "0x42501cc0",
+    "instancename": "byte[]",
+    "size": 1048584,
+    "leak_suspect": "7.07%",
+    "children_attributes": [
+      {
+        "instancename": "byte[]",
+        "size": 1048584,
+        "instanceid": "0x42501cc0",
+        "children_attributes": [
+          {
+            "instancename": "android.graphics.Bitmap",
+            "size": 42,
+            "instanceid": "0x426051e8",
+            "children_attributes": [
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x42a4ef60",
+                "children_attributes": [
+                  {
+                    "instancename": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "instanceid": "0x42a4ee38",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.graphics.drawable.StateListDrawable$StateListState",
+                        "size": 74,
+                        "instanceid": "0x42a4edc8",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.StateListDrawable",
+                            "size": 79,
+                            "instanceid": "0x42a4ed68",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "java.lang.ref.WeakReference",
+                            "size": 24,
+                            "instanceid": "0x42a4f028",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x42605e90",
+                "children_attributes": [
+                  {
+                    "instancename": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "instanceid": "0x42605be0",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.graphics.drawable.StateListDrawable$StateListState",
+                        "size": 74,
+                        "instanceid": "0x42605b70",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.StateListDrawable",
+                            "size": 79,
+                            "instanceid": "0x42605b10",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "java.lang.Object[]",
+                            "size": 2048,
+                            "instanceid": "0x426eb578",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x42bd82c8",
+                "children_attributes": [
+                  {
+                    "instancename": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "instanceid": "0x42bf1470",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.graphics.drawable.StateListDrawable$StateListState",
+                        "size": 74,
+                        "instanceid": "0x42bf1400",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.StateListDrawable",
+                            "size": 79,
+                            "instanceid": "0x42bfb130",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x42d08728",
+                "children_attributes": [
+                  {
+                    "instancename": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "instanceid": "0x42d08600",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.graphics.drawable.StateListDrawable$StateListState",
+                        "size": 74,
+                        "instanceid": "0x42d08590",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.StateListDrawable",
+                            "size": 79,
+                            "instanceid": "0x42cff800",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "instanceid": "0x42605350",
+                "children_attributes": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "instanceid": "0x427a1060",
+    "instancename": "byte[]",
+    "size": 1048584,
+    "leak_suspect": "7.07%",
+    "children_attributes": [
+      {
+        "instancename": "byte[]",
+        "size": 1048584,
+        "instanceid": "0x427a1060",
+        "children_attributes": [
+          {
+            "instancename": "android.graphics.Bitmap",
+            "size": 42,
+            "instanceid": "0x428a1370",
+            "children_attributes": [
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "instanceid": "0x428a1418",
+                "children_attributes": [
+                  {
+                    "instancename": "java.lang.Object[]",
+                    "size": 2048,
+                    "instanceid": "0x426eb578",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.util.LongSparseArray",
+                        "size": 21,
+                        "instanceid": "0x41d73430",
+                        "children_attributes": [
+                          {
+                            "instancename": "java.lang.Class",
+                            "size": 168,
+                            "instanceid": "0x41d91700",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "instanceid": "0x423f4cb8",
+    "instancename": "byte[]",
+    "size": 1048584,
+    "leak_suspect": "7.07%",
+    "children_attributes": [
+      {
+        "instancename": "byte[]",
+        "size": 1048584,
+        "instanceid": "0x423f4cb8",
+        "children_attributes": [
+          {
+            "instancename": "android.graphics.Bitmap",
+            "size": 42,
+            "instanceid": "0x42500e68",
+            "children_attributes": [
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x426064d0",
+                "children_attributes": [
+                  {
+                    "instancename": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "instanceid": "0x426062e0",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.graphics.drawable.StateListDrawable$StateListState",
+                        "size": 74,
+                        "instanceid": "0x42606270",
+                        "children_attributes": [
+                          {
+                            "instancename": "java.lang.Object[]",
+                            "size": 2048,
+                            "instanceid": "0x426eb578",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.graphics.drawable.StateListDrawable",
+                            "size": 79,
+                            "instanceid": "0x42606210",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "instanceid": "0x42501058",
+                "children_attributes": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "instanceid": "0x42372b18",
+    "instancename": "byte[]",
+    "size": 155144,
+    "leak_suspect": "1.05%",
+    "children_attributes": [
+      {
+        "instancename": "byte[]",
+        "size": 155144,
+        "instanceid": "0x42372b18",
+        "children_attributes": [
+          {
+            "instancename": "android.graphics.Bitmap",
+            "size": 42,
+            "instanceid": "0x42398ff8",
+            "children_attributes": [
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "instanceid": "0x423991d8",
+                "children_attributes": [
+                  {
+                    "instancename": "java.lang.Object[]",
+                    "size": 2048,
+                    "instanceid": "0x426eb578",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.util.LongSparseArray",
+                        "size": 21,
+                        "instanceid": "0x41d73430",
+                        "children_attributes": [
+                          {
+                            "instancename": "java.lang.Class",
+                            "size": 168,
+                            "instanceid": "0x41d91700",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "instancename": "android.graphics.drawable.BitmapDrawable",
+                    "size": 55,
+                    "instanceid": "0x42399190",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.graphics.drawable.Drawable[]",
+                        "size": 48,
+                        "instanceid": "0x422afa28",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.AnimationDrawable$AnimationState",
+                            "size": 75,
+                            "instanceid": "0x422af9b8",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "instanceid": "0x422b0268",
+    "instancename": "byte[]",
+    "size": 155144,
+    "leak_suspect": "1.05%",
+    "children_attributes": [
+      {
+        "instancename": "byte[]",
+        "size": 155144,
+        "instanceid": "0x422b0268",
+        "children_attributes": [
+          {
+            "instancename": "android.graphics.Bitmap",
+            "size": 42,
+            "instanceid": "0x422d6700",
+            "children_attributes": [
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x422d6760",
+                "children_attributes": [
+                  {
+                    "instancename": "android.graphics.drawable.AnimationDrawable",
+                    "size": 83,
+                    "instanceid": "0x422af778",
+                    "children_attributes": [
+                      {
+                        "instancename": "java.lang.ref.WeakReference",
+                        "size": 24,
+                        "instanceid": "0x42399380",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.BitmapDrawable",
+                            "size": 55,
+                            "instanceid": "0x42399190",
+                            "children_attributes": []
+                          }
+                        ]
+                      },
+                      {
+                        "instancename": "java.lang.ref.WeakReference",
+                        "size": 24,
+                        "instanceid": "0x423bffa0",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.BitmapDrawable",
+                            "size": 55,
+                            "instanceid": "0x423bfc00",
+                            "children_attributes": []
+                          }
+                        ]
+                      },
+                      {
+                        "instancename": "java.lang.ref.WeakReference",
+                        "size": 24,
+                        "instanceid": "0x422fd938",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.BitmapDrawable",
+                            "size": 55,
+                            "instanceid": "0x422fd638",
+                            "children_attributes": []
+                          }
+                        ]
+                      },
+                      {
+                        "instancename": "java.lang.ref.WeakReference",
+                        "size": 24,
+                        "instanceid": "0x422d69e0",
+                        "children_attributes": []
+                      },
+                      {
+                        "instancename": "java.lang.ref.WeakReference",
+                        "size": 24,
+                        "instanceid": "0x4234c3f8",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.BitmapDrawable",
+                            "size": 55,
+                            "instanceid": "0x4234c1b0",
+                            "children_attributes": []
+                          }
+                        ]
+                      },
+                      {
+                        "instancename": "android.graphics.drawable.AnimationDrawable$AnimationState",
+                        "size": 75,
+                        "instanceid": "0x422af9b8",
+                        "children_attributes": [
+                          {
+                            "instancename": "java.lang.Object[]",
+                            "size": 2048,
+                            "instanceid": "0x426eb578",
+                            "children_attributes": []
+                          }
+                        ]
+                      },
+                      {
+                        "instancename": "java.lang.ref.WeakReference",
+                        "size": 24,
+                        "instanceid": "0x423e7060",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.BitmapDrawable",
+                            "size": 55,
+                            "instanceid": "0x423e6de0",
+                            "children_attributes": []
+                          }
+                        ]
+                      },
+                      {
+                        "instancename": "java.lang.ref.WeakReference",
+                        "size": 24,
+                        "instanceid": "0x42098cf0",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.BitmapDrawable",
+                            "size": 55,
+                            "instanceid": "0x422acd70",
+                            "children_attributes": []
+                          }
+                        ]
+                      },
+                      {
+                        "instancename": "java.lang.ref.WeakReference",
+                        "size": 24,
+                        "instanceid": "0x42325388",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.BitmapDrawable",
+                            "size": 55,
+                            "instanceid": "0x423250d8",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "instancename": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "instanceid": "0x422afa28",
+                    "children_attributes": []
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "instanceid": "0x422d67a8",
+                "children_attributes": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "instanceid": "0x42325c70",
+    "instancename": "byte[]",
+    "size": 155144,
+    "leak_suspect": "1.05%",
+    "children_attributes": [
+      {
+        "instancename": "byte[]",
+        "size": 155144,
+        "instanceid": "0x42325c70",
+        "children_attributes": [
+          {
+            "instancename": "android.graphics.Bitmap",
+            "size": 42,
+            "instanceid": "0x4234c150",
+            "children_attributes": [
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "instanceid": "0x4234c1f8",
+                "children_attributes": [
+                  {
+                    "instancename": "java.lang.Object[]",
+                    "size": 2048,
+                    "instanceid": "0x426eb578",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.util.LongSparseArray",
+                        "size": 21,
+                        "instanceid": "0x41d73430",
+                        "children_attributes": [
+                          {
+                            "instancename": "java.lang.Class",
+                            "size": 168,
+                            "instanceid": "0x41d91700",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "instancename": "android.graphics.drawable.BitmapDrawable",
+                    "size": 55,
+                    "instanceid": "0x4234c1b0",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.graphics.drawable.Drawable[]",
+                        "size": 48,
+                        "instanceid": "0x422afa28",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.AnimationDrawable$AnimationState",
+                            "size": 75,
+                            "instanceid": "0x422af9b8",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "instanceid": "0x42399598",
+    "instancename": "byte[]",
+    "size": 155144,
+    "leak_suspect": "1.05%",
+    "children_attributes": [
+      {
+        "instancename": "byte[]",
+        "size": 155144,
+        "instanceid": "0x42399598",
+        "children_attributes": [
+          {
+            "instancename": "android.graphics.Bitmap",
+            "size": 42,
+            "instanceid": "0x423bfb78",
+            "children_attributes": [
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x423bfc00",
+                "children_attributes": [
+                  {
+                    "instancename": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "instanceid": "0x422afa28",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.graphics.drawable.AnimationDrawable$AnimationState",
+                        "size": 75,
+                        "instanceid": "0x422af9b8",
+                        "children_attributes": [
+                          {
+                            "instancename": "java.lang.Object[]",
+                            "size": 2048,
+                            "instanceid": "0x426eb578",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.graphics.drawable.AnimationDrawable",
+                            "size": 83,
+                            "instanceid": "0x422af778",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "instanceid": "0x423bfc48",
+                "children_attributes": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "instanceid": "0x422d6df8",
+    "instancename": "byte[]",
+    "size": 155144,
+    "leak_suspect": "1.05%",
+    "children_attributes": [
+      {
+        "instancename": "byte[]",
+        "size": 155144,
+        "instanceid": "0x422d6df8",
+        "children_attributes": [
+          {
+            "instancename": "android.graphics.Bitmap",
+            "size": 42,
+            "instanceid": "0x422fd520",
+            "children_attributes": [
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "instanceid": "0x422fd6c8",
+                "children_attributes": [
+                  {
+                    "instancename": "java.lang.Object[]",
+                    "size": 2048,
+                    "instanceid": "0x426eb578",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.util.LongSparseArray",
+                        "size": 21,
+                        "instanceid": "0x41d73430",
+                        "children_attributes": [
+                          {
+                            "instancename": "java.lang.Class",
+                            "size": 168,
+                            "instanceid": "0x41d91700",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "instancename": "android.graphics.drawable.BitmapDrawable",
+                    "size": 55,
+                    "instanceid": "0x422fd638",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.graphics.drawable.Drawable[]",
+                        "size": 48,
+                        "instanceid": "0x422afa28",
+                        "children_attributes": [
+                          {
+                            "instancename": "android.graphics.drawable.AnimationDrawable$AnimationState",
+                            "size": 75,
+                            "instanceid": "0x422af9b8",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "instanceid": "0x4234cd00",
+    "instancename": "byte[]",
+    "size": 155144,
+    "leak_suspect": "1.05%",
+    "children_attributes": [
+      {
+        "instancename": "byte[]",
+        "size": 155144,
+        "instanceid": "0x4234cd00",
+        "children_attributes": [
+          {
+            "instancename": "android.graphics.Bitmap",
+            "size": 42,
+            "instanceid": "0x42027128",
+            "children_attributes": [
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "instanceid": "0x422acd70",
+                "children_attributes": [
+                  {
+                    "instancename": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "instanceid": "0x422afa28",
+                    "children_attributes": [
+                      {
+                        "instancename": "android.graphics.drawable.AnimationDrawable$AnimationState",
+                        "size": 75,
+                        "instanceid": "0x422af9b8",
+                        "children_attributes": [
+                          {
+                            "instancename": "java.lang.Object[]",
+                            "size": 2048,
+                            "instanceid": "0x426eb578",
+                            "children_attributes": []
+                          },
+                          {
+                            "instancename": "android.graphics.drawable.AnimationDrawable",
+                            "size": 83,
+                            "instanceid": "0x422af778",
+                            "children_attributes": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "instancename": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "instanceid": "0x422abfe0",
+                "children_attributes": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

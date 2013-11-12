@@ -1,0 +1,8 @@
+<% object.each do |root|  %>
+	<tr>
+		<td><div style="margin-left:<%= root.parent_level * 20 %>px;"><%= root.parent_level %>  <%= root.instancename %><div></td>
+		<td></td>
+		<td><%= root.size %></td>
+	</tr>
+	<%= render 'memories/leak_instances', object: root.children %>
+<% end  %>

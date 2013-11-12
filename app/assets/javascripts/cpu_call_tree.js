@@ -19,7 +19,7 @@ $(document).ready(function() {
 
 	var url = window.location.pathname.split('/');
 	
-	d3.json("/api/v1/cpus/4", function(json) {
+	d3.json("/api/v1/reports/" + url[url.length - 1] +"/cpu", function(json) {
 	    root = json;
 	    root.x0 = h / 2;
 	    root.y0 = 0;

@@ -5,7 +5,7 @@
   "calls": 6,
   "excl": 3253,
   "methodName": "edu/umich/PowerTutor/components/PowerComponent.run ()V",
-  "children": [
+  "children_attribute": [
     {
       "index": 2,
       "total": "35.4%",
@@ -13,7 +13,7 @@
       "calls": 15,
       "excl": 137183,
       "methodName": "edu/umich/PowerTutor/components/CPU.calculateIteration (J)Ledu/umich/PowerTutor/service/IterationData;",
-      "children": [
+      "children_attribute": [
         {
           "index": 7,
           "total": "15.1%",
@@ -21,7 +21,7 @@
           "calls": 1256,
           "excl": 40001,
           "methodName": "edu/umich/PowerTutor/util/SystemInfo.getPidUsrSysTime (I[J)Z",
-          "children": []
+          "children_attribute": []
         },
         {
           "index": 22,
@@ -30,7 +30,7 @@
           "calls": 462,
           "excl": 8554,
           "methodName": "edu/umich/PowerTutor/util/SystemInfo.getUidForPid (I)I",
-          "children": []
+          "children_attribute": []
         },
         {
           "index": 77,
@@ -39,7 +39,7 @@
           "calls": 15,
           "excl": 297,
           "methodName": "edu/umich/PowerTutor/util/SystemInfo.getPids ([I)[I",
-          "children": []
+          "children_attribute": []
         },
         {
           "index": 80,
@@ -48,7 +48,7 @@
           "calls": 1271,
           "excl": 14153,
           "methodName": "edu/umich/PowerTutor/components/CPU$CpuStateKeeper.updateState (JJJJ)V",
-          "children": []
+          "children_attribute": []
         }
       ]
     },
@@ -59,7 +59,7 @@
       "calls": 15,
       "excl": 886,
       "methodName": "edu/umich/PowerTutor/components/LCD.calculateIteration (J)Ledu/umich/PowerTutor/service/IterationData;",
-      "children": [
+      "children_attribute": [
         {
           "index": 9,
           "total": "12.1%",
@@ -67,7 +67,7 @@
           "calls": 15,
           "excl": 8355,
           "methodName": "edu/umich/PowerTutor/util/ForegroundDetector.getForegroundUid ()I",
-          "children": [
+          "children_attribute": [
             {
               "index": 22,
               "total": "7.2%",
@@ -75,7 +75,7 @@
               "calls": 462,
               "excl": 8554,
               "methodName": "edu/umich/PowerTutor/util/SystemInfo.getUidForPid (I)I",
-              "children": []
+              "children_attribute": []
             }
           ]
         }
@@ -88,7 +88,7 @@
       "calls": 15,
       "excl": 21390,
       "methodName": "edu/umich/PowerTutor/components/Threeg.calculateIteration (J)Ledu/umich/PowerTutor/service/IterationData;",
-      "children": [
+      "children_attribute": [
         {
           "index": 39,
           "total": "3.0%",
@@ -96,7 +96,7 @@
           "calls": 474,
           "excl": 3740,
           "methodName": "edu/umich/PowerTutor/components/Threeg.readLongFromFile (Ljava/lang/String;)J",
-          "children": []
+          "children_attribute": []
         }
       ]
     }

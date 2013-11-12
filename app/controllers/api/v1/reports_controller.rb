@@ -74,4 +74,25 @@ class Api::V1::ReportsController < ApplicationController
 			end
 		end
 	end
+
+	def memory_leak_instance
+		@report = Report.find(params[:id])
+		@memory = @report.memory
+		@leak_instances = @memory.leak_instances
+		render 'memories/v1/leak_instances'
+	end
+
+	def memory_leak_class
+		@report = Report.find(params[:id])
+		@memory = @report.memory
+		@leak_classes = @memory.leak_classes
+		render 'memories/v1/leak_classes'
+	end
+
+	def cpu
+		@report = Report.find(params[:id])
+		@cpu = @report.cpu
+		@trace_method = @cpu.trace_methods.first
+		render 'cpus/v1/show'
+	end
 end

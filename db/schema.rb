@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131107082348) do
+ActiveRecord::Schema.define(:version => 20131112090437) do
 
   create_table "batteries", :force => true do |t|
     t.string   "report_id"
@@ -63,11 +63,26 @@ ActiveRecord::Schema.define(:version => 20131107082348) do
 
   add_index "latency_methods", ["network_id"], :name => "index_latency_methods_on_network_id"
 
-  create_table "leak_instances", :force => true do |t|
-    t.string   "name"
+  create_table "leak_classes", :force => true do |t|
+    t.string   "classname"
+    t.integer  "differencecnt"
+    t.integer  "totalsize"
     t.integer  "memory_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "leak_classes", ["memory_id"], :name => "index_leak_classes_on_memory_id"
+
+  create_table "leak_instances", :force => true do |t|
+    t.string   "instancename"
+    t.string   "instanceid"
+    t.float    "size"
+    t.float    "leak_suspect"
+    t.integer  "parent_id"
+    t.integer  "memory_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "leak_instances", ["memory_id"], :name => "index_leak_instances_on_memory_id"

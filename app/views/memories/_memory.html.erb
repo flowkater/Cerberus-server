@@ -122,18 +122,17 @@
 							</tr>
 						</thead>
 						<tbody >
-							<% 10.times do %>
+							<% @leak_instances.each do |i|  %>
 								<tr>
-									<td>com.sw.taskShow.onCreate</td>
-
+									<td><%= i.instancename %></td>
                   <td>
                    <div class="fancyprogress">
-                   <% firstversion = 50 %>
-                   <span class="orange" style="width: <%= firstversion %>%;"><span><%= firstversion %>%</span></span>
+                   <span class="orange" style="width: <%= i.leak_suspect %>%;"><span><%= i.leak_suspect %>%</span></span>
                    </div>
                    </td>
-									<td>98732</td>
+									<td><%= i.size %></td>
 								</tr>
+								<%= render 'memories/leak_instances', object: i.children %>
 							<% end  %>
 						</tbody>
 					</table>

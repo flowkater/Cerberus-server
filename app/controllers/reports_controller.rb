@@ -3,7 +3,8 @@ class ReportsController < ApplicationController
   
   def index
     @project = Project.find(params[:project_id])
-    @reports = @project.reports
+    @search = @project.reports.search(appversion_in: params[:appversions], osversion_in: params[:osversions],memory_checked_eq: params[:memory], cpu_checked_eq: params[:cpu], network_checked_eq: params[:network],battery_checked_eq: params[:battery], scenario_test_eq: params[:scenario], error_status_eq: params[:status])
+    @reports = @search.result.page(params[:page]).per(10)
   end
 
   def show
@@ -25,5 +26,15 @@ class ReportsController < ApplicationController
     @components = @battery.components unless @battery.nil?
     
     @project = @report.project
+  end
+
+  def app_os_version_count
+    @project = Project.find(params[:project_id])
+    @reports_app_version_count = @project.reports_app_version_count
+    @reports_os_version_count = @project.reports_os_version_count
+    
+    respond_to do |format|
+      format.json {render json: {app: @reports_app_version_count ,os: @reports_os_version_count}}
+    end
   end
 end

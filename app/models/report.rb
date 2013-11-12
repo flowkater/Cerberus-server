@@ -1,4 +1,5 @@
 class Report < ActiveRecord::Base
+  # only show completed report
 	default_scope order 'created_at DESC'
 
   attr_accessible :appversion, :project, :scenario_id, :time_for_profiling, :osversion,
@@ -24,10 +25,10 @@ class Report < ActiveRecord::Base
 
   def categories
     categories = []
-    categories << "Memory" if memory
-    categories << "CPU" if cpu
-    categories << "Network" if network
-    categories << "Battery" if battery
+    categories << "Memory" if memory_checked
+    categories << "CPU" if cpu_checked
+    categories << "Network" if network_checked
+    categories << "Battery" if battery_checked
     categories
   end
 

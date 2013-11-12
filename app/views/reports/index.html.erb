@@ -241,7 +241,7 @@ function myFunction(clicked_id)
 								</td>
 							</tr>
 							<tr>
-								<td>Error Occurred</td>
+								<td>Status</td>
 																<td class="in-checkbox">
 								<button style="width:100%">
 									<!-- <input type="checkbox" class="icheck" checked id="icheck1"> -->
@@ -250,11 +250,11 @@ function myFunction(clicked_id)
 								</td>
 								<td class="in-checkbox">
 									<input type="radio" name="optionsRadios[error]" class="icheck" id="iradio1">
-              						    <label for="iradio3">Yes</label>
+              						    <label for="iradio3">Success</label>
 								</td>
 								<td class="in-checkbox">
 									<input type="radio" name="optionsRadios[error]" class="icheck" checked id="iradio4">
-             					     <label for="iradio2">No</label>
+             					     <label for="iradio2">Fail</label>
 								</td>
 							</tr>
 						</tbody>
@@ -299,12 +299,7 @@ function myFunction(clicked_id)
 			</div>
 			<div class="text-center">
 				<ul class="pagination">
-					<li><a href="#">Prev</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">Next</a></li>
+					<%= paginate @reports %>
 				</ul>
 			</div>
 		</div>

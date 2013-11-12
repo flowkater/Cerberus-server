@@ -7,6 +7,12 @@ class CreateReports < ActiveRecord::Migration
       t.integer :scenario_id
       t.decimal :time_for_profiling
       t.boolean :completed, default: false
+      t.boolean :scenario_test
+      t.boolean :error_status
+      t.boolean :memory_checked
+      t.boolean :cpu_checked
+      t.boolean :network_checked
+      t.boolean :battery_checked
 
       t.timestamps
     end

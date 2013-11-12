@@ -18,7 +18,11 @@ CerberusServer::Application.routes.draw do
 
   resources 'projects', except: [:new] do
     resources 'scenarios'
-    resources 'reports'
+    resources 'reports' do
+      collection do
+        get 'app_os_version_count'
+      end
+    end
   end
 
   resources 'reports',only: [:index, :show] do

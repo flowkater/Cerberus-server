@@ -22,6 +22,22 @@ class Project < ActiveRecord::Base
     "#{reports.first.created_at_date} ~ #{reports.last.created_at_date}"
   end  
 
+  def reports_app_version_count
+    arr = reports.collect{|r| r.appversion }
+    arr_uniq = arr.uniq
+    result = []
+    arr_uniq.each {|a| result << {appversion: a, count: arr.select{|i| i==a}.size}} 
+    result
+  end
+
+  def reports_os_version_count
+    arr = reports.collect{|r| r.osversion }
+    arr_uniq = arr.uniq
+    result = []
+    arr_uniq.each {|a| result << {osversion: a, count: arr.select{|i| i==a}.size}} 
+    result
+  end
+
   private 
 
   def generate_api_key

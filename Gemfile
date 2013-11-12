@@ -12,6 +12,7 @@ gem 'rabl'
 gem 'activerecord-import'
 gem 'carrierwave'
 gem 'ransack'
+gem 'kaminari'
 
 # Gems used only for assets and not required
 # in production environments by default.

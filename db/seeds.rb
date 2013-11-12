@@ -30,11 +30,16 @@
 @s9 = @scenario.records.create!(act_type: "Click", view: "R.id.button2", param: "", parent_id: @s8.id)
 @s10 = @scenario.records.create!(act_type: "Click", view: "R.id.button2", param: "", parent_id: @s9.id)
 
-@report1 = @project.reports.create!(appversion: 1.0,osversion: 4.1 ,scenario_id: @scenario.id, time_for_profiling: 120)
-@report2 = @project.reports.create!(appversion: 1.2,osversion: 4.1, scenario_id: @scenario.id, time_for_profiling: 720)
-@report3 = @project.reports.create!(appversion: 1.3,osversion: 4.1, scenario_id: @scenario.id, time_for_profiling: 620)
-@report4 = @project.reports.create!(appversion: 1.4,osversion: 4.1, scenario_id: @scenario.id, time_for_profiling: 3534)
-@report5 = @project.reports.create!(appversion: 1.5,osversion: 4.1, scenario_id: @scenario.id, time_for_profiling: 750)
+@report1 = @project.reports.create!(appversion: 1.0,osversion: 4.1 ,scenario_id: @scenario.id, time_for_profiling: 120, memory_checked: true, cpu_checked: true, network_checked:true, battery_checked:true)
+@report2 = @project.reports.create!(appversion: 1.2,osversion: 4.1, scenario_id: @scenario.id, time_for_profiling: 720, memory_checked: true, cpu_checked: false, network_checked:false, battery_checked:true)
+@report3 = @project.reports.create!(appversion: 1.3,osversion: 4.1, scenario_id: @scenario.id, time_for_profiling: 620, memory_checked: true, cpu_checked: true, network_checked:false, battery_checked:false)
+@report4 = @project.reports.create!(appversion: 1.4,osversion: 4.1, scenario_id: @scenario.id, time_for_profiling: 3534, memory_checked: true, cpu_checked: true, network_checked:false, battery_checked:true)
+@report5 = @project.reports.create!(appversion: 1.5,osversion: 4.1, scenario_id: @scenario.id, time_for_profiling: 750, memory_checked: true, cpu_checked: true, network_checked:true, battery_checked:true)
+
+100.times do
+	@project.reports.create!(appversion: 1.5,osversion: 4.1, scenario_id: @scenario.id, time_for_profiling: 750, memory_checked: true, cpu_checked: true, network_checked:true, battery_checked:true)
+end
+
 
 @report1.create_memory
 @report1.create_battery

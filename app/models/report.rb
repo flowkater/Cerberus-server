@@ -1,9 +1,9 @@
 class Report < ActiveRecord::Base
-  # only show completed report
-	default_scope order 'created_at DESC'
+	default_scope where('completed = ?',true).order('created_at DESC')
 
   attr_accessible :appversion, :project, :scenario_id, :time_for_profiling, :osversion,
-                :memory_checked, :cpu_checked, :network_checked, :battery_checked
+                :memory_checked, :cpu_checked, :network_checked, :battery_checked,
+                :completed, :scenario_test, :error_status
 
   belongs_to :project
   belongs_to :scenario
@@ -13,12 +13,20 @@ class Report < ActiveRecord::Base
   has_one :network, autosave: false
   has_one :battery, autosave: false
 
+  def top_leak_suspect
+    memory.leak_instances.first.leak_suspect unless memory.leak_instances.empty? if memory_checked
+  end
+
+  def top_cpu_excl
+    cpu.trace_methods.first.excl unless cpu.trace_methods.empty? if cpu_checked
+  end
+
   def top_latency
-    network.latency_methods.first.latency
+    network.latency_methods.first.latency unless network.latency_methods.empty? if network_checked
   end
 
   def top_joule
-    battery.components.first.joule
+    battery.components.first.joule unless battery.components.empty? if battery_checked
   end
 
 	# validates :appversion, presence: true

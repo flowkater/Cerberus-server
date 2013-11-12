@@ -17,6 +17,10 @@ CerberusServer::Application.routes.draw do
   devise_for :users, path_names: {sign_in: 'login', sign_up: 'register', sign_out: 'logout'}
 
   resources 'projects', except: [:new] do
+    get 'trend_memory'
+    get 'trend_cpu'
+    get 'trend_network'
+    get 'trend_battery'
     resources 'scenarios'
     resources 'reports' do
       collection do

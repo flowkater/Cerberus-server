@@ -38,6 +38,21 @@ class Project < ActiveRecord::Base
     result
   end
 
+  def reports_trend_memory
+    reports.collect{|r| {leak_suspect: r.top_leak_suspect, date: r.updated_at } }
+  end
+
+  def reports_trend_cpu
+    reports.collect{|r| {cpu_exclusive_time: r.top_cpu_excl, date: r.updated_at } }
+  end
+
+  def reports_trend_network
+    reports.collect{|r| {latency: r.top_latency, date: r.updated_at } }
+  end
+
+  def reports_trend_battery
+    reports.collect{|r| {joule: r.top_joule, date: r.updated_at } }
+  end
   private 
 
   def generate_api_key

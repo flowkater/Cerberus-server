@@ -271,7 +271,7 @@ function myFunction(clicked_id)
 							<tr>
 								<td></td>
 								<td>App version</td>
-								<td>Category(icon)</td>
+								<td>Category</td>
 								<td>Status</td>
 								<td>Time for Profiling</td>
 								<td>Date</td>
@@ -288,7 +288,7 @@ function myFunction(clicked_id)
 									<%= image_tag("Devices-network-wireless-connected-100-icon.png", :alt => "Edit Entry") if report.categories.include? 'Network' %>
 									<%= image_tag("Battery-icon.png", :alt => "Edit Entry") if report.categories.include? 'Battery'  %>
 									</td>
-									<td>Status</td>
+									<td><%= report.error_status %></td>
 									<td><%= report.time_for_profiling %></td>
 									<td><%= report.created_at_date %></td>
 								</tr>

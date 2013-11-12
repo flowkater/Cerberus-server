@@ -39,6 +39,8 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
+    bundle (0.0.1)
+      bundler
     capistrano (2.15.4)
       highline
       net-scp (>= 1.0.0)
@@ -218,6 +220,7 @@ DEPENDENCIES
   activerecord-import
   better_errors
   binding_of_caller
+  bundle
   capistrano
   carrierwave
   coffee-rails (~> 3.2.1)

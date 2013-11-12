@@ -1,0 +1,1150 @@
+[
+  {
+    "InstanceId": "0x42a4ff00",
+    "InstanceName": "byte[]",
+    "Size": 1536008,
+    "leak_suspect": "56.80%",
+    "ReferenceTo": [
+      {
+        "name": "byte[]",
+        "size": 1536008,
+        "id": "0x42a4ff00",
+        "reference": [
+          {
+            "name": "android.graphics.Bitmap",
+            "size": 42,
+            "id": "0x42a43dd0",
+            "reference": [
+              {
+                "name": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "id": "0x42a2d168",
+                "reference": [
+                  {
+                    "name": "java.lang.ref.WeakReference",
+                    "size": 24,
+                    "id": "0x42a40990",
+                    "reference": [
+                      {
+                        "name": "java.lang.Object[]",
+                        "size": 256,
+                        "id": "0x42cb6100",
+                        "reference": [
+                          {
+                            "name": "android.util.LongSparseArray",
+                            "size": 21,
+                            "id": "0x42a2a190",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "android.graphics.drawable.BitmapDrawable",
+                    "size": 55,
+                    "id": "0x42a47568",
+                    "reference": [
+                      {
+                        "name": "android.widget.LinearLayout",
+                        "size": 502,
+                        "id": "0x42a4fb98",
+                        "reference": [
+                          {
+                            "name": "android.widget.FrameLayout",
+                            "size": 487,
+                            "id": "0x42a372c8",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.view.View[]",
+                            "size": 56,
+                            "id": "0x42a4ec28",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.TextView",
+                            "size": 625,
+                            "id": "0x42a32cd8",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.view.ViewGroup$3",
+                            "size": 12,
+                            "id": "0x42a2b398",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.ref.WeakReference",
+                            "size": 24,
+                            "id": "0x42a32440",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.FrameLayout",
+                            "size": 487,
+                            "id": "0x42a32840",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.LinearLayout",
+                            "size": 502,
+                            "id": "0x42a32160",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "InstanceId": "0x4211de90",
+    "InstanceName": "byte[]",
+    "Size": 1127528,
+    "ReferenceTo": [
+      {
+        "name": "byte[]",
+        "size": 1127528,
+        "id": "0x4211de90",
+        "reference": [
+          {
+            "name": "android.graphics.Bitmap",
+            "size": 42,
+            "id": "0x420da078",
+            "reference": [
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x42d2c388",
+                "reference": [
+                  {
+                    "name": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "id": "0x42d27ed0",
+                    "reference": [
+                      {
+                        "name": "android.widget.ListView",
+                        "size": 994,
+                        "id": "0x42cab658",
+                        "reference": [
+                          {
+                            "name": "android.view.View[]",
+                            "size": 56,
+                            "id": "0x42eddf08",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.LinearLayout",
+                            "size": 502,
+                            "id": "0x42ec2178",
+                            "reference": []
+                          },
+                          {
+                            "name": "edu.umich.PowerTutor.ui.MiscView$1",
+                            "size": 57,
+                            "id": "0x42d3e108",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.view.View$ScrollabilityCache",
+                            "size": 69,
+                            "id": "0x42d2f080",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.LinearLayout",
+                            "size": 502,
+                            "id": "0x42cbb268",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.ref.FinalizerReference",
+                            "size": 36,
+                            "id": "0x42d27ea8",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.ref.WeakReference",
+                            "size": 24,
+                            "id": "0x42d3df80",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.LinearLayout",
+                            "size": 502,
+                            "id": "0x42c0ef30",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.LinearLayout",
+                            "size": 502,
+                            "id": "0x42d260b8",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.AbsListView$RecycleBin",
+                            "size": 44,
+                            "id": "0x42d2fbf8",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.AbsListView$4",
+                            "size": 12,
+                            "id": "0x42d2fc78",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.LinearLayout",
+                            "size": 502,
+                            "id": "0x42c061a8",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.view.ViewGroup$3",
+                            "size": 12,
+                            "id": "0x42d2f410",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x42c0c760",
+                "reference": [
+                  {
+                    "name": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "id": "0x42c0c650",
+                    "reference": [
+                      {
+                        "name": "android.widget.ListView",
+                        "size": 994,
+                        "id": "0x42c86628",
+                        "reference": [
+                          {
+                            "name": "android.view.View$ScrollabilityCache",
+                            "size": 69,
+                            "id": "0x42e63d50",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.LinearLayout",
+                            "size": 502,
+                            "id": "0x42eb0a10",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.view.ViewGroup$3",
+                            "size": 12,
+                            "id": "0x42c7ae30",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.ref.FinalizerReference",
+                            "size": 36,
+                            "id": "0x42c03e88",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.view.ViewRootImpl",
+                            "size": 459,
+                            "id": "0x42e988a0",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.AbsListView$4",
+                            "size": 12,
+                            "id": "0x42c86d98",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.LinearLayout",
+                            "size": 502,
+                            "id": "0x42cb39e8",
+                            "reference": []
+                          },
+                          {
+                            "name": "edu.umich.PowerTutor.ui.MiscView$1",
+                            "size": 57,
+                            "id": "0x42ec7658",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.ref.WeakReference",
+                            "size": 24,
+                            "id": "0x42ce0598",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.AbsListView$RecycleBin",
+                            "size": 44,
+                            "id": "0x42c7aea8",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.LinearLayout",
+                            "size": 502,
+                            "id": "0x42ceecc0",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.LinearLayout",
+                            "size": 502,
+                            "id": "0x42ec1ea0",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.widget.LinearLayout",
+                            "size": 502,
+                            "id": "0x42c07080",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "id": "0x41fee5b8",
+                "reference": []
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x42bda058",
+                "reference": [
+                  {
+                    "name": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "id": "0x42bf3380",
+                    "reference": [
+                      {
+                        "name": "android.widget.ScrollView",
+                        "size": 611,
+                        "id": "0x42bffde0",
+                        "reference": [
+                          {
+                            "name": "android.widget.LinearLayout",
+                            "size": 502,
+                            "id": "0x42c44af0",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.view.View[]",
+                            "size": 56,
+                            "id": "0x42a20de8",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.view.View$ScrollabilityCache",
+                            "size": 69,
+                            "id": "0x42bf5b98",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.view.ViewGroup$3",
+                            "size": 12,
+                            "id": "0x42a21108",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x42c1cc78",
+                "reference": [
+                  {
+                    "name": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "id": "0x42bf31d8",
+                    "reference": []
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x42d2f018",
+                "reference": [
+                  {
+                    "name": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "id": "0x42d2c420",
+                    "reference": []
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x42d08940",
+                "reference": [
+                  {
+                    "name": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "id": "0x42d08830",
+                    "reference": []
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x42d4c2e8",
+                "reference": [
+                  {
+                    "name": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "id": "0x42d4c1d8",
+                    "reference": [
+                      {
+                        "name": "edu.umich.PowerTutor.ui.PowerViewer$1",
+                        "size": 615,
+                        "id": "0x42d4bd90",
+                        "reference": [
+                          {
+                            "name": "android.widget.LinearLayout",
+                            "size": 502,
+                            "id": "0x42c96878",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.view.ViewGroup$3",
+                            "size": 12,
+                            "id": "0x42d55c58",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.view.View[]",
+                            "size": 56,
+                            "id": "0x42c82de0",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.view.View$ScrollabilityCache",
+                            "size": 69,
+                            "id": "0x42d4c360",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x42d4c160",
+                "reference": [
+                  {
+                    "name": "android.widget.EdgeEffect",
+                    "size": 128,
+                    "id": "0x42d4c050",
+                    "reference": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "InstanceId": "0x42501cc0",
+    "InstanceName": "byte[]",
+    "Size": 1048584,
+    "ReferenceTo": [
+      {
+        "name": "byte[]",
+        "size": 1048584,
+        "id": "0x42501cc0",
+        "reference": [
+          {
+            "name": "android.graphics.Bitmap",
+            "size": 42,
+            "id": "0x426051e8",
+            "reference": [
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x42605e90",
+                "reference": [
+                  {
+                    "name": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "id": "0x42605be0",
+                    "reference": [
+                      {
+                        "name": "android.graphics.drawable.StateListDrawable$StateListState",
+                        "size": 74,
+                        "id": "0x42605b70",
+                        "reference": [
+                          {
+                            "name": "android.graphics.drawable.StateListDrawable",
+                            "size": 79,
+                            "id": "0x42605b10",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.Object[]",
+                            "size": 2048,
+                            "id": "0x426eb578",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x42a4ef60",
+                "reference": [
+                  {
+                    "name": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "id": "0x42a4ee38",
+                    "reference": [
+                      {
+                        "name": "android.graphics.drawable.StateListDrawable$StateListState",
+                        "size": 74,
+                        "id": "0x42a4edc8",
+                        "reference": [
+                          {
+                            "name": "java.lang.ref.WeakReference",
+                            "size": 24,
+                            "id": "0x42a4f028",
+                            "reference": []
+                          },
+                          {
+                            "name": "android.graphics.drawable.StateListDrawable",
+                            "size": 79,
+                            "id": "0x42a4ed68",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x42bd82c8",
+                "reference": [
+                  {
+                    "name": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "id": "0x42bf1470",
+                    "reference": [
+                      {
+                        "name": "android.graphics.drawable.StateListDrawable$StateListState",
+                        "size": 74,
+                        "id": "0x42bf1400",
+                        "reference": [
+                          {
+                            "name": "android.graphics.drawable.StateListDrawable",
+                            "size": 79,
+                            "id": "0x42bfb130",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "id": "0x42605350",
+                "reference": []
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x42d08728",
+                "reference": [
+                  {
+                    "name": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "id": "0x42d08600",
+                    "reference": [
+                      {
+                        "name": "android.graphics.drawable.StateListDrawable$StateListState",
+                        "size": 74,
+                        "id": "0x42d08590",
+                        "reference": [
+                          {
+                            "name": "android.graphics.drawable.StateListDrawable",
+                            "size": 79,
+                            "id": "0x42cff800",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "InstanceId": "0x427a1060",
+    "InstanceName": "byte[]",
+    "Size": 1048584,
+    "ReferenceTo": [
+      {
+        "name": "byte[]",
+        "size": 1048584,
+        "id": "0x427a1060",
+        "reference": [
+          {
+            "name": "android.graphics.Bitmap",
+            "size": 42,
+            "id": "0x428a1370",
+            "reference": [
+              {
+                "name": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "id": "0x428a1418",
+                "reference": [
+                  {
+                    "name": "java.lang.Object[]",
+                    "size": 2048,
+                    "id": "0x426eb578",
+                    "reference": [
+                      {
+                        "name": "android.util.LongSparseArray",
+                        "size": 21,
+                        "id": "0x41d73430",
+                        "reference": [
+                          {
+                            "name": "java.lang.Class",
+                            "size": 168,
+                            "id": "0x41d91700",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "InstanceId": "0x423f4cb8",
+    "InstanceName": "byte[]",
+    "Size": 1048584,
+    "ReferenceTo": [
+      {
+        "name": "byte[]",
+        "size": 1048584,
+        "id": "0x423f4cb8",
+        "reference": [
+          {
+            "name": "android.graphics.Bitmap",
+            "size": 42,
+            "id": "0x42500e68",
+            "reference": [
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x426064d0",
+                "reference": [
+                  {
+                    "name": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "id": "0x426062e0",
+                    "reference": [
+                      {
+                        "name": "android.graphics.drawable.StateListDrawable$StateListState",
+                        "size": 74,
+                        "id": "0x42606270",
+                        "reference": [
+                          {
+                            "name": "android.graphics.drawable.StateListDrawable",
+                            "size": 79,
+                            "id": "0x42606210",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.Object[]",
+                            "size": 2048,
+                            "id": "0x426eb578",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "id": "0x42501058",
+                "reference": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "InstanceId": "0x42372b18",
+    "InstanceName": "byte[]",
+    "Size": 155144,
+    "ReferenceTo": [
+      {
+        "name": "byte[]",
+        "size": 155144,
+        "id": "0x42372b18",
+        "reference": [
+          {
+            "name": "android.graphics.Bitmap",
+            "size": 42,
+            "id": "0x42398ff8",
+            "reference": [
+              {
+                "name": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "id": "0x423991d8",
+                "reference": [
+                  {
+                    "name": "android.graphics.drawable.BitmapDrawable",
+                    "size": 55,
+                    "id": "0x42399190",
+                    "reference": [
+                      {
+                        "name": "android.graphics.drawable.Drawable[]",
+                        "size": 48,
+                        "id": "0x422afa28",
+                        "reference": [
+                          {
+                            "name": "android.graphics.drawable.AnimationDrawable$AnimationState",
+                            "size": 75,
+                            "id": "0x422af9b8",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "java.lang.Object[]",
+                    "size": 2048,
+                    "id": "0x426eb578",
+                    "reference": [
+                      {
+                        "name": "android.util.LongSparseArray",
+                        "size": 21,
+                        "id": "0x41d73430",
+                        "reference": [
+                          {
+                            "name": "java.lang.Class",
+                            "size": 168,
+                            "id": "0x41d91700",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "InstanceId": "0x422b0268",
+    "InstanceName": "byte[]",
+    "Size": 155144,
+    "ReferenceTo": [
+      {
+        "name": "byte[]",
+        "size": 155144,
+        "id": "0x422b0268",
+        "reference": [
+          {
+            "name": "android.graphics.Bitmap",
+            "size": 42,
+            "id": "0x422d6700",
+            "reference": [
+              {
+                "name": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "id": "0x422d67a8",
+                "reference": [
+                  {
+                    "name": "java.lang.Object[]",
+                    "size": 2048,
+                    "id": "0x426eb578",
+                    "reference": [
+                      {
+                        "name": "android.util.LongSparseArray",
+                        "size": 21,
+                        "id": "0x41d73430",
+                        "reference": [
+                          {
+                            "name": "java.lang.Class",
+                            "size": 168,
+                            "id": "0x41d91700",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "android.graphics.drawable.BitmapDrawable",
+                    "size": 55,
+                    "id": "0x422d6760",
+                    "reference": [
+                      {
+                        "name": "android.graphics.drawable.Drawable[]",
+                        "size": 48,
+                        "id": "0x422afa28",
+                        "reference": [
+                          {
+                            "name": "android.graphics.drawable.AnimationDrawable$AnimationState",
+                            "size": 75,
+                            "id": "0x422af9b8",
+                            "reference": []
+                          }
+                        ]
+                      },
+                      {
+                        "name": "android.graphics.drawable.AnimationDrawable",
+                        "size": 83,
+                        "id": "0x422af778",
+                        "reference": [
+                          {
+                            "name": "java.lang.ref.WeakReference",
+                            "size": 24,
+                            "id": "0x4234c3f8",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.ref.WeakReference",
+                            "size": 24,
+                            "id": "0x422d69e0",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.ref.WeakReference",
+                            "size": 24,
+                            "id": "0x42098cf0",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.ref.WeakReference",
+                            "size": 24,
+                            "id": "0x42399380",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.ref.WeakReference",
+                            "size": 24,
+                            "id": "0x42325388",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "InstanceId": "0x42325c70",
+    "InstanceName": "byte[]",
+    "Size": 155144,
+    "ReferenceTo": [
+      {
+        "name": "byte[]",
+        "size": 155144,
+        "id": "0x42325c70",
+        "reference": [
+          {
+            "name": "android.graphics.Bitmap",
+            "size": 42,
+            "id": "0x4234c150",
+            "reference": [
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x4234c1b0",
+                "reference": [
+                  {
+                    "name": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "id": "0x422afa28",
+                    "reference": [
+                      {
+                        "name": "android.graphics.drawable.AnimationDrawable$AnimationState",
+                        "size": 75,
+                        "id": "0x422af9b8",
+                        "reference": [
+                          {
+                            "name": "android.graphics.drawable.AnimationDrawable",
+                            "size": 83,
+                            "id": "0x422af778",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.Object[]",
+                            "size": 2048,
+                            "id": "0x426eb578",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "id": "0x4234c1f8",
+                "reference": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "InstanceId": "0x42399598",
+    "InstanceName": "byte[]",
+    "Size": 155144,
+    "ReferenceTo": [
+      {
+        "name": "byte[]",
+        "size": 155144,
+        "id": "0x42399598",
+        "reference": [
+          {
+            "name": "android.graphics.Bitmap",
+            "size": 42,
+            "id": "0x423bfb78",
+            "reference": [
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x423bfc00",
+                "reference": [
+                  {
+                    "name": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "id": "0x422afa28",
+                    "reference": [
+                      {
+                        "name": "android.graphics.drawable.AnimationDrawable$AnimationState",
+                        "size": 75,
+                        "id": "0x422af9b8",
+                        "reference": [
+                          {
+                            "name": "android.graphics.drawable.AnimationDrawable",
+                            "size": 83,
+                            "id": "0x422af778",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.Object[]",
+                            "size": 2048,
+                            "id": "0x426eb578",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "id": "0x423bfc48",
+                "reference": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "InstanceId": "0x422d6df8",
+    "InstanceName": "byte[]",
+    "Size": 155144,
+    "ReferenceTo": [
+      {
+        "name": "byte[]",
+        "size": 155144,
+        "id": "0x422d6df8",
+        "reference": [
+          {
+            "name": "android.graphics.Bitmap",
+            "size": 42,
+            "id": "0x422fd520",
+            "reference": [
+              {
+                "name": "android.graphics.drawable.BitmapDrawable",
+                "size": 55,
+                "id": "0x422fd638",
+                "reference": [
+                  {
+                    "name": "android.graphics.drawable.Drawable[]",
+                    "size": 48,
+                    "id": "0x422afa28",
+                    "reference": [
+                      {
+                        "name": "android.graphics.drawable.AnimationDrawable$AnimationState",
+                        "size": 75,
+                        "id": "0x422af9b8",
+                        "reference": [
+                          {
+                            "name": "android.graphics.drawable.AnimationDrawable",
+                            "size": 83,
+                            "id": "0x422af778",
+                            "reference": []
+                          },
+                          {
+                            "name": "java.lang.Object[]",
+                            "size": 2048,
+                            "id": "0x426eb578",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "id": "0x422fd6c8",
+                "reference": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "InstanceId": "0x4234cd00",
+    "InstanceName": "byte[]",
+    "Size": 155144,
+    "ReferenceTo": [
+      {
+        "name": "byte[]",
+        "size": 155144,
+        "id": "0x4234cd00",
+        "reference": [
+          {
+            "name": "android.graphics.Bitmap",
+            "size": 42,
+            "id": "0x42027128",
+            "reference": [
+              {
+                "name": "android.graphics.drawable.BitmapDrawable$BitmapState",
+                "size": 37,
+                "id": "0x422abfe0",
+                "reference": [
+                  {
+                    "name": "java.lang.Object[]",
+                    "size": 2048,
+                    "id": "0x426eb578",
+                    "reference": [
+                      {
+                        "name": "android.util.LongSparseArray",
+                        "size": 21,
+                        "id": "0x41d73430",
+                        "reference": [
+                          {
+                            "name": "java.lang.Class",
+                            "size": 168,
+                            "id": "0x41d91700",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "android.graphics.drawable.BitmapDrawable",
+                    "size": 55,
+                    "id": "0x422acd70",
+                    "reference": [
+                      {
+                        "name": "android.graphics.drawable.Drawable[]",
+                        "size": 48,
+                        "id": "0x422afa28",
+                        "reference": [
+                          {
+                            "name": "android.graphics.drawable.AnimationDrawable$AnimationState",
+                            "size": 75,
+                            "id": "0x422af9b8",
+                            "reference": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

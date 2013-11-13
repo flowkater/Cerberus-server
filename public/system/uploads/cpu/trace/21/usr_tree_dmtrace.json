@@ -1,9 +1,0 @@
-{
-  "index": 22,
-  "total": "12.4%",
-  "self": "0.9%",
-  "calls": 40,
-  "excl": 19816,
-  "methodName": "org/cerberus/client/runner/AlwaysOnTopService$5.run ()V",
-  "children_attributes": []
-}

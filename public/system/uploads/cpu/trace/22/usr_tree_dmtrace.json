@@ -1,9 +1,0 @@
-{
-  "index": 23,
-  "total": "10.2%",
-  "self": "0.0%",
-  "calls": 1,
-  "excl": 18,
-  "methodName": "org/cerberus/client/runner/ProfileService.onCreate ()V",
-  "children_attributes": []
-}

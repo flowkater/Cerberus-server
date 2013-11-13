@@ -22,6 +22,7 @@ CerberusServer::Application.routes.draw do
     get 'trend_network'
     get 'trend_battery'
     resources 'scenarios'
+    resources 'eventpaths', only: [:index]
     resources 'reports' do
       collection do
         get 'app_os_version_count'

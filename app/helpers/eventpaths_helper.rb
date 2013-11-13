@@ -1,0 +1,2 @@
+module EventpathsHelper
+end

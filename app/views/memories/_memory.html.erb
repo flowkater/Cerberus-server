@@ -78,6 +78,127 @@
  background-image: linear-gradient(to bottom, #aed5ed, #7bbbe2 70%, #5aaadb);
  }
  </style>
+ <script src="/assets/amcharts.js" type="text/javascript"></script>
+        <script src="/assets/serial.js" type="text/javascript"></script>    
+        <script src="/assets/pie.js" type="text/javascript"></script>     
+        <script type="text/javascript">
+            var chart;
+
+            var chartData = [
+                {
+                    "year": "byte[]",
+                    "income": 57
+                },
+                {
+                    "year": "char[]",
+                    "income": 1905
+                },
+                {
+                    "year": "java.lang.Class",
+                    "income": 13
+                },
+                {
+                    "year": "long[]",
+                    "income": 495
+                },
+                {
+                    "year": "java.lang.String",
+                    "income": 1673
+                }
+            ];
+
+
+            AmCharts.ready(function () {
+                // SERIAL CHART
+                chart = new AmCharts.AmSerialChart();
+                chart.dataProvider = chartData;
+                chart.categoryField = "year";
+                // this single line makes the chart a bar chart, 
+                // try to set it to false - your bars will turn to columns                
+                chart.rotate = true;
+                // the following two lines makes chart 3D
+                chart.depth3D = 20;
+                chart.angle = 30;
+
+                // AXES
+                // Category
+                var categoryAxis = chart.categoryAxis;
+                categoryAxis.gridPosition = "start";
+                categoryAxis.axisColor = "#DADADA";
+                categoryAxis.fillAlpha = 1;
+                categoryAxis.gridAlpha = 0;
+                categoryAxis.fillColor = "#FAFAFA";
+
+                // value
+                var valueAxis = new AmCharts.ValueAxis();
+                valueAxis.axisColor = "#DADADA";
+                valueAxis.title = "Leak Suspect";
+                valueAxis.gridAlpha = 0.1;
+                chart.addValueAxis(valueAxis);
+
+                // GRAPH
+                var graph = new AmCharts.AmGraph();
+                graph.title = "Income";
+                graph.valueField = "income";
+                graph.type = "column";
+                graph.balloonText = "Leak in [[category]]:[[value]]";
+                graph.lineAlpha = 0;
+                graph.fillColors = "#bf1c25";
+                graph.fillAlphas = 1;
+                chart.addGraph(graph);
+
+                // WRITE
+                chart.write("chartdiv");
+            });
+           	var chart2;
+            var legend;
+
+            var chartData2 = [
+                {
+                    "country": "byte[]",
+                    "value": 57
+                },
+                {
+                    "country": "char[]",
+                    "value": 1905
+                },
+                {
+                    "country": "java.lang.Class",
+                    "value": 13
+                },
+                {
+                    "country": "long[]",
+                    "value": 495
+                },
+                {
+                    "country": "java.lang.String",
+                    "value": 1673
+                },
+                {
+                    "country": "Main()",
+                    "value": 1673
+                }
+            ];
+
+            AmCharts.ready(function () {
+                // PIE CHART
+                chart2 = new AmCharts.AmPieChart();
+                chart2.dataProvider = chartData2;
+                chart2.titleField = "country";
+                chart2.valueField = "value";
+                chart2.outlineColor = "#FFFFFF";
+                chart2.outlineAlpha = 0.8;
+                chart2.outlineThickness = 2;
+                chart2.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>";
+                // this makes the chart 3D
+                chart2.depth3D = 15;
+                chart2.angle = 30;
+
+                // WRITE
+                chart2.write("chartdiv2");
+            });
+        </script>
+
 <div class="container">
 	<div class="container">
 		<div class="row">
@@ -97,16 +218,13 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
-					<div id="leak-suspect-pie">
-						
+				<!-- <div class="col-md-6"> -->
+					<div id="chartdiv" style=" height: 400px;">
 					</div>
-				</div>
-				<div class="col-md-6">
-					<div id="heap-size-pie">
-						
-					</div>
-				</div>
+			<!-- 	</div> -->
+			<!-- 	<div class="col-md-6"> -->
+       			 <div id="chartdiv2" style="height: 400px; width: 100%;"></div>	
+				<!-- </div> -->
 			</div>
 		</div>
 

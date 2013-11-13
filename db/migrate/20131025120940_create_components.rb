@@ -1,8 +1,11 @@
 class CreateComponents < ActiveRecord::Migration
   def change
     create_table :components do |t|
-      t.string :name
-      t.float :joule
+      t.float :cpu
+      t.float :threeg
+      t.float :wifi
+      t.float :gps
+      t.time :begin
       t.references :battery
 
       t.timestamps

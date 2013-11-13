@@ -4,7 +4,6 @@ class CreateLatencyMethods < ActiveRecord::Migration
       t.float :latency
       t.string :name
       t.string :class_name
-      t.integer :line_number
       t.string :request_url
       t.references :network
 

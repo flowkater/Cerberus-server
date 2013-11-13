@@ -1,4 +1,4 @@
 class LeakClass < ActiveRecord::Base
   belongs_to :memory
-  attr_accessible :classname, :differencecnt, :totalsize
+  attr_accessible :classname, :differencecnt, :differencesize
 end

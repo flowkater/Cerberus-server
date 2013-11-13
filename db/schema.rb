@@ -20,8 +20,11 @@ ActiveRecord::Schema.define(:version => 20131112090437) do
   end
 
   create_table "components", :force => true do |t|
-    t.string   "name"
-    t.float    "joule"
+    t.float    "cpu"
+    t.float    "threeg"
+    t.float    "wifi"
+    t.float    "gps"
+    t.time     "begin"
     t.integer  "battery_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -66,10 +69,10 @@ ActiveRecord::Schema.define(:version => 20131112090437) do
   create_table "leak_classes", :force => true do |t|
     t.string   "classname"
     t.integer  "differencecnt"
-    t.integer  "totalsize"
+    t.integer  "differencesize"
     t.integer  "memory_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "leak_classes", ["memory_id"], :name => "index_leak_classes_on_memory_id"
@@ -89,7 +92,8 @@ ActiveRecord::Schema.define(:version => 20131112090437) do
 
   create_table "memories", :force => true do |t|
     t.string   "report_id"
-    t.string   "hprof"
+    t.string   "hprof1"
+    t.string   "hprof2"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -122,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20131112090437) do
   add_index "records", ["scenario_id"], :name => "index_records_on_scenario_id"
 
   create_table "reports", :force => true do |t|
+    t.string   "app_icon"
     t.float    "appversion"
     t.float    "osversion"
     t.integer  "project_id",                            :null => false
@@ -129,7 +134,7 @@ ActiveRecord::Schema.define(:version => 20131112090437) do
     t.decimal  "time_for_profiling"
     t.boolean  "completed",          :default => false
     t.boolean  "scenario_test"
-    t.boolean  "error_status"
+    t.boolean  "error_status",       :default => false
     t.boolean  "memory_checked"
     t.boolean  "cpu_checked"
     t.boolean  "network_checked"

@@ -1,3 +1,3 @@
 collection @leak_classes
 
-attributes :id, :classname, :differencecnt
+attributes :id, :classname, :differencesize

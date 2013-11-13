@@ -1,9 +1,13 @@
 class Report < ActiveRecord::Base
-	default_scope where('completed = ?',true).order('created_at DESC')
+	default_scope order('created_at DESC')
+
+  scope :is_completed, where('completed = ?',true)
 
   attr_accessible :appversion, :project, :scenario_id, :time_for_profiling, :osversion,
                 :memory_checked, :cpu_checked, :network_checked, :battery_checked,
-                :completed, :scenario_test, :error_status
+                :completed, :scenario_test, :error_status, :app_icon
+
+  mount_uploader :app_icon, AppIconUploader
 
   belongs_to :project
   belongs_to :scenario
@@ -18,7 +22,7 @@ class Report < ActiveRecord::Base
   end
 
   def top_cpu_excl
-    cpu.trace_methods.first.excl unless cpu.trace_methods.empty? if cpu_checked
+    cpu.max_excl unless cpu.trace_methods.empty? if cpu_checked
   end
 
   def top_latency

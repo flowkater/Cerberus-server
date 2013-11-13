@@ -3,7 +3,7 @@ class CreateLeakClasses < ActiveRecord::Migration
     create_table :leak_classes do |t|
       t.string :classname
       t.integer :differencecnt
-      t.integer :totalsize
+      t.integer :differencesize
       t.references :memory
 
       t.timestamps

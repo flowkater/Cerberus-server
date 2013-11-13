@@ -1,9 +1,9 @@
 class Scenario < ActiveRecord::Base
-	before_create :auto_generate_name
 
   scope :top4,
     select("scenarios.id,scenarios.name,scenarios.description, count(reports.id) AS reports_count").
     joins(:reports).
+    where('scenarios.id IS NOT NULL AND reports.completed = ?', true)
     order("reports_count DESC").
     limit(4)
 
@@ -35,11 +35,5 @@ class Scenario < ActiveRecord::Base
 
   def dashboard_report_profiling_time
     latest_report.time_for_profiling
-  end
-
-  private
-
-  def auto_generate_name
-  	self.name = "Scenario Tests created at #{Time.now}"
   end
 end

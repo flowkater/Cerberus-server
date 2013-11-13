@@ -4,44 +4,29 @@ class Api::V1::ReportsController < ApplicationController
 
 	def create
 		@project = Project.find_by_api_key(params[:api_key])
+		@report = @project.reports.build
+
 		if params[:scenario_id]
 			@scenario = Scenario.find(params[:scenario_id])
-			@report = @project.reports.build(scenario_id: @scenario.id)
-		else
-			@report = @project.reports.build
+			@report.scenario_id = @scenario.id
+			@report.scenario_test = true
 		end
-		
-		@memory_checked = params[:memory_checked] == "true" ? true : false
-		@cpu_checked = params[:cpu_checked] == "true" ? true : false
-		@network_checked = params[:network_checked] == "true" ? true : false
-		@battery_checked = params[:battery_checked] == "true" ? true : false
+
+		@report.app_icon = params[:app_icon]
+		@report.memory_checked = params[:memory_checked]
+		@report.cpu_checked = params[:cpu_checked]
+		@report.network_checked = params[:network_checked]
+		@report.battery_checked = params[:battery_checked]
 
 		Report.transaction do
 			begin
 				@report.save
-				@components = []
+				@report.create_memory
+				@report.create_cpu
+				@report.create_network
+				@report.create_battery 
 
-				if @memory_checked
-					@report.create_memory
-					@components << "memory"
-				end
-
-				if @cpu_checked
-        	@report.create_cpu
-        	@components << "cpu"
-        end
-
-        if @network_checked
-        	@report.create_network
-        	@components << "network"	
-        end
-
-        if @battery_checked
-        	@report.create_battery 
-        	@components << "battery"
-        end
-
-				render status: :created, json: {response: "success create", report_id: @report.id, components: @components}	
+				render status: :created, json: {response: "success create", report_id: @report.id}	
 			rescue Exception => e
 				render status: :unprocessable_entity, json: {response: "error #{e}"}
 				raise ActiveRecord::Rollback			
@@ -56,7 +41,11 @@ class Api::V1::ReportsController < ApplicationController
 		@network = @report.network
 		@battery = @report.battery
 		
-		@memory.hprof = params[:hprof]  if @memory
+		if @memory
+			@memory.hprof1 = params[:hprof1]  
+			@memory.hprof2 = params[:hprof2]
+		end
+		
 		@cpu.trace = params[:trace] if @cpu
 		@latency_methods = @network.latency_methods.build(JSON.parse(params[:latency_methods])) if @network
 		@components = @battery.components.build(JSON.parse(params[:components])) if @battery
@@ -65,7 +54,7 @@ class Api::V1::ReportsController < ApplicationController
 			begin
 				LatencyMethod.import @latency_methods if @network
 				Component.import @components if @battery
-				@report.update_attributes(osversion: params[:osversion], appversion: params[:appversion], time_for_profiling: params[:time_for_profiling])
+				@report.update_attributes(osversion: params[:osversion], appversion: params[:appversion], time_for_profiling: params[:time_for_profiling], completed: true)
 
 				render status: :created, json: {response: "success profiling update", trace:  params[:trace], hprof: params[:hprof]}
 			rescue Exception => e

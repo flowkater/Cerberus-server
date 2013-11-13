@@ -62,7 +62,7 @@
 @memory.leak_instances.create(@leak_instance_param)
 
 # Memory leak_classes dummy data
-@leak_class_param = [{"classname"=>"byte[]", "differencecnt"=>57, "totalsize"=>285520}, {"classname"=>"char[]", "differencecnt"=>1905, "totalsize"=>109018}, {"classname"=>"java.lang.Class", "differencecnt"=>13, "totalsize"=>2080}, {"classname"=>"long[]", "differencecnt"=>495, "totalsize"=>181696}, {"classname"=>"java.lang.String", "differencecnt"=>1673, "totalsize"=>40152}, {"classname"=>"int[]", "differencecnt"=>607, "totalsize"=>34420}, {"classname"=>"java.util.HashMap$HashMapEntry", "differencecnt"=>69, "totalsize"=>1656}, {"classname"=>"java.lang.String[]", "differencecnt"=>345, "totalsize"=>4500}, {"classname"=>"java.lang.Object[]", "differencecnt"=>545, "totalsize"=>23020}, {"classname"=>"android.widget.TextView", "differencecnt"=>6, "totalsize"=>4272}, {"classname"=>"java.util.HashMap$HashMapEntry[]", "differencecnt"=>6, "totalsize"=>544}, {"classname"=>"java.lang.ref.FinalizerReference", "differencecnt"=>196, "totalsize"=>7056}, {"classname"=>"java.lang.Integer", "differencecnt"=>585, "totalsize"=>7020}, {"classname"=>"edu.umich.PowerTutor.components.CPU$CpuStateKeeper", "differencecnt"=>216, "totalsize"=>18144}, {"classname"=>"edu.umich.PowerTutor.util.Counter$SingleCounter", "differencecnt"=>342, "totalsize"=>13680}, {"classname"=>"android.graphics.Paint", "differencecnt"=>49, "totalsize"=>4116}, {"classname"=>"android.text.TextPaint", "differencecnt"=>-19, "totalsize"=>-2128}, {"classname"=>"java.util.LinkedList$Link", "differencecnt"=>282, "totalsize"=>5640}, {"classname"=>"java.util.Hashtable$HashtableEntry", "differencecnt"=>0, "totalsize"=>0}, {"classname"=>"android.location.GpsSatellite", "differencecnt"=>255, "totalsize"=>10200}, {"classname"=>"java.lang.ref.WeakReference", "differencecnt"=>133, "totalsize"=>3192}]
+@leak_class_param = [{"classname"=>"byte[]", "differencecnt"=>57, "differencesize"=>285520}, {"classname"=>"char[]", "differencecnt"=>1905, "differencesize"=>109018}, {"classname"=>"java.lang.Class", "differencecnt"=>13, "differencesize"=>2080}, {"classname"=>"long[]", "differencecnt"=>495, "differencesize"=>181696}, {"classname"=>"java.lang.String", "differencecnt"=>1673, "differencesize"=>40152}, {"classname"=>"int[]", "differencecnt"=>607, "differencesize"=>34420}, {"classname"=>"java.util.HashMap$HashMapEntry", "differencecnt"=>69, "differencesize"=>1656}, {"classname"=>"java.lang.String[]", "differencecnt"=>345, "differencesize"=>4500}, {"classname"=>"java.lang.Object[]", "differencecnt"=>545, "differencesize"=>23020}, {"classname"=>"android.widget.TextView", "differencecnt"=>6, "differencesize"=>4272}, {"classname"=>"java.util.HashMap$HashMapEntry[]", "differencecnt"=>6, "differencesize"=>544}, {"classname"=>"java.lang.ref.FinalizerReference", "differencecnt"=>196, "differencesize"=>7056}, {"classname"=>"java.lang.Integer", "differencecnt"=>585, "differencesize"=>7020}, {"classname"=>"edu.umich.PowerTutor.components.CPU$CpuStateKeeper", "differencecnt"=>216, "differencesize"=>18144}, {"classname"=>"edu.umich.PowerTutor.util.Counter$SingleCounter", "differencecnt"=>342, "differencesize"=>13680}, {"classname"=>"android.graphics.Paint", "differencecnt"=>49, "differencesize"=>4116}, {"classname"=>"android.text.TextPaint", "differencecnt"=>-19, "differencesize"=>-2128}, {"classname"=>"java.util.LinkedList$Link", "differencecnt"=>282, "differencesize"=>5640}, {"classname"=>"java.util.Hashtable$HashtableEntry", "differencecnt"=>0, "differencesize"=>0}, {"classname"=>"android.location.GpsSatellite", "differencecnt"=>255, "differencesize"=>10200}, {"classname"=>"java.lang.ref.WeakReference", "differencecnt"=>133, "differencesize"=>3192}]
 @memory.leak_classes.create(@leak_class_param)
 
 # CPU trace_methods dummy data
@@ -79,9 +79,9 @@
 @network.latency_methods.create(name: "getImageList", class_name: "BoardActivity", request_url: "http://10.0.2.2:8080/file/image.do", line_number: 298, latency: 3109)
 
 # Battery componetns dummy data
-@battery.components.create(name: "GPS", joule: 58)
-@battery.components.create(name: "CPU", joule: 120)
-@battery.components.create(name: "WIFI", joule: 38)
-@battery.components.create(name: "3G", joule: 90)
-@battery.components.create(name: "Audio", joule: 45)
+# @battery.components.create(name: "GPS", joule: 58)
+# @battery.components.create(name: "CPU", joule: 120)
+# @battery.components.create(name: "WIFI", joule: 38)
+# @battery.components.create(name: "3G", joule: 90)
+# @battery.components.create(name: "Audio", joule: 45)
 

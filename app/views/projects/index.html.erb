@@ -43,6 +43,9 @@
 								<div class="box-content padded">
 									<div class="row">
 										 <div id="item" class="col-md-6">
+										 	<% if p.reports.first  %>
+										 		<%= image_tag p.reports.first.app_icon, size: "50x50" %>
+										 	<% end  %>
                     					   <p style="font-size: 15pt"><b><%= p.name %></b></p>
 										</div>
 										<div class="col-md-4">

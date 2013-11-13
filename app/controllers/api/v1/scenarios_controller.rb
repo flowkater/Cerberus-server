@@ -4,7 +4,7 @@ class Api::V1::ScenariosController < ApplicationController
 
 	def create
 		@project = Project.find_by_api_key(params[:api_key])
-		@scenario = @project.scenarios.build(params[:scenario])
+		@scenario = @project.scenarios.build(name: params[:name])
 
 		Scenario.transaction do
 			begin
@@ -19,13 +19,13 @@ class Api::V1::ScenariosController < ApplicationController
 
 	def index
 		@project = Project.find_by_api_key(params[:api_key])
-		@scenarios = @project.scenarios.joins(:records)
+		@scenarios = @project.scenarios.includes(:records)
 		render "scenarios/v1/index"
 	end
 
 	def show
 		@scenario = Scenario.find(params[:id])
-		@record = @scenario.records.first
+		@record = @scenario.records.includes(:children).first
 		render 'scenarios/v1/show'
 	end
 end

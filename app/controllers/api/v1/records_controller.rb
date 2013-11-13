@@ -7,17 +7,15 @@ class Api::V1::RecordsController < ApplicationController
 		@scenario = Scenario.find(params[:scenario_id])
 		@records = @scenario.records.build(JSON.parse(params[:records]))
 
-		# 레코딩 children 노드 작업해주기 
-		(0..@records.length - 1).each do |i|
-			next if i == 0
-			@records[i].parent_id = @records[i-1].id
-		end
-
 		Record.transaction do
 			begin
 				Record.import @records
+				@records = @scenario.records
+				(1..@records.length - 1).each { |i| @records[i].parent_id = @records[i-1].id}
+				@scenario.save
 				render status: :created, json: {response: "success create"}	
 			rescue Exception => e
+				print e
 				render status: :unprocessable_entity, json: {response: "error #{e}"}
 				raise ActiveRecord::Rollback
 			end			

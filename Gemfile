@@ -5,13 +5,31 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# Form builder
 gem 'simple_form'
+
+# Authentication
 gem 'devise'
+
+# d3 graph library
 gem 'd3js-rails'
+
+# API design
 gem 'rabl'
+
+# Query Customizing
 gem 'activerecord-import'
+
+# Upload
 gem 'carrierwave'
+
+# Image
+gem 'rmagick'
+
+# Search
 gem 'ransack'
+
+# Pagination
 gem 'kaminari'
 
 # Gems used only for assets and not required

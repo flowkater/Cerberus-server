@@ -3,7 +3,7 @@ class ScenariosController < ApplicationController
   
   def index
   	@project = Project.find(params[:project_id])
-  	@scenarios = @project.scenarios
+  	@scenarios = @project.scenarios.just_recording
   end
 
   def new

@@ -10,6 +10,8 @@ class ReportsController < ApplicationController
   def show
   	@report = Report.find(params[:id])
 
+    @scenario = @report.scenario
+
     @memory = @report.memory
     @leak_instances = @memory.leak_instances unless @memory.nil?
 

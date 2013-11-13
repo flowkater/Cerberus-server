@@ -60,7 +60,7 @@ $(document).ready(function() {
 
 	    nodeEnter.append("svg:circle")
 	        .attr("r", 1e-6)
-	        .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+	        .style("fill", function(d) { return d._children ? "lightsteelblue" : "#34C9D7"; });
 
 	    var method_regex = /([^\/]*\s)/;
 	    nodeEnter.append("svg:text")
@@ -77,7 +77,7 @@ $(document).ready(function() {
 
 	    nodeUpdate.select("circle")
 	        .attr("r", function(d){return d.total;})
-	        .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+	        .style("fill", function(d) { return d._children ? "lightsteelblue" : "#34C9D7"; });
 
 	    nodeUpdate.select("text")
 	        .style("fill-opacity", 1);

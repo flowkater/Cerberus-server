@@ -3,6 +3,7 @@ class CreateScenarios < ActiveRecord::Migration
     create_table :scenarios do |t|
       t.string :name
       t.string :description
+      t.boolean :profile, default: false
       t.references :project
 
       t.timestamps

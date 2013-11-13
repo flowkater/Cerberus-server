@@ -145,9 +145,10 @@ ActiveRecord::Schema.define(:version => 20131112090437) do
   create_table "scenarios", :force => true do |t|
     t.string   "name"
     t.string   "description"
+    t.boolean  "profile",     :default => false
     t.integer  "project_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "scenarios", ["project_id"], :name => "index_scenarios_on_project_id"

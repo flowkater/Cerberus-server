@@ -36,11 +36,12 @@ class Api::V1::ReportsController < ApplicationController
 
 	def update
 		@report = Report.find(params[:id])
+		@project = @report.project
 		@memory = @report.memory
 		@cpu = @report.cpu
 		@network = @report.network
 		@battery = @report.battery
-		
+
 		if @memory
 			@memory.hprof1 = params[:hprof1]  
 			@memory.hprof2 = params[:hprof2]
@@ -54,10 +55,21 @@ class Api::V1::ReportsController < ApplicationController
 			begin
 				LatencyMethod.import @latency_methods if @network
 				Component.import @components if @battery
-				@report.update_attributes(osversion: params[:osversion], appversion: params[:appversion], time_for_profiling: params[:time_for_profiling], completed: true)
+				@scenario = @project.scenarios.create(profile: true)
+
+				@report.update_attributes(osversion: params[:osversion], appversion: params[:appversion], time_for_profiling: params[:time_for_profiling], completed: true, scenario_id: @scenario.id)
+
 				@report.memory_cpu_process
+				
+				@records = @scenario.records.build(JSON.parse(params[:records]))
+				Record.import @records
+				@records = @scenario.records
+				(1..@records.length - 1).each { |i| @records[i].parent_id = @records[i-1].id}
+				@scenario.save
+
 				render status: :created, json: {response: "success profiling update", trace:  params[:trace], hprof: params[:hprof]}
 			rescue Exception => e
+				print e
 				render status: :unprocessable_entity, json: {response: "error #{e}"}
 				raise ActiveRecord::Rollback
 			end

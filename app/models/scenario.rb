@@ -1,9 +1,11 @@
 class Scenario < ActiveRecord::Base
 
+  scope :just_recording, where('profile = ?', false)
+
   scope :top4,
     select("scenarios.id,scenarios.name,scenarios.description, count(reports.id) AS reports_count").
     joins(:reports).
-    where('scenarios.id IS NOT NULL AND reports.completed = ?', true)
+    where('scenarios.profile = ? AND scenarios.id IS NOT NULL AND reports.completed = ?', false, true)
     order("reports_count DESC").
     limit(4)
 
@@ -11,7 +13,7 @@ class Scenario < ActiveRecord::Base
   has_many :reports
   has_many :records
 
-	attr_accessible :description, :name
+	attr_accessible :description, :name, :profile
 
   def latest_report
     reports.first

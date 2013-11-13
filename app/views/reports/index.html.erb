@@ -201,25 +201,25 @@ function myFunction(clicked_id)
 								<td class="in-checkbox">
 									<input type="checkbox" class="icheck" id="icheck2">
 									<label for="icheck2">									
-									<%= image_tag("Memory-icon.png", :size => "48x48", :alt => "Edit Entry") %> Memory
+									<%= image_tag("1.png", :height => '32', :width => '32',:mouseover => image_path("c1-1.png")) %> Memory
 									</label>
 								</td>
 								<td class="in-checkbox">
 									<input type="checkbox" class="icheck" id="icheck3">
 									<label for="icheck2">
-									<%= image_tag("kcm-processor-icon.png", :size => "48x48", :alt => "Edit Entry") %> CPU
+									<%= image_tag("2.png", :height => '32', :width => '32',:mouseover => image_path("c2.png")) %><br> CPU
 									</label>
 								</td>
 								<td class="in-checkbox">
 									<input type="checkbox" class="icheck" id="icheck3">
 									<label for="icheck2"> 
-									<%= image_tag("Devices-network-wireless-connected-100-icon.png", :size => "48x48", :alt => "Edit Entry")%>Network
+									<%= image_tag("3.png", :height => '32', :width => '32',:mouseover => image_path("c3.png")) %><br>Network
 									</label>
 								</td>
 								<td class="in-checkbox">
 									<input type="checkbox" class="icheck" id="icheck3">
 									<label for="icheck2">
-									 <%= image_tag("Battery-icon.png", :size => "48x48", :alt => "Edit Entry")  %>Battery
+									 <%= image_tag("4.png", :height => '32', :width => '32',:mouseover => image_path("c4.png")) %><br>Battery
 									 </label>
 								</td>
 							</tr>
@@ -283,10 +283,10 @@ function myFunction(clicked_id)
 									<td></td>
 									<td><%= link_to report.appversion, [@project, report] %></td>
 									<td>
-									<%= image_tag("Memory-icon.png", :alt => "Edit Entry")  if report.categories.include? 'Memory'%>
-									<%= image_tag("kcm-processor-icon.png", :alt => "Edit Entry")  if report.categories.include? 'CPU'%>
-									<%= image_tag("Devices-network-wireless-connected-100-icon.png", :alt => "Edit Entry") if report.categories.include? 'Network' %>
-									<%= image_tag("Battery-icon.png", :alt => "Edit Entry") if report.categories.include? 'Battery'  %>
+									<%= image_tag("1.png", :alt => "Edit Entry")  if report.categories.include? 'Memory'%>
+									<%= image_tag("2.png", :alt => "Edit Entry")  if report.categories.include? 'CPU'%>
+									<%= image_tag("3.png", :alt => "Edit Entry") if report.categories.include? 'Network' %>
+									<%= image_tag("4.png", :alt => "Edit Entry") if report.categories.include? 'Battery'  %>
 									</td>
 									<td><%= report.error_status %></td>
 									<td><%= report.time_for_profiling %></td>

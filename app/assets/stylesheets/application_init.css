@@ -6354,7 +6354,8 @@ line-height: 2em;}
   -o-border-radius: 3px;
   border-radius: 3px;
   margin-bottom: 20px; 
-cursor: pointer; cursor: hand;}
+}
+
   /* line 12, /home/andrei/core-admin-release/core-admin/source/stylesheets/box.scss */
   .box .box-header, .box .box-footer {
     *zoom: 1;
@@ -15998,8 +15999,6 @@ a.editable-click.editable-disabled {
     height: 30px;
     margin-right: 10px;
   }
-
-
 
 
 

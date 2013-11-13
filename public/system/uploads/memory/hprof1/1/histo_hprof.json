@@ -1,0 +1,107 @@
+[
+  {
+    "classname": "byte[]",
+    "differencecnt": 137,
+    "differencesize": 38126
+  },
+  {
+    "classname": "char[]",
+    "differencecnt": 1185,
+    "differencesize": 70636
+  },
+  {
+    "classname": "java.lang.Class",
+    "differencecnt": 380,
+    "differencesize": 60800
+  },
+  {
+    "classname": "java.lang.String",
+    "differencecnt": 1159,
+    "differencesize": 27816
+  },
+  {
+    "classname": "long[]",
+    "differencecnt": 271,
+    "differencesize": 134384
+  },
+  {
+    "classname": "java.util.HashMap$HashMapEntry",
+    "differencecnt": 194,
+    "differencesize": 4656
+  },
+  {
+    "classname": "int[]",
+    "differencecnt": 85,
+    "differencesize": 1340
+  },
+  {
+    "classname": "java.lang.String[]",
+    "differencecnt": 253,
+    "differencesize": 4844
+  },
+  {
+    "classname": "java.lang.Object[]",
+    "differencecnt": 169,
+    "differencesize": 51460
+  },
+  {
+    "classname": "java.util.HashMap$HashMapEntry[]",
+    "differencecnt": 31,
+    "differencesize": 3032
+  },
+  {
+    "classname": "java.lang.ref.FinalizerReference",
+    "differencecnt": 290,
+    "differencesize": 10440
+  },
+  {
+    "classname": "java.lang.Integer",
+    "differencecnt": 112,
+    "differencesize": 1344
+  },
+  {
+    "classname": "android.location.GpsSatellite",
+    "differencecnt": 510,
+    "differencesize": 20400
+  },
+  {
+    "classname": "java.util.LinkedHashMap$LinkedEntry",
+    "differencecnt": 17,
+    "differencesize": 544
+  },
+  {
+    "classname": "android.graphics.drawable.NinePatchDrawable",
+    "differencecnt": 59,
+    "differencesize": 4248
+  },
+  {
+    "classname": "java.lang.ref.WeakReference",
+    "differencecnt": 117,
+    "differencesize": 2808
+  },
+  {
+    "classname": "java.util.Hashtable$HashtableEntry",
+    "differencecnt": 0,
+    "differencesize": 0
+  },
+  {
+    "classname": "android.graphics.Paint",
+    "differencecnt": 42,
+    "differencesize": 3360
+  },
+  {
+    "classname": "android.graphics.Rect",
+    "differencecnt": 133,
+    "differencesize": 3192
+  },
+  {
+    "classname": "android.app.ActivityManager$RunningAppProcessInfo",
+    "differencecnt": 224,
+    "differencesize": 12544
+  },
+  {
+    "classname": "android.graphics.Bitmap",
+    "differencecnt": 0,
+    "differencesize": 0
+  }
+]

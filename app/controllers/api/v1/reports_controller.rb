@@ -55,7 +55,7 @@ class Api::V1::ReportsController < ApplicationController
 				LatencyMethod.import @latency_methods if @network
 				Component.import @components if @battery
 				@report.update_attributes(osversion: params[:osversion], appversion: params[:appversion], time_for_profiling: params[:time_for_profiling], completed: true)
-
+				@report.memory_cpu_process
 				render status: :created, json: {response: "success profiling update", trace:  params[:trace], hprof: params[:hprof]}
 			rescue Exception => e
 				render status: :unprocessable_entity, json: {response: "error #{e}"}

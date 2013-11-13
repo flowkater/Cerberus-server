@@ -33,7 +33,23 @@ class Report < ActiveRecord::Base
     battery.components.first.joule unless battery.components.empty? if battery_checked
   end
 
-	# validates :appversion, presence: true
+  def memory_cpu_process
+    hprof1 = "#{Rails.root}/public#{memory.hprof1}".gsub(/dump1.hprof/,'')
+    hprof2 = "#{Rails.root}/public#{memory.hprof2}".gsub(/dump2.hprof/,'')
+    trace = "#{Rails.root}/public#{cpu.trace}".gsub(/dmtrace.trace/,'')
+    result = `java -jar #{Rails.root}/public/cerberus.jar #{hprof1} #{hprof2} #{trace}`
+    puts result
+
+    histo_json = File.open("#{hprof1}histo_hprof.json").read
+    instance_json = File.open("#{hprof1}sorted_instances.json").read
+    trace_json = File.open("#{trace}usr_tree_dmtrace.json").read
+
+
+    memory.leak_instances.create(JSON.parse(instance_json))
+    memory.leak_classes.create(JSON.parse(histo_json))
+    cpu.trace_methods.create(JSON.parse(trace_json))
+    
+  end
 
   def categories
     categories = []

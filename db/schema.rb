@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(:version => 20131112090437) do
     t.float    "latency"
     t.string   "name"
     t.string   "class_name"
-    t.integer  "line_number"
     t.string   "request_url"
     t.integer  "network_id"
     t.datetime "created_at",  :null => false
@@ -127,8 +126,8 @@ ActiveRecord::Schema.define(:version => 20131112090437) do
 
   create_table "reports", :force => true do |t|
     t.string   "app_icon"
-    t.float    "appversion"
-    t.float    "osversion"
+    t.string   "appversion"
+    t.string   "osversion"
     t.integer  "project_id",                            :null => false
     t.integer  "scenario_id"
     t.decimal  "time_for_profiling"

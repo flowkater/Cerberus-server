@@ -9,7 +9,7 @@ class BatteriesController < ApplicationController
 
   	respond_to do |format|
   		format.html
-      format.json {render json: {id: @battery.id, children: @components}.to_json}
+      format.json {render json: @components}
   	end
   end
 end

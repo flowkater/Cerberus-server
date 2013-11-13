@@ -1,0 +1,107 @@
+[
+  {
+    "classname": "byte[]",
+    "differencecnt": 163,
+    "differencesize": 1279024
+  },
+  {
+    "classname": "char[]",
+    "differencecnt": 7678,
+    "differencesize": 467604
+  },
+  {
+    "classname": "java.lang.Class",
+    "differencecnt": 377,
+    "differencesize": 60320
+  },
+  {
+    "classname": "java.lang.String",
+    "differencecnt": 7697,
+    "differencesize": 184728
+  },
+  {
+    "classname": "android.app.ActivityManager$RunningAppProcessInfo",
+    "differencecnt": 2640,
+    "differencesize": 147840
+  },
+  {
+    "classname": "java.util.HashMap$HashMapEntry",
+    "differencecnt": 78,
+    "differencesize": 1872
+  },
+  {
+    "classname": "java.lang.String[]",
+    "differencecnt": 2654,
+    "differencesize": 36204
+  },
+  {
+    "classname": "int[]",
+    "differencecnt": 157,
+    "differencesize": 7096
+  },
+  {
+    "classname": "java.util.HashMap$HashMapEntry[]",
+    "differencecnt": 39,
+    "differencesize": 1080
+  },
+  {
+    "classname": "java.lang.ref.FinalizerReference",
+    "differencecnt": 419,
+    "differencesize": 15084
+  },
+  {
+    "classname": "java.lang.Object[]",
+    "differencecnt": 198,
+    "differencesize": 18644
+  },
+  {
+    "classname": "java.lang.Integer",
+    "differencecnt": 4,
+    "differencesize": 48
+  },
+  {
+    "classname": "java.util.LinkedHashMap$LinkedEntry",
+    "differencecnt": 34,
+    "differencesize": 1088
+  },
+  {
+    "classname": "java.util.Hashtable$HashtableEntry",
+    "differencecnt": 34,
+    "differencesize": 816
+  },
+  {
+    "classname": "android.graphics.drawable.NinePatchDrawable",
+    "differencecnt": 59,
+    "differencesize": 4248
+  },
+  {
+    "classname": "java.lang.ref.WeakReference",
+    "differencecnt": 176,
+    "differencesize": 4224
+  },
+  {
+    "classname": "android.graphics.Paint",
+    "differencecnt": 60,
+    "differencesize": 4800
+  },
+  {
+    "classname": "android.graphics.Bitmap",
+    "differencecnt": 13,
+    "differencesize": 624
+  },
+  {
+    "classname": "android.graphics.Rect",
+    "differencecnt": 192,
+    "differencesize": 4608
+  },
+  {
+    "classname": "android.location.GpsSatellite",
+    "differencecnt": 255,
+    "differencesize": 10200
+  },
+  {
+    "classname": "java.util.HashMap",
+    "differencecnt": 59,
+    "differencesize": 2832
+  }
+]

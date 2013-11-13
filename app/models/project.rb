@@ -15,11 +15,11 @@ class Project < ActiveRecord::Base
   end
 
   def report_latest_appversion
-    reports.first.appversion
+    reports.first.appversion unless reports.empty?
   end
 
   def reports_period
-    "#{reports.first.created_at_date} ~ #{reports.last.created_at_date}"
+    "#{reports.first.created_at_date} ~ #{reports.last.created_at_date}"  unless reports.empty?
   end  
 
   def reports_app_version_count

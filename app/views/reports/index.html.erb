@@ -112,10 +112,33 @@
   background-image: -o-linear-gradient(top, #000000, #7bbbe2 50%, #000000);
   background-image: linear-gradient(to bottom, #277db2, #7bbbe2 50%, #277db2);
 }
+/*table td img.off{
+    display:none;
+}
+table td:hover img.off{
+    display:inline;
+}
+table td:hover img.on{
+    display:none;
+}
+table td label.off{
+    display:none;
+}
+table td:hover label.off{
+    display:inline;
+}
+table td:hover label.on{
+    display:none;
+}*/
+
+.hovertd:hover {
+    cursor: pointer; cursor: hand;
+}
 </style>
 <script type="text/javascript" >
 function myFunction(clicked_id)
 {
+
 	if (document.getElementById(clicked_id).className == "orange"){ document.getElementById(clicked_id).className = "orange2"; }
 	else if (document.getElementById(clicked_id).className == "orange2"){ document.getElementById(clicked_id).className = "orange";}
 	else if (document.getElementById(clicked_id).className == "red"){ document.getElementById(clicked_id).className = "red2";}
@@ -124,8 +147,46 @@ function myFunction(clicked_id)
 	else if (document.getElementById(clicked_id).className == "blue2"){ document.getElementById(clicked_id).className = "blue";}
 	else if (document.getElementById(clicked_id).className == "green"){ document.getElementById(clicked_id).className = "green2";}
 	else if (document.getElementById(clicked_id).className == "green2"){ document.getElementById(clicked_id).className = "green";}
+	else if (document.getElementById(clicked_id).className == "in-checkbox"){alert("memroy clicked");}
 
+	if (clicked_id == "cpu"){
+		if (document.getElementById("testid").src == "http://localhost:3000/assets/c2.png"){
+		document.getElementById("testid").src = "/assets/2.png"	;
+		} 
+	else if (document.getElementById("testid").src == "http://localhost:3000/assets/2.png"){
+		document.getElementById("testid").src = "/assets/c2.png"	;
+		} 
+		
+	}
+
+	var app1, app2, app3, os1, os2, os3
+	if (document.getElementById("first").className == "orange2") { app1 = $("#"+"first").text()}
+	if (document.getElementById("second").className == "red2") { app2 = $("#"+"second").text()}
+	if (document.getElementById("third").className == "blue2") { app3 = $("#"+"third").text()}
+	if (document.getElementById("fourth").className == "green2") { os1 = $("#"+"fourth").text()}
+	if (document.getElementById("fifth").className == "orange2") { os2 = $("#"+"fifth").text()}
+	if (document.getElementById("sixth").className == "blue2") { os3 = $("#"+"sixth").text()}
+
+	// alert("app version" + "  " +document.getElementById("first").className + "  " +
+	// 	                  document.getElementById("second").className + "  " +
+	// 	                  document.getElementById("third").className + "  " + 
+	// 	   "OS version" + "  " + document.getElementById("fourth").className + "  " +
+	// 	   document.getElementById("fifth").className + "  " +
+	// 	   document.getElementById("sixth").className + "  " )
+
+	
+    $.ajax({
+      type: 'POST',
+      url: 'reports',
+      data: { appversion: [app1, app2, app3], osversions: [os1, os2, os3]},
+      success: function(data){
+        alert("ok");
+        // $("#question").html(data);
+      }
+    });
+    return false;
 }
+
 </script>
 <div class="container">
 	<div class="container">
@@ -152,22 +213,33 @@ function myFunction(clicked_id)
 				<div class="box-content">
 					<table class="table">
 						<tbody>
+						<% b = Hash.new(0) %>
+						<% @reports.to_a().each do |v| %>
+						 <% b[v.appversion	] += 1 %>
+						<% end %>
+						<% b.each do |k, v| %>
+						<% end %>
 							<tr>
+							<% @firstvalue = b.max_by{|k,v| v} %>
+							<% b.delete(@firstvalue[0]) %>
+					 		<% @secondvalue = b.max_by{|k,v| v} %>
+					 		<% b.delete(@secondvalue[0]) %>
+					 		<% @thirdvalue = b.max_by{|k,v| v} %>
+					 		<% total = @firstvalue[1] + @secondvalue[1] + @thirdvalue[1] %>
 								<td>App Version</td>
 								<td class="in-checkbox">
 									<button style="width:100%" onclick="myFunction()">
-									<!-- <input type="checkbox" class="icheck" checked id="icheck1"> -->
 									<label for="icheck1">All</label>
 									</button>
 								</td>
 								<td colspan="4">
 							    <div class="fancyprogress">
-							    <% firstversion = 40 %>
-							    <% secondversion = 30 %>
-							    <% thirdversion = 30 %>
-								  <span onclick="myFunction(this.id)" id="first" class="orange" style="width: <%= firstversion %>%;"><span>1.5</span></span>
-							      <span onclick="myFunction(this.id)" id="second" class="orange" style="width: <%= secondversion %>%;"><span>1.6</span></span>
-							      <span onclick="myFunction(this.id)" id="third" class="blue" style="width: <%= thirdversion %>%;"><span>1.8</span></span>
+							    <% firstversion =  @firstvalue[1] * 100 / total   %>
+							    <% secondversion = @secondvalue[1] * 100 / total  %>
+							    <% thirdversion = @thirdvalue[1] * 100 / total  %>
+								  <span onclick="myFunction(this.id)" id="first" class="orange" style="width: <%= firstversion %>%;"><span><%= @firstvalue[0] %></span></span>
+							      <span onclick="myFunction(this.id)" id="second" class="red" style="width: <%= secondversion %>%;"><span><%= @secondvalue[0] %></span></span>
+							      <span onclick="myFunction(this.id)" id="third" class="blue" style="width: <%= thirdversion %>%;"><span><%= @thirdvalue[0] %></span></span>
 							    </div>
 							    </td>
 							</tr>
@@ -198,29 +270,34 @@ function myFunction(clicked_id)
 									<label for="icheck1">All</label>
 									</button>
 								</td>
-								<td class="in-checkbox">
-									<input type="checkbox" class="icheck" id="icheck2">
-									<label for="icheck2">									
-									<%= image_tag("1.png", :height => '32', :width => '32',:mouseover => image_path("c1-1.png")) %> Memory
-									</label>
+								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="memory">							
+									<center>
+										<img class="off" src="/assets/c1-1.png" height = '32' width = '32'>
+										<img class="on" src="/assets/1.png" height = '32' width = '32'>
+	 								   	<br> Memory
+									</center>
 								</td>
-								<td class="in-checkbox">
-									<input type="checkbox" class="icheck" id="icheck3">
-									<label for="icheck2">
-									<%= image_tag("2.png", :height => '32', :width => '32',:mouseover => image_path("c2.png")) %><br> CPU
-									</label>
+								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="cpu">
+									<center>
+									<img id="testid" className = "on" src="/assets/2.png" height = '32' width = '32'>
+<!-- 										<img class="off" src="/assets/c2.png" height = '32' width = '32'>
+										<img class="on" src="/assets/2.png" height = '32' width = '32'> -->
+									<br> CPU
+									</center>
 								</td>
-								<td class="in-checkbox">
-									<input type="checkbox" class="icheck" id="icheck3">
-									<label for="icheck2"> 
-									<%= image_tag("3.png", :height => '32', :width => '32',:mouseover => image_path("c3.png")) %><br>Network
-									</label>
+								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="network">
+									<center>
+										<img class="off" src="/assets/c3.png" height = '32' width = '32'>
+										<img class="on" src="/assets/3.png" height = '32' width = '32'>
+									<br>Network
+									</center>
 								</td>
-								<td class="in-checkbox">
-									<input type="checkbox" class="icheck" id="icheck3">
-									<label for="icheck2">
-									 <%= image_tag("4.png", :height => '32', :width => '32',:mouseover => image_path("c4.png")) %><br>Battery
-									 </label>
+								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="battery">
+									<center>
+										<img class="off" src="/assets/c4.png" height = '32' width = '32'>
+										<img class="on" src="/assets/4.png" height = '32' width = '32'>
+									 <br>Battery
+									 </center>
 								</td>
 							</tr>
 							<tr>
@@ -231,30 +308,42 @@ function myFunction(clicked_id)
 									<label for="icheck1">All</label>
 									</button>
 								</td>
-								<td class="in-checkbox">
-									<input type="radio" name="optionsRadios[test]" class="icheck" checked id="iradio1">
-                					  <label for="iradio1">Yes</label>
+								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
+									<!-- <input type="radio" name="optionsRadios[test]" class="icheck" checked id="iradio1"> -->
+									<center>
+                					  <label class="off">Yes</label>
+                					  <label class="on">Yes</label>
+                					  </center>
 								</td>
-								<td class="in-checkbox">
-									<input type="radio" name="optionsRadios[test]" class="icheck" id="iradio2">
-               						   <label for="iradio2">No</label>
+								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
+								<!-- 	<input type="radio" name="optionsRadios[test]" class="icheck" id="iradio2"> -->
+								<center>
+               						   <label class="off">No</label>
+               						    <label class="on">No</label>
+               						    </center>
 								</td>
 							</tr>
 							<tr>
 								<td>Status</td>
-																<td class="in-checkbox">
+								<td class="in-checkbox">
 								<button style="width:100%">
 									<!-- <input type="checkbox" class="icheck" checked id="icheck1"> -->
 									<label for="icheck1">All</label>
 									</button>
 								</td>
-								<td class="in-checkbox">
-									<input type="radio" name="optionsRadios[error]" class="icheck" id="iradio1">
-              						    <label for="iradio3">Success</label>
+								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
+								<!-- 	<input type="radio" name="optionsRadios[error]" class="icheck" id="iradio1"> -->
+								<center>
+              						    <label class="off">Success</label>
+              						     <label class="on">Success</label>
+              						    </center>
 								</td>
-								<td class="in-checkbox">
-									<input type="radio" name="optionsRadios[error]" class="icheck" checked id="iradio4">
-             					     <label for="iradio2">Fail</label>
+								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
+								<!-- 	<input type="radio" name="optionsRadios[error]" class="icheck" checked id="iradio4"> -->
+								<center>
+             					     <label class="off">Fail</label>
+             					       <label class="on">Fail</label>
+             					     </center>
 								</td>
 							</tr>
 						</tbody>

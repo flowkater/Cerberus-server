@@ -28,6 +28,7 @@ class Api::V1::ReportsController < ApplicationController
 
 				render status: :created, json: {response: "success create", report_id: @report.id}	
 			rescue Exception => e
+				print e
 				render status: :unprocessable_entity, json: {response: "error #{e}"}
 				raise ActiveRecord::Rollback			
 			end

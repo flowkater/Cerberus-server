@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131112090437) do
+ActiveRecord::Schema.define(:version => 20131114044622) do
 
   create_table "batteries", :force => true do |t|
     t.string   "report_id"
@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(:version => 20131112090437) do
     t.float    "threeg"
     t.float    "wifi"
     t.float    "gps"
-    t.time     "begin"
+    t.integer  "begin"
     t.integer  "battery_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.float    "audio"
   end
 
   add_index "components", ["battery_id"], :name => "index_components_on_battery_id"

@@ -30,7 +30,7 @@ class Report < ActiveRecord::Base
   end
 
   def top_joule
-    battery.components.first.joule unless battery.components.empty? if battery_checked
+    battery.components.first.cpu unless battery.components.empty? if battery_checked
   end
 
   def memory_cpu_process

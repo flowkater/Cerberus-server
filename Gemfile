@@ -48,13 +48,13 @@ group :assets do
 end
 
 group :production do
-	# gem 'mysql2'
+	gem 'mysql2'
 end
 
 group :development, :test do
 	gem 'better_errors'
 	gem 'binding_of_caller'
-	gem 'sqlite3'
+	gem 'mysql2'
 	gem 'rails-erd'
 	gem 'rspec-rails'
 	gem 'guard-rspec'

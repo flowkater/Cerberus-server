@@ -87,10 +87,10 @@
             var chart, myjson, data2;
 
 
-$.getJSON( "http://localhost:3000/api/v1/reports/5/memory_leak_class", function( data ) {
+$.getJSON( "/api/v1/reports/"+ <%= @report.id %>+"/memory_leak_class", function( data ) {
   myjson = data
 })
-$.getJSON( "http://localhost:3000/api/v1/reports/5/memory_leak_instance", function( data ) {
+$.getJSON( "/api/v1/reports/" + <%= @report.id %> +"/memory_leak_instance", function( data ) {
   data2 = data
 })
         

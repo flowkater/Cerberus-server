@@ -3,7 +3,7 @@
         <script type="text/javascript">
                     var chart3,chartData;
 
-$.getJSON( "http://localhost:3000/reports/20/battery.json", function( data ) {
+$.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
   chartData = data
 })             
 

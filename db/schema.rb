@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20131112090437) do
     t.float    "threeg"
     t.float    "wifi"
     t.float    "gps"
+    t.float    "audio"
     t.integer  "begin"
     t.integer  "battery_id"
     t.datetime "created_at", :null => false

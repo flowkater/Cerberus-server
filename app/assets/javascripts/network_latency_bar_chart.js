@@ -50,7 +50,7 @@ $(document).ready(function(){
 					.attr("x", function(d){return x(d.id + ' ' + d.name);})
 					.attr("width", x.rangeBand())
 					.attr("y", function(d){return y(d.latency);})
-					.attr("height", function(d){return height - y(d.latency);});
+					.attr("height", function(d){return height - y(d.latency);})
 
 		d3.select("input").on("change", change);
 

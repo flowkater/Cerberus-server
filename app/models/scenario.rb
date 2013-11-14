@@ -38,4 +38,11 @@ class Scenario < ActiveRecord::Base
   def dashboard_report_profiling_time
     latest_report.time_for_profiling
   end
+
+  def record_node_update
+    (1..records.length - 1).each do |i|
+      records[i].parent_id = records[i-1].id      
+      records[i].save!
+    end
+  end
 end

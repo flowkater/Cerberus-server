@@ -64,9 +64,8 @@ class Api::V1::ReportsController < ApplicationController
 				
 				@records = @scenario.records.build(JSON.parse(params[:records]))
 				Record.import @records
-				@records = @scenario.records
-				(1..@records.length - 1).each { |i| @records[i].parent_id = @records[i-1].id}
-				@scenario.save
+				
+				@scenario.record_node_update
 
 				render status: :created, json: {response: "success profiling update", trace:  params[:trace], hprof: params[:hprof]}
 			rescue Exception => e

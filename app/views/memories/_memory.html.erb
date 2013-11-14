@@ -78,91 +78,81 @@
  background-image: linear-gradient(to bottom, #aed5ed, #7bbbe2 70%, #5aaadb);
  }
  </style>
- <script src="/assets/amcharts.js" type="text/javascript"></script>
-<script src="/assets/serial.js" type="text/javascript"></script>    
-<script src="/assets/pie.js" type="text/javascript"></script>   
-
 
 <script type="text/javascript">
-            var chart, myjson, data2;
+$(document).ready(function(){
+    AmCharts.ready(function () {
+    var chart, myjson, data2;
+    $.getJSON( "/api/v1/reports/"+ <%= @report.id %>+"/memory_leak_class", function( data ) {
+      myjson = data;
+      // SERIAL CHART
+    chart = new AmCharts.AmSerialChart();
+    chart.dataProvider = myjson;
+    chart.categoryField = "classname";
+    // this single line makes the chart a bar chart, 
+    // try to set it to false - your bars will turn to columns                
+    chart.rotate = true;
+    // the following two lines makes chart 3D
+    chart.depth3D = 20;
+    chart.angle = 30;
+
+    // AXES
+    // Category
+    var categoryAxis = chart.categoryAxis;
+    categoryAxis.gridPosition = "start";
+    categoryAxis.axisColor = "#DADADA";
+    categoryAxis.fillAlpha = 1;
+    categoryAxis.gridAlpha = 0;
+    categoryAxis.fillColor = "#FAFAFA";
+
+    // value
+    var valueAxis = new AmCharts.ValueAxis();
+    valueAxis.axisColor = "#DADADA";
+    valueAxis.title = "Leak Suspect";
+    valueAxis.gridAlpha = 0.1;
+    chart.addValueAxis(valueAxis);
+
+    // GRAPH
+    var graph = new AmCharts.AmGraph();
+    graph.title = "Differencesize";
+    graph.valueField = "differencesize";
+    graph.type = "column";
+    graph.balloonText = "Leak in [[category]]:[[value]]";
+    graph.lineAlpha = 0;
+    graph.fillColors = "#bf1c25";
+    graph.fillAlphas = 1;
+    chart.addGraph(graph);
+
+    // WRITE
+    chart.write("chartdiv");
+    });
+
+    $.getJSON( "/api/v1/reports/" + <%= @report.id %> +"/memory_leak_instance", function( data ) {
+      data2 = data;
+      var chart2;
+      var legend;    
+    // PIE CHART
+    chart2 = new AmCharts.AmPieChart();
+    chart2.dataProvider = data2;
+    chart2.titleField = "instancename";
+    chart2.valueField = "leak_suspect";
+    chart2.outlineColor = "#FFFFFF";
+    chart2.outlineAlpha = 0.8;
+    chart2.outlineThickness = 2;
+    chart2.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[leak_suspect]]</b> ([[percents]]%)</span>";
+    // this makes the chart 3D
+    chart2.depth3D = 15;
+    chart2.angle = 30;
+
+    // WRITE
+    chart2.write("chartdiv2");  
+    });
+});
+});
 
 
-$.getJSON( "/api/v1/reports/"+ <%= @report.id %>+"/memory_leak_class", function( data ) {
-  myjson = data
-})
-$.getJSON( "/api/v1/reports/" + <%= @report.id %> +"/memory_leak_instance", function( data ) {
-  data2 = data
-})
-        
+</script>
 
-
-            AmCharts.ready(function () {
-                // SERIAL CHART
-                chart = new AmCharts.AmSerialChart();
-                chart.dataProvider = myjson;
-                chart.categoryField = "classname";
-                // this single line makes the chart a bar chart, 
-                // try to set it to false - your bars will turn to columns                
-                chart.rotate = true;
-                // the following two lines makes chart 3D
-                chart.depth3D = 20;
-                chart.angle = 30;
-
-                // AXES
-                // Category
-                var categoryAxis = chart.categoryAxis;
-                categoryAxis.gridPosition = "start";
-                categoryAxis.axisColor = "#DADADA";
-                categoryAxis.fillAlpha = 1;
-                categoryAxis.gridAlpha = 0;
-                categoryAxis.fillColor = "#FAFAFA";
-
-                // value
-                var valueAxis = new AmCharts.ValueAxis();
-                valueAxis.axisColor = "#DADADA";
-                valueAxis.title = "Leak Suspect";
-                valueAxis.gridAlpha = 0.1;
-                chart.addValueAxis(valueAxis);
-
-                // GRAPH
-                var graph = new AmCharts.AmGraph();
-                graph.title = "Differencesize";
-                graph.valueField = "differencesize";
-                graph.type = "column";
-                graph.balloonText = "Leak in [[category]]:[[value]]";
-                graph.lineAlpha = 0;
-                graph.fillColors = "#bf1c25";
-                graph.fillAlphas = 1;
-                chart.addGraph(graph);
-
-                // WRITE
-                chart.write("chartdiv");
-            });
-           	var chart2;
-            var legend;
-            // var data2 = [{"id":1,"instancename":"byte[]","leak_suspect":10.36},
-            // {"id":19,"instancename":"byte[]","leak_suspect":7.61},
-            // {"id":77,"instancename":"byte[]","leak_suspect":7.07},{"id":99,"instancename":"byte[]","leak_suspect":7.07},{"id":106,"instancename":"byte[]","leak_suspect":7.07},{"id":115,"instancename":"byte[]","leak_suspect":1.05},{"id":125,"instancename":"byte[]","leak_suspect":1.05},{"id":149,"instancename":"byte[]","leak_suspect":1.05},{"id":159,"instancename":"byte[]","leak_suspect":1.05},{"id":168,"instancename":"byte[]","leak_suspect":1.05},{"id":178,"instancename":"byte[]","leak_suspect":1.05}]
-
-
-            AmCharts.ready(function () {
-                // PIE CHART
-                chart2 = new AmCharts.AmPieChart();
-                chart2.dataProvider = data2;
-                chart2.titleField = "instancename";
-                chart2.valueField = "leak_suspect";
-                chart2.outlineColor = "#FFFFFF";
-                chart2.outlineAlpha = 0.8;
-                chart2.outlineThickness = 2;
-                chart2.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[leak_suspect]]</b> ([[percents]]%)</span>";
-                // this makes the chart 3D
-                chart2.depth3D = 15;
-                chart2.angle = 30;
-
-                // WRITE
-                chart2.write("chartdiv2");
-            });
- </script>
 <div class="container">
 	<div class="container">
 		<div class="row">
@@ -182,13 +172,9 @@ $.getJSON( "/api/v1/reports/" + <%= @report.id %> +"/memory_leak_instance", func
 
 		<div class="container">
 			<div class="row">
-				<!-- <div class="col-md-6"> -->
-					<div id="chartdiv" style=" height: 400px;">
+				<div id="chartdiv" style=" height: 400px;">
 					</div>
-			<!-- 	</div> -->
-			<!-- 	<div class="col-md-6"> -->
        			 <div id="chartdiv2" style="height: 400px; width: 100%;"></div>	
-				<!-- </div> -->
 			</div>
 		</div>
 
@@ -203,24 +189,23 @@ $.getJSON( "/api/v1/reports/" + <%= @report.id %> +"/memory_leak_instance", func
 								<td style="width:200px;">Heap Size</td>
 							</tr>
 						</thead>
-						<tbody >
+						<tbody>
 							<% @leak_instances.each do |i|  %>
-								<tr>
-									<td><%= i.instancename %></td>
-                  <td>
-                   <div class="fancyprogress">
-                   <span class="orange" style="width: <%= i.leak_suspect %>%;"><span><%= i.leak_suspect %>%</span></span>
-                   </div>
-                   </td>
-									<td><%= i.size %></td>
-								</tr>
-								<%= render 'memories/leak_instances', object: i.children %>
+                            <tr id="click">
+                              <td><%= i.instancename %></td>
+                              <td>
+                               <div class="fancyprogress">
+                               <span class="orange" style="width: <%= i.leak_suspect %>%;"><span><%= i.leak_suspect %>%</span></span>
+                               </div>
+                               </td>
+                              <td><%= i.size %></td>
+                            </tr>
+                            <%= render 'memories/leak_instances', object: i.children %>
 							<% end  %>
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</div>
-
 	</div>	
 </div>

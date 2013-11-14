@@ -1,5 +1,7 @@
-        <script src="../amcharts/amcharts.js" type="text/javascript"></script>
-        <script src="../amcharts/serial.js" type="text/javascript"></script>         
+<% content_for :javascript_includes do %>
+    <%= javascript_include_tag "amcharts.js" %>
+    <%= javascript_include_tag "serial.js" %>
+<% end %>
         <script type="text/javascript">
                     var chart3,chartData3;
 
@@ -109,6 +111,37 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
 				        <div id="chartdiv4" style="width:100%; height:400px;"></div>
 			</div>
 		</div>
+
+        <div class="container">
+            <div class="box">
+                <div class="box-content">
+                    <table class="table table-normal" id="cpu-depth-table">
+                        <thead>
+                            <tr>
+                                <td>CPU</td>
+                                <td>3g</td>
+                                <td>WIFI</td>
+                                <td>GPS</td>
+                                <td>AUDIO</td>
+                                <td>time</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @components.each do |component| %>
+                                <tr>
+                                    <td><%= component.cpu %></td>
+                                    <td><%= component.threeg %></td>
+                                    <td><%= component.wifi %></td>
+                                    <td><%= component.gps %></td>
+                                    <td><%= component.audio %></td>
+                                    <td><%= component.begin %></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
 	</div>	
 </div>	

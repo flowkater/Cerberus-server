@@ -5,7 +5,6 @@ class CreateComponents < ActiveRecord::Migration
       t.float :threeg
       t.float :wifi
       t.float :gps
-      t.float :audio
       t.integer :begin
       t.references :battery
 

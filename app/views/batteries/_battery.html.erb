@@ -1,94 +1,3 @@
-<% content_for :javascript_includes do %>
-    <%= javascript_include_tag "amcharts.js" %>
-    <%= javascript_include_tag "serial.js" %>
-<% end %>
-
-        <script type="text/javascript">
-                    var chart4,chartData4;
-
-$.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
-  chartData4 = data
-});      
-
-            AmCharts.ready(function () {
-                chart4 = new AmCharts.AmSerialChart();
-                chart4.pathToImages = "../amcharts/images/";
-                chart4.dataProvider = chartData4;
-                chart4.categoryField = "id";
-
-                chart4.addTitle("Battery Use", 15);
-
-                var categoryAxis = chart4.categoryAxis;
-                categoryAxis.gridAlpha = 0.07;
-                categoryAxis.axisColor = "#DADADA";
-                categoryAxis.startOnAxis = true;
-
-                                // Value
-                var valueAxis = new AmCharts.ValueAxis();
-                valueAxis.title = "percent"; // this line makes the chart "stacked"
-                valueAxis.stackType = "100%";
-                valueAxis.gridAlpha = 0.07;
-                chart4.addValueAxis(valueAxis);
-
-                                // GRAPHS
-                // first graph
-                var graph = new AmCharts.AmGraph();
-                graph.type = "line"; // it's simple line graph
-                graph.title = "cpu";
-                graph.valueField = "cpu";
-                graph.lineAlpha = 0;
-                graph.fillAlphas = 0.6; // setting fillAlphas to > 0 value makes it area graph
-                graph.balloonText = "<img src='images/car.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
-                chart4.addGraph(graph);
-
-                                // second graph
-                graph = new AmCharts.AmGraph();
-                graph.type = "line";
-                graph.title = "gps";
-                graph.valueField = "gps";
-                graph.lineAlpha = 0;
-                graph.fillAlphas = 0.6;
-                graph.balloonText = "<img src='images/motorcycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
-                chart4.addGraph(graph);
-
-                                // third graph
-                graph = new AmCharts.AmGraph();
-                graph.type = "line";
-                graph.title = "wifi";
-                graph.valueField = "wifi";
-                graph.lineAlpha = 0;
-                graph.fillAlphas = 0.6;
-                graph.balloonText = "<img src='images/bicycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
-                chart4.addGraph(graph);
-
-                               // fourth graph
-                graph = new AmCharts.AmGraph();
-                graph.type = "line";
-                graph.title = "threeg";
-                graph.valueField = "threeg";
-                graph.lineAlpha = 0;
-                graph.fillAlphas = 0.6;
-                graph.balloonText = "<img src='images/bicycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
-                chart4.addGraph(graph);
-
-               // LEGEND
-                var legend = new AmCharts.AmLegend();
-                legend.align = "center";
-                legend.valueText = "[[value]] ([[percents]]%)";
-                legend.valueWidth = 100;
-                legend.valueAlign = "left";
-                legend.equalWidths = false;
-                legend.periodValueText = "total: [[value.sum]]"; // this is displayed when mouse is not over the chart.
-                chart4.addLegend(legend);
-
-                var chartCursor = new AmCharts.ChartCursor();
-                chartCursor.zoomable = false; // as the chart displayes not too many values, we disabled zooming
-                chartCursor.cursorAlpha = 0;
-                chart4.addChartCursor(chartCursor);
-
-                chart4.write("chartdiv4");
-            });
-        </script>
 <div class="container">
 	<div class="container">
 		<div class="row">
@@ -123,7 +32,6 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                                 <td>3g</td>
                                 <td>WIFI</td>
                                 <td>GPS</td>
-                                <td>AUDIO</td>
                                 <td>time</td>
                             </tr>
                         </thead>
@@ -134,7 +42,6 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                                     <td><%= component.threeg %></td>
                                     <td><%= component.wifi %></td>
                                     <td><%= component.gps %></td>
-                                    <td><%= component.audio %></td>
                                     <td><%= component.begin %></td>
                                 </tr>
                             <% end %>
@@ -146,3 +53,97 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
 
 	</div>	
 </div>	
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+    AmCharts.ready(function () {
+        var chart4,chartData4;
+
+        $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
+          chartData4 = data;
+            chart4 = new AmCharts.AmSerialChart();
+            chart4.pathToImages = "../amcharts/images/";
+            chart4.dataProvider = chartData4;
+            chart4.categoryField = "id";
+
+            chart4.addTitle("Battery Use", 15);
+
+            var categoryAxis = chart4.categoryAxis;
+            categoryAxis.gridAlpha = 0.07;
+            categoryAxis.axisColor = "#DADADA";
+            categoryAxis.startOnAxis = true;
+
+                            // Value
+            var valueAxis = new AmCharts.ValueAxis();
+            valueAxis.title = "percent"; // this line makes the chart "stacked"
+            valueAxis.stackType = "100%";
+            valueAxis.gridAlpha = 0.07;
+            chart4.addValueAxis(valueAxis);
+
+                            // GRAPHS
+            // first graph
+            var graph = new AmCharts.AmGraph();
+            graph.type = "line"; // it's simple line graph
+            graph.title = "cpu";
+            graph.valueField = "cpu";
+            graph.lineAlpha = 0;
+            graph.fillAlphas = 0.6; // setting fillAlphas to > 0 value makes it area graph
+            graph.balloonText = "CPU <span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
+            chart4.addGraph(graph);
+
+                            // second graph
+            graph = new AmCharts.AmGraph();
+            graph.type = "line";
+            graph.title = "gps";
+            graph.valueField = "gps";
+            graph.lineAlpha = 0;
+            graph.fillAlphas = 0.6;
+            graph.balloonText = "GPS <span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
+            chart4.addGraph(graph);
+
+                            // third graph
+            graph = new AmCharts.AmGraph();
+            graph.type = "line";
+            graph.title = "wifi";
+            graph.valueField = "wifi";
+            graph.lineAlpha = 0;
+            graph.fillAlphas = 0.6;
+            graph.balloonText = "WIFI <span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
+            chart4.addGraph(graph);
+
+                           // fourth graph
+            graph = new AmCharts.AmGraph();
+            graph.type = "line";
+            graph.title = "threeg";
+            graph.valueField = "threeg";
+            graph.lineAlpha = 0;
+            graph.fillAlphas = 0.6;
+            graph.balloonText = "3G <span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
+            chart4.addGraph(graph);
+
+           // LEGEND
+            var legend = new AmCharts.AmLegend();
+            legend.align = "center";
+            legend.valueText = "[[value]] ([[percents]]%)";
+            legend.valueWidth = 100;
+            legend.valueAlign = "left";
+            legend.equalWidths = false;
+            legend.periodValueText = "total: [[value.sum]]"; // this is displayed when mouse is not over the chart.
+            chart4.addLegend(legend);
+
+            var chartCursor = new AmCharts.ChartCursor();
+            chartCursor.zoomable = false; // as the chart displayes not too many values, we disabled zooming
+            chartCursor.cursorAlpha = 0;
+            chart4.addChartCursor(chartCursor);
+
+            chart4.write("chartdiv4");
+        });      
+    });
+
+            
+
+            
+});
+
+</script>

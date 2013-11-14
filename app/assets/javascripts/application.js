@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require application_init
+//= require amcharts
+//= require serial
+//= require pie
 //= require d3

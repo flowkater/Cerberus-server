@@ -48,7 +48,6 @@ class Report < ActiveRecord::Base
     memory.leak_instances.create(JSON.parse(instance_json))
     memory.leak_classes.create(JSON.parse(histo_json))
     cpu.trace_methods.create(JSON.parse(trace_json))
-    
   end
 
   def categories

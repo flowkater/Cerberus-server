@@ -14,7 +14,7 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                 chart4 = new AmCharts.AmSerialChart();
                 chart4.pathToImages = "../amcharts/images/";
                 chart4.dataProvider = chartData4;
-                chart4.categoryField = "id";
+                chart4.categoryField = "begin";
 
                 chart4.addTitle("Battery Use", 15);
 
@@ -38,7 +38,7 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                 graph.valueField = "cpu";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 0.6; // setting fillAlphas to > 0 value makes it area graph
-                graph.balloonText = "<img src='images/car.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
+                graph.balloonText = "<%= image_tag('1.png', :alt => 'Edit Entry') %>  style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
                 chart4.addGraph(graph);
 
                                 // second graph

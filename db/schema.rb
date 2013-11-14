@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20131112090437) do
     t.float    "threeg"
     t.float    "wifi"
     t.float    "gps"
-    t.time     "begin"
+    t.integer  "begin"
     t.integer  "battery_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -45,7 +45,10 @@ ActiveRecord::Schema.define(:version => 20131112090437) do
   end
 
   create_table "events", :force => true do |t|
-    t.string   "tag_name"
+    t.integer  "index"
+    t.string   "event"
+    t.integer  "size"
+    t.integer  "parent_id"
     t.integer  "eventpath_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false

@@ -1,16 +1,16 @@
         <script src="../amcharts/amcharts.js" type="text/javascript"></script>
         <script src="../amcharts/serial.js" type="text/javascript"></script>         
         <script type="text/javascript">
-                    var chart3,chartData;
+                    var chart3,chartData3;
 
 $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
-  chartData = data
+  chartData3 = data
 })             
 
             AmCharts.ready(function () {
             	chart3 = new AmCharts.AmSerialChart();
                 chart3.pathToImages = "../amcharts/images/";
-                chart3.dataProvider = chartData;
+                chart3.dataProvider = chartData3;
                 chart3.categoryField = "id";
 
                 chart3.addTitle("Traffic incidents per year", 15);

@@ -167,24 +167,14 @@ function myFunction(clicked_id)
 	if (document.getElementById("fifth").className == "orange2") { os2 = $("#"+"fifth").text()}
 	if (document.getElementById("sixth").className == "blue2") { os3 = $("#"+"sixth").text()}
 
-	// alert("app version" + "  " +document.getElementById("first").className + "  " +
-	// 	                  document.getElementById("second").className + "  " +
-	// 	                  document.getElementById("third").className + "  " + 
-	// 	   "OS version" + "  " + document.getElementById("fourth").className + "  " +
-	// 	   document.getElementById("fifth").className + "  " +
-	// 	   document.getElementById("sixth").className + "  " )
-
-	
-    $.ajax({
-      type: 'POST',
-      url: 'reports',
-      data: { appversion: [app1, app2, app3], osversions: [os1, os2, os3]},
-      success: function(data){
-        alert("ok");
-        // $("#question").html(data);
-      }
-    });
-    return false;
+$.ajax({
+  url: "http://127.0.0.1:3000/projects/1/reports?appversions[]=1.5&appversions[]=1.6&appversions[]=1.7" ,
+  type: "GET"
+});
+$.getJSON('http://127.0.0.1:3000/projects/1/reports/app_os_version_count.json', function(data) {
+    // you can access your data here in the "data" variable passed to this success handler
+    console.log(data);
+});
 }
 
 </script>
@@ -213,19 +203,7 @@ function myFunction(clicked_id)
 				<div class="box-content">
 					<table class="table">
 						<tbody>
-						<% b = Hash.new(0) %>
-						<% @reports.to_a().each do |v| %>
-						 <% b[v.appversion	] += 1 %>
-						<% end %>
-						<% b.each do |k, v| %>
-						<% end %>
 							<tr>
-							<% @firstvalue = b.max_by{|k,v| v} %>
-							<% b.delete(@firstvalue[0]) %>
-					 		<% @secondvalue = b.max_by{|k,v| v} %>
-					 		<% b.delete(@secondvalue[0]) %>
-					 		<% @thirdvalue = b.max_by{|k,v| v} %>
-					 		<% total = @firstvalue[1] + @secondvalue[1] + @thirdvalue[1] %>
 								<td>App Version</td>
 								<td class="in-checkbox">
 									<button style="width:100%" onclick="myFunction()">
@@ -234,12 +212,9 @@ function myFunction(clicked_id)
 								</td>
 								<td colspan="4">
 							    <div class="fancyprogress">
-							    <% firstversion =  @firstvalue[1] * 100 / total   %>
-							    <% secondversion = @secondvalue[1] * 100 / total  %>
-							    <% thirdversion = @thirdvalue[1] * 100 / total  %>
-								  <span onclick="myFunction(this.id)" id="first" class="orange" style="width: <%= firstversion %>%;"><span><%= @firstvalue[0] %></span></span>
-							      <span onclick="myFunction(this.id)" id="second" class="red" style="width: <%= secondversion %>%;"><span><%= @secondvalue[0] %></span></span>
-							      <span onclick="myFunction(this.id)" id="third" class="blue" style="width: <%= thirdversion %>%;"><span><%= @thirdvalue[0] %></span></span>
+								  <span onclick="myFunction(this.id)" id="first" class="orange" style="width: 30%;"><span>1.5</span></span>
+							      <span onclick="myFunction(this.id)" id="second" class="red" style="width: 30%;"><span>1.6</span></span>
+							      <span onclick="myFunction(this.id)" id="third" class="blue" style="width: 30%;"><span>1.7</span></span>
 							    </div>
 							    </td>
 							</tr>

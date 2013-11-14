@@ -37,6 +37,4 @@ class ReportsController < ApplicationController
       format.json {render json: {app: @reports_app_version_count ,os: @reports_os_version_count}}
     end
   end
-  def create
-  end
 end

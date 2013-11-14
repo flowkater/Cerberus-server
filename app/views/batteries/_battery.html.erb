@@ -38,7 +38,7 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                 graph.valueField = "cpu";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 0.6; // setting fillAlphas to > 0 value makes it area graph
-                graph.balloonText = "<%= image_tag('1.png', :alt => 'Edit Entry') %>  style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
+                graph.balloonText = "<img src='<%= asset_path '1.png' %>'  style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
                 chart4.addGraph(graph);
 
                                 // second graph
@@ -48,7 +48,7 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                 graph.valueField = "gps";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 0.6;
-                graph.balloonText = "<img src='images/motorcycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
+                graph.balloonText = "<img src='<%= asset_path '2.png' %>' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
                 chart4.addGraph(graph);
 
                                 // third graph
@@ -58,7 +58,7 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                 graph.valueField = "wifi";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 0.6;
-                graph.balloonText = "<img src='images/bicycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
+                graph.balloonText = "<img src='<%= asset_path '3.png' %>' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
                 chart4.addGraph(graph);
 
                                // fourth graph
@@ -68,7 +68,7 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                 graph.valueField = "threeg";
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 0.6;
-                graph.balloonText = "<img src='images/bicycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
+                graph.balloonText = "<img src='<%= asset_path '4.png' %>' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
                 chart4.addGraph(graph);
 
                // LEGEND

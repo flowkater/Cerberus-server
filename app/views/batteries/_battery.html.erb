@@ -2,22 +2,23 @@
     <%= javascript_include_tag "amcharts.js" %>
     <%= javascript_include_tag "serial.js" %>
 <% end %>
+
         <script type="text/javascript">
-                    var chart3,chartData3;
+                    var chart4,chartData4;
 
 $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
-  chartData3 = data
-})             
+  chartData4 = data
+});      
 
             AmCharts.ready(function () {
-            	chart3 = new AmCharts.AmSerialChart();
-                chart3.pathToImages = "../amcharts/images/";
-                chart3.dataProvider = chartData3;
-                chart3.categoryField = "id";
+                chart4 = new AmCharts.AmSerialChart();
+                chart4.pathToImages = "../amcharts/images/";
+                chart4.dataProvider = chartData4;
+                chart4.categoryField = "id";
 
-                chart3.addTitle("Traffic incidents per year", 15);
+                chart4.addTitle("Battery Use", 15);
 
-                var categoryAxis = chart3.categoryAxis;
+                var categoryAxis = chart4.categoryAxis;
                 categoryAxis.gridAlpha = 0.07;
                 categoryAxis.axisColor = "#DADADA";
                 categoryAxis.startOnAxis = true;
@@ -27,7 +28,7 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                 valueAxis.title = "percent"; // this line makes the chart "stacked"
                 valueAxis.stackType = "100%";
                 valueAxis.gridAlpha = 0.07;
-                chart3.addValueAxis(valueAxis);
+                chart4.addValueAxis(valueAxis);
 
                                 // GRAPHS
                 // first graph
@@ -38,7 +39,7 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 0.6; // setting fillAlphas to > 0 value makes it area graph
                 graph.balloonText = "<img src='images/car.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
-                chart3.addGraph(graph);
+                chart4.addGraph(graph);
 
                                 // second graph
                 graph = new AmCharts.AmGraph();
@@ -48,7 +49,7 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 0.6;
                 graph.balloonText = "<img src='images/motorcycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
-                chart3.addGraph(graph);
+                chart4.addGraph(graph);
 
                                 // third graph
                 graph = new AmCharts.AmGraph();
@@ -58,7 +59,7 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 0.6;
                 graph.balloonText = "<img src='images/bicycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
-                chart3.addGraph(graph);
+                chart4.addGraph(graph);
 
                                // fourth graph
                 graph = new AmCharts.AmGraph();
@@ -68,7 +69,7 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                 graph.lineAlpha = 0;
                 graph.fillAlphas = 0.6;
                 graph.balloonText = "<img src='images/bicycle.png' style='vertical-align:bottom; margin-right: 10px; width:28px; height:21px;'><span style='font-size:14px; color:#000000;'><b>[[value]]</b></span>";
-                chart3.addGraph(graph);
+                chart4.addGraph(graph);
 
                // LEGEND
                 var legend = new AmCharts.AmLegend();
@@ -78,14 +79,14 @@ $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
                 legend.valueAlign = "left";
                 legend.equalWidths = false;
                 legend.periodValueText = "total: [[value.sum]]"; // this is displayed when mouse is not over the chart.
-                chart3.addLegend(legend);
+                chart4.addLegend(legend);
 
                 var chartCursor = new AmCharts.ChartCursor();
                 chartCursor.zoomable = false; // as the chart displayes not too many values, we disabled zooming
                 chartCursor.cursorAlpha = 0;
-                chart3.addChartCursor(chartCursor);
+                chart4.addChartCursor(chartCursor);
 
-                chart3.write("chartdiv4");
+                chart4.write("chartdiv4");
             });
         </script>
 <div class="container">

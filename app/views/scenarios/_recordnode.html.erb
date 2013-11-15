@@ -5,7 +5,7 @@
 				<div class="box">
                     <div class="box-content">
                         
-                        <div id="report-record-node"></div>
+                        <div id="report-record-node" style="overflow:scroll"></div>
                     </div>
                 </div>
 			</div>
@@ -48,6 +48,13 @@ $(document).ready(function(){
         var nodes = tree.nodes(root).reverse();
 
         // Normalize for fixed-depth.
+        var total_x = 0;
+        nodes.forEach(function (d) {
+            total_x = d.x + total_x;
+            d.y = d.depth * 250;
+        });
+
+        $('#report-record-node svg').width(total_x * 3.5);
 
         // Update the nodes…
         var node = vis.selectAll("g.node")

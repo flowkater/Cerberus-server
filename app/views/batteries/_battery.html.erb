@@ -63,7 +63,7 @@ $(document).ready(function() {
         $.getJSON( "/reports/"+ <%= @report.id %> + "/battery.json", function( data ) {
           chartData4 = data;
             chart4 = new AmCharts.AmSerialChart();
-            chart4.pathToImages = "../amcharts/images/";
+            chart4.pathToImages = "/";
             chart4.dataProvider = chartData4;
             chart4.categoryField = "id";
 

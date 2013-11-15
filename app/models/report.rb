@@ -17,6 +17,10 @@ class Report < ActiveRecord::Base
   has_one :network, autosave: false
   has_one :battery, autosave: false
 
+  def error_status_str
+    error_status ? "Error" : "Success"
+  end
+
   def top_leak_suspect
     memory.leak_instances.first.leak_suspect unless memory.leak_instances.empty? if memory_checked
   end

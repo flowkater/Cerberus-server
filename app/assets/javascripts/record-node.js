@@ -34,6 +34,13 @@ $(document).ready(function(){
         var nodes = tree.nodes(root).reverse();
 
         // Normalize for fixed-depth.
+        var total_x = 0;
+        nodes.forEach(function (d) {
+            total_x = d.x + total_x;
+            d.y = d.depth * 180;
+        });
+
+        $('#record-node svg').width(total_x * 3.5);
 
         // Update the nodes…
         var node = vis.selectAll("g.node")

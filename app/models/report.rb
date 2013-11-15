@@ -1,4 +1,5 @@
 class Report < ActiveRecord::Base
+  require 'yajl'
 	default_scope order('created_at DESC')
 
   scope :is_completed, where('completed = ?',true)

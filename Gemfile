@@ -35,7 +35,7 @@ gem 'kaminari'
 gem 'thin'
 
 # JSON Parser
-gem 'yajl-ruby'
+gem "yajl-ruby"
 
 # Gems used only for assets and not required
 # in production environments by default.

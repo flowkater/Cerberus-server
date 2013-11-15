@@ -34,16 +34,23 @@ class Report < ActiveRecord::Base
   end
 
   def memory_cpu_process
-    hprof1 = "#{Rails.root}/public#{memory.hprof1}".gsub(/dump1.hprof/,'')
-    hprof2 = "#{Rails.root}/public#{memory.hprof2}".gsub(/dump2.hprof/,'')
-    trace = "#{Rails.root}/public#{cpu.trace}".gsub(/dmtrace.trace/,'')
+    h1 = `gzip -d "#{Rails.root}/public#{memory.hprof1}"`
+    h2 = `gzip -d "#{Rails.root}/public#{memory.hprof2}"`
+    t = `gzip -d "#{Rails.root}/public#{cpu.trace}"`
+
+    print h1
+    print h2
+    print t
+
+    hprof1 = "#{Rails.root}/public#{memory.hprof1}".gsub(/dump1.hprof.gz/,'')
+    hprof2 = "#{Rails.root}/public#{memory.hprof2}".gsub(/dump2.hprof.gz/,'')
+    trace = "#{Rails.root}/public#{cpu.trace}".gsub(/dmtrace.trace.gz/,'')
     result = `java -jar #{Rails.root}/public/cerberus.jar #{hprof1} #{hprof2} #{trace}`
     puts result
 
     histo_json = File.open("#{hprof1}histo_hprof.json").read
     instance_json = File.open("#{hprof1}sorted_instances.json").read
     trace_json = File.open("#{trace}usr_tree_dmtrace.json").read
-
 
     memory.leak_instances.create(JSON.parse(instance_json))
     memory.leak_classes.create(JSON.parse(histo_json))

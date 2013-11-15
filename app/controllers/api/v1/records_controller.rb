@@ -10,9 +10,7 @@ class Api::V1::RecordsController < ApplicationController
 		Record.transaction do
 			begin
 				Record.import @records
-				@records = @scenario.records
-				(1..@records.length - 1).each { |i| @records[i].parent_id = @records[i-1].id}
-				@scenario.save
+				@scenario.record_node_update
 				render status: :created, json: {response: "success create"}	
 			rescue Exception => e
 				print e

@@ -352,7 +352,7 @@ $.getJSON('http://127.0.0.1:3000/projects/1/reports/app_os_version_count.json', 
 									<%= image_tag("3.png", :alt => "Edit Entry") if report.categories.include? 'Network' %>
 									<%= image_tag("4.png", :alt => "Edit Entry") if report.categories.include? 'Battery'  %>
 									</td>
-									<td><%= report.error_status %></td>
+									<td><%= report.error_status_str %></td>
 									<td><%= report.time_for_profiling %></td>
 									<td><%= report.created_at_date %></td>
 								</tr>

@@ -19,7 +19,7 @@ class Api::V1::ScenariosController < ApplicationController
 
 	def index
 		@project = Project.find_by_api_key(params[:api_key])
-		@scenarios = @project.scenarios.includes(:records)
+		@scenarios = @project.scenarios.just_recording.includes(:records)
 		render "scenarios/v1/index"
 	end
 

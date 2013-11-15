@@ -1,0 +1,6 @@
+hprof1 = "#{Rails.root}/public/system/uploads/memory/hprof1/17/"
+hprof2 = "#{Rails.root}/public/system/uploads/memory/hprof2/17/"
+
+trace = "#{Rails.root}/public/system/uploads/cpu/trace/17/"
+
+java -jar cerberus.jar ~/Cerberus-server/public/system/uploads/memory/hprof1/17/ ~/Cerberus-server/public/system/uploads/memory/hprof2/17/ ~/Cerberus-server/public/system/uploads/cpu/trace/17/

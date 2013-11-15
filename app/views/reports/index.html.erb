@@ -134,6 +134,11 @@ table td:hover label.on{
 .hovertd:hover {
     cursor: pointer; cursor: hand;
 }
+.hovertr:hover {
+	cursor: pointer; cursor: hand;
+	background: #34C9D7;
+	
+}
 </style>
 <script type="text/javascript" >
 function myFunction(clicked_id)
@@ -332,7 +337,7 @@ $.getJSON('http://127.0.0.1:3000/projects/1/reports/app_os_version_count.json', 
 				<div class="box-content">
 					<table id="dataList" class="table table-normal">
 						<thead>
-							<tr>
+							<tr class="hovertr" >
 								<td></td>
 								<td>App version</td>
 								<td>Category</td>
@@ -343,7 +348,7 @@ $.getJSON('http://127.0.0.1:3000/projects/1/reports/app_os_version_count.json', 
 						</thead>
 						<tbody>
 							<% @reports.each do |report| %>
-								<tr>
+								<tr class="hovertr" >
 									<td></td>
 									<td><%= link_to report.appversion, [@project, report] %></td>
 									<td>

@@ -56,9 +56,13 @@ class Report < ActiveRecord::Base
     instance_json = File.open("#{hprof1}sorted_instances.json").read
     trace_json = File.open("#{trace}usr_tree_dmtrace.json").read
 
-    memory.leak_instances.create(JSON.parse(instance_json))
-    memory.leak_classes.create(JSON.parse(histo_json))
-    cpu.trace_methods.create(JSON.parse(trace_json))
+    parser1 = Yajl::Parser.new
+    parser2 = Yajl::Parser.new
+    parser3 = Yajl::Parser.new
+
+    memory.leak_instances.create(parser1.parse(instance_json))
+    memory.leak_classes.create(parser2.parse(histo_json))
+    cpu.trace_methods.create(parser3.parse(trace_json))
   end
 
   def categories

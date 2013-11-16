@@ -134,15 +134,23 @@ table td:hover label.on{
 .hovertd:hover {
     cursor: pointer; cursor: hand;
     background: #34C9D7;
+    font-family:arial;color:white;
+}
+.hovertd:hover label{
+    cursor: pointer; cursor: hand;
+    background: #34C9D7;
+    font-family:arial;color:white;
 }
 .hovertr:hover {
 	cursor: pointer; cursor: hand;
 	background: #34C9D7;
+	font-family:arial;color:white;
 	
 }
 .table-normal tbody tr:hover td {
 	background-color: transparent;
 	background: #34C9D7;
+	font-family:arial;color:white;
 }
 </style>
 <script type="text/javascript" >
@@ -154,7 +162,10 @@ function myFunction2(clicked_id)
 
 function myFunction(clicked_id)
 {
-
+	<% @reports.each do |report| %>
+	var reportvar = <%= report.appversion || 'null' %>
+	console.log(reportvar);
+	<% end %>
 	if (document.getElementById(clicked_id).className == "orange"){ document.getElementById(clicked_id).className = "orange2"; }
 	else if (document.getElementById(clicked_id).className == "orange2"){ document.getElementById(clicked_id).className = "orange";}
 	else if (document.getElementById(clicked_id).className == "red"){ document.getElementById(clicked_id).className = "red2";}
@@ -181,20 +192,33 @@ function myFunction(clicked_id)
 	if (document.getElementById("fifth").className == "orange2") { os2 = $("#"+"fifth").text()}
 	if (document.getElementById("sixth").className == "blue2") { os3 = $("#"+"sixth").text()}
 
-var request = "appversions[]=1.5&appversions[]=1.4&appversions[]=1.3"
-$.ajax('/projects/1/reports?'+  request , function(reportlist) {
-    // you can access your data here in the "data" variable passed to this success handler
-console.log(reportlist);
+var request = "appversions[]=1.5"
+
+$.ajax({
+    url: '/projects/1/reports?'+  request ,
+    success: function(data){
+		console.log(data);
+		var target = $('#update-div').data('update-target');
+        $('#' + target).html(data);}
+
 });
 
-$.getJSON('/projects/1/reports/app_os_version_count.json', function(data) {
-    // you can access your data here in the "data" variable passed to this success handler
-console.log(data);
-});
+    	// var w = window.open();
+        // $(w.document.body).html(data)
+
+// $.ajax('/projects/1/reports?'+  request , function(reportlist) {
+//     // you can access your data here in the "data" variable passed to this success handler
+// console.log(reportlist);
+// });
+
+// $.getJSON('/projects/1/reports/app_os_version_count.json', function(data) {
+//     // you can access your data here in the "data" variable passed to this success handler
+// console.log(data);
+// });
+// }
 }
-
 </script>
-<div class="container">
+<div class="container" id="update-div">
 	<div class="container">
 		<div class="row">
 			<div class="area-top clearfix">
@@ -275,13 +299,13 @@ console.log(data);
 								</td>
 								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="network">
 									<center>
-										<img class="off" src="/assets/c3.png" height = '32' width = '32'>
+										<img class="off" src="/assets/3.png" height = '32' width = '32'>
 									<br>Network
 									</center>
 								</td>
 								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="battery">
 									<center>
-										<img class="off" src="/assets/c4.png" height = '32' width = '32'>
+										<img class="off" src="/assets/4.png" height = '32' width = '32'>
 									 <br>Battery
 									 </center>
 								</td>
@@ -318,7 +342,7 @@ console.log(data);
 								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
 								<!-- 	<input type="radio" name="optionsRadios[error]" class="icheck" id="iradio1"> -->
 								<center>
-              						     <label class="on">Success</label>
+              						     <label class="on">Finish</label>
               						    </center>
 								</td>
 								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">

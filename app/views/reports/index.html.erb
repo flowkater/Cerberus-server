@@ -154,18 +154,115 @@ table td:hover label.on{
 }
 </style>
 <script type="text/javascript" >
-function myFunction2(clicked_id)
-{
-	alert(<%= @projects.class %> )
-	
-}
+
+ $.getJSON('reports/app_os_version_count.json', function(data) {
+     // you can accss your data here in the "data" variable passed to this success handler
+		var myHash = {};
+		myHash = data;
+		var myarray = new Array();
+		console.log(data)
+
+		apparray = myHash['app']
+		//console.log('app ' + apparray[0]['appversion'] + ' percents ' + apparray[0]['rate'])
+		//console.log('app ' + apparray[1]['appversion'])
+
+		osarray = myHash['os']
+		//console.log('os' + osarrary[0]['osversion']+ ' percents ' + osarrary[0]['rate'])
+
+		appversions = myHash['appversions']
+		osversions = myHash['osversions']
+		batterystatus = myHash['battery']
+		cpustatus = myHash['cpu']
+		error_status = myHash['error_status']
+		memory_status = myHash['memory']
+		scenario_status = myHash['scenario_test']
+
+		//APP version
+		for (var i = 0; i < apparray.length; i++) {
+    	apparray[i]['appversion']
+    	apparray[i]['rate']
+    	//console.log(i + "  " + apparray[i]['rate'])
+    	var width = apparray[i]['rate']
+    	spantext = '<span onclick="myFunction(this.id)" '+'id=appid'+i+' class="orange" style="width:'+width+'%;">'
+		$("#appversiontable").append(spantext+'<span>'+apparray[i]['appversion']+'</span>');
+		}	
+
+		//OS version
+		for (var i = 0; i < osarray.length; i++) {
+    	osarray[i]['osversion']
+    	osarray[i]['rate']
+    	var width = osarray[i]['rate']
+    	spantext = '<span onclick="myFunction(this.id)" '+'id=osid'+i+' class="blue" style="width:'+width+'%;">'
+		$("#osversiontable").append(spantext+'<span>'+osarray[i]['osversion']+'</span>');
+		}	
+
+		//check status
+		//appversions
+		console.log(myHash['appversions'])
+		//osversions
+		myHash['osversions']
+		//memory
+		myHash['memory']
+		//cpu
+		myHash['cpu']
+		//network
+		//battery
+		myHash['battery']
+		//sceanario
+		myHash['scenario_test']
+		//status
+		myHash['error_status']
+
+	//console.log(obj);
+});
 
 function myFunction(clicked_id)
 {
-	<% @reports.each do |report| %>
-	var reportvar = <%= report.appversion || 'null' %>
-	console.log(reportvar);
-	<% end %>
+	var data
+ $.getJSON('reports/app_os_version_count.json', function(jsondata) {
+
+
+ 		data = jsondata
+		var myHash = {};
+		myHash = data;
+		var myarray = new Array();
+		if (myHash['appversions'] == null) {
+			myHash['appversions'] = new Array();
+		}
+		//app version
+		var clicked_app_index = clicked_id.substring(5,6);	
+		// if app version exist in appversions remove or not add
+		clicked_app_version = myHash['app'][clicked_app_index].appversion
+		console.log("clicked_app_version"+clicked_app_version)
+		var indexofremoveapp = myHash['app'].indexOf(clicked_app_version)
+		if(indexofremoveapp != -1){
+			myHash['appversions'].splice(indexofremoveapp,1)
+		}
+		else{
+			myHash['appversions'].push(clicked_app_version)
+		}
+
+		
+		console.log("APP ARRAY " + myHash['appversions'])
+		//console.log('app ' + apparray[0]['appversion'] + ' percents ' + apparray[0]['rate'])
+		//console.log('app ' + apparray[1]['appversion'])
+
+		osarray = myHash['os']
+		//console.log('os' + osarrary[0]['osversion']+ ' percents ' + osarrary[0]['rate'])
+
+		appversions = myHash['appversions']
+		osversions = myHash['osversions']
+		batterystatus = myHash['battery']
+		cpustatus = myHash['cpu']
+		error_status = myHash['error_status']
+		memory_status = myHash['memory']
+		scenario_status = myHash['scenario_test']
+		
+
+
+
+	// console.log('CLICKEdid'+' '+clicked_id)
+	// console.log('CLICKEdid'+' '+document.getElementById(clicked_id).className)
 	if (document.getElementById(clicked_id).className == "orange"){ document.getElementById(clicked_id).className = "orange2"; }
 	else if (document.getElementById(clicked_id).className == "orange2"){ document.getElementById(clicked_id).className = "orange";}
 	else if (document.getElementById(clicked_id).className == "red"){ document.getElementById(clicked_id).className = "red2";}
@@ -174,49 +271,99 @@ function myFunction(clicked_id)
 	else if (document.getElementById(clicked_id).className == "blue2"){ document.getElementById(clicked_id).className = "blue";}
 	else if (document.getElementById(clicked_id).className == "green"){ document.getElementById(clicked_id).className = "green2";}
 	else if (document.getElementById(clicked_id).className == "green2"){ document.getElementById(clicked_id).className = "green";}
-	else if (document.getElementById(clicked_id).className == "in-checkbox"){alert("memroy clicked");}
 
 	if (clicked_id == "cpu"){
-		alert("clicked cpu")
-		
+		$("#cpuimageid").attr({
+ 			 src: "<%= asset_path('c2.png') %>"
+			});
+		$("#cpu").attr({
+			 id: "cpu2"
+		});	
 	}
-	if (clicked_id =="memory"){
-		alert("clicked memory")
+	else if (clicked_id == "cpu2"){
+		$("#cpuimageid").attr({
+ 			 src: "<%= asset_path('2.png') %>"
+			});
+		$("#cpu2").attr({
+			 id: "cpu"
+		});	
+	}
+	else if (clicked_id =="memory"){
+				$("#memimageid").attr({
+ 			 src: "<%= asset_path('c1-1.png') %>"
+			});
+		$("#memory").attr({
+			 id: "memory2"
+		});	
+	}
+	else if (clicked_id =="memory2"){
+				$("#memimageid").attr({
+ 			 src: "<%= asset_path('1.png') %>"
+			});
+		$("#memory2").attr({
+			 id: "memory"
+		});			
+	}
+	else if (clicked_id =="network"){
+						$("#netimageid").attr({
+ 			 src: "<%= asset_path('c3.png') %>"
+			});
+		$("#network").attr({
+			 id: "network2"
+		});			
+	}
+	if (clicked_id =="battery"){
+						$("#batimageid").attr({
+ 			 src: "<%= asset_path('c4.png') %>"
+			});
+			$("#battery").attr({
+			 id: "battery2"
+		});	
+	}
+	if (clicked_id =="network2"){
+						$("#netimageid").attr({
+ 			 src: "<%= asset_path('3.png') %>"
+			});
+		$("#network2").attr({
+			 id: "network"
+		});	
+	}
+	if (clicked_id =="battery2"){
+						$("#batimageid").attr({
+ 			 src: "<%= asset_path('4.png') %>"
+			});
+			$("#battery2").attr({
+			 id: "battery"
+		});	
+	}
+	if (clicked_id == "yesorno"){
+			$("#yeslable").attr({
+ 			 color:"red"
+			});
 	}
 
-	var app1, app2, app3, os1, os2, os3
-	if (document.getElementById("first").className == "orange2") { app1 = $("#"+"first").text()}
-	if (document.getElementById("second").className == "red2") { app2 = $("#"+"second").text()}
-	if (document.getElementById("third").className == "blue2") { app3 = $("#"+"third").text()}
-	if (document.getElementById("fourth").className == "green2") { os1 = $("#"+"fourth").text()}
-	if (document.getElementById("fifth").className == "orange2") { os2 = $("#"+"fifth").text()}
-	if (document.getElementById("sixth").className == "blue2") { os3 = $("#"+"sixth").text()}
+	//json request for data
+	request = "reports?"
+		for (var i = 0; i < myHash['appversions'].length; i++) {
+			request = request+"appversions[]="+apparray[i]['appversion']+"&"
+		}
+		console.log("REQUEST "+request)
 
-var request = "appversions[]=1.5"
+	    $.ajax({
+        url: request, 
+        dataType: 'json',
+        data: { appversions: myHash['appversions'] },
+        success: function(data) {
+        	console.log("FFFF")
+        }
+   		 });
 
-$.ajax({
-    url: '/projects/1/reports?'+  request ,
-    success: function(data){
-		console.log(data);
-		var target = $('#update-div').data('update-target');
-        $('#' + target).html(data);}
+	});
 
-});
+		//
 
-    	// var w = window.open();
-        // $(w.document.body).html(data)
-
-// $.ajax('/projects/1/reports?'+  request , function(reportlist) {
-//     // you can access your data here in the "data" variable passed to this success handler
-// console.log(reportlist);
-// });
-
-// $.getJSON('/projects/1/reports/app_os_version_count.json', function(data) {
-//     // you can access your data here in the "data" variable passed to this success handler
-// console.log(data);
-// });
-// }
 }
+
 </script>
 <div class="container" id="update-div">
 	<div class="container">
@@ -241,7 +388,7 @@ $.ajax({
 					<div class="title">Filter</div>
 				</div>
 				<div class="box-content">
-					<table class="table">
+					<table class="table" >
 						<tbody>
 							<tr>
 								<td>App Version</td>
@@ -251,11 +398,11 @@ $.ajax({
 									</button>
 								</td>
 								<td colspan="4">
-							    <div class="fancyprogress">
-								  <span onclick="myFunction(this.id)" id="first" class="orange" style="width: 30%;"><span>1.5</span></span>
+ 							    <div class="fancyprogress" id='appversiontable'>
+<!-- 								  <span onclick="myFunction(this.id)" id="first" class="orange" style="width: 30%;"><span>1.5</span></span>
 							      <span onclick="myFunction(this.id)" id="second" class="red" style="width: 30%;"><span>1.6</span></span>
-							      <span onclick="myFunction(this.id)" id="third" class="blue" style="width: 30%;"><span>1.7</span></span>
-							    </div>
+							      <span onclick="myFunction(this.id)" id="third" class="blue" style="width: 30%;"><span>1.7</span></span> -->
+							    </div> 
 							    </td>
 							</tr>
 							<tr>
@@ -267,13 +414,13 @@ $.ajax({
 									</button>
 								</td>
 								<td colspan="4">
-							    <div class="fancyprogress">
+							    <div class="fancyprogress"  id='osversiontable'>
 							    <% firstversion = 40 %>
 							    <% secondversion = 40 %>
 							    <% thirdversion = 20 %>
-								  <span onclick="myFunction(this.id)" id="fourth" class="green" style="width: <%= firstversion %>%;"><span>1.5</span></span>
+<!-- 								  <span onclick="myFunction(this.id)" id="fourth" class="green" style="width: <%= firstversion %>%;"><span>1.5</span></span>
 							      <span onclick="myFunction(this.id)" id="fifth" class="orange" style="width: <%= secondversion %>%;"><span>2.1</span></span>
-							      <span onclick="myFunction(this.id)" id="sixth" class="blue" style="width: <%= thirdversion %>%;"><span>4.1</span></span>
+							      <span onclick="myFunction(this.id)" id="sixth" class="blue" style="width: <%= thirdversion %>%;"><span>4.1</span></span> -->
 							    </div>
 							    </td>
 							</tr>
@@ -287,25 +434,25 @@ $.ajax({
 								</td>
 								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="memory">							
 									<center>
-										<img class="on" src="/assets/1.png" height = '32' width = '32'>
+										<img class="on" id="memimageid" src="/assets/1.png" height = '32' width = '32'>
 	 								   	<br> Memory
 									</center>
 								</td>
 								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="cpu">
 									<center>
-									<img id="cpuimageid" className = "on" src="/assets/2.png" height = '32' width = '32'>
+									<img id="cpuimageid" src="/assets/2.png" height = '32' width = '32'>
 									<br> CPU
 									</center>
 								</td>
 								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="network">
 									<center>
-										<img class="off" src="/assets/3.png" height = '32' width = '32'>
+										<img id="netimageid" src="/assets/3.png" height = '32' width = '32'>
 									<br>Network
 									</center>
 								</td>
 								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="battery">
 									<center>
-										<img class="off" src="/assets/4.png" height = '32' width = '32'>
+										<img id="batimageid" src="/assets/4.png" height = '32' width = '32'>
 									 <br>Battery
 									 </center>
 								</td>
@@ -318,10 +465,10 @@ $.ajax({
 									<label for="icheck1">All</label>
 									</button>
 								</td>
-								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
+								<td class="hovertd" onClick="myFunction(this.id)" id="yesorno" style="vertical-align:middle">
 									<!-- <input type="radio" name="optionsRadios[test]" class="icheck" checked id="iradio1"> -->
 									<center>
-                					  <label class="on">Yes</label>
+                					  <label id="yeslable">Yes</label>
                 					  </center>
 								</td>
 								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
@@ -375,7 +522,7 @@ $.ajax({
 						<tbody>
 							<% @reports.each do |report| %>
 								<tr class="hovertr" onclick="myFunction2(<%= report.appversion %>)" >
-									<td><%= link_to report.appversion, [@project, report] %></td>
+									<td></td>
 									<td><%= report.appversion %></td>
 									<td>
 									<%= image_tag("1.png", :alt => "Edit Entry")  if report.categories.include? 'Memory'%>

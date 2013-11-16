@@ -58,7 +58,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    connection_pool (1.0.0)
+    connection_pool (1.1.0)
     d3js-rails (3.1.6)
       railties (>= 3.0, < 5.0)
     daemons (1.1.9)
@@ -129,6 +129,8 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-protection (1.5.1)
+      rack
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -164,9 +166,9 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    redis (3.0.4)
-    redis-namespace (1.3.0)
-      redis (~> 3.0.0)
+    redis (3.0.6)
+    redis-namespace (1.3.2)
+      redis (~> 3.0.4)
     ref (1.0.5)
     rmagick (2.13.2)
     rspec (2.14.1)
@@ -190,15 +192,22 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    sidekiq (2.11.2)
-      celluloid (>= 0.13.0)
+    sidekiq (2.16.1)
+      celluloid (>= 0.15.2)
       connection_pool (>= 1.0.0)
-      multi_json
-      redis (>= 3.0)
-      redis-namespace
+      json
+      redis (>= 3.0.4)
+      redis-namespace (>= 1.3.1)
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    sinatra (1.4.4)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
+    slim (2.0.2)
+      temple (~> 0.6.6)
+      tilt (>= 1.3.3, < 2.1)
     slop (3.4.7)
     sprockets (2.2.2)
       hike (~> 1.2)
@@ -209,6 +218,7 @@ GEM
       net-scp
       net-ssh
       term-ansicolor
+    temple (0.6.7)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
     therubyracer (0.12.0)
@@ -266,6 +276,8 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sidekiq
   simple_form
+  sinatra
+  slim (>= 1.3.0)
   therubyracer
   thin
   uglifier (>= 1.0.3)

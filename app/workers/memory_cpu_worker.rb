@@ -1,13 +1,13 @@
 class MemoryCpuWorker
-	include Sidekiq::Worker
+include Sidekiq::Worker
 
-	def perform(report_id)
-		report = Report.find(report_id)
+def perform(report_id)
+	report = Report.find(report_id)
 
-		memory = report.memory
-		cpu = report.cpu
+	memory = report.memory
+	cpu = report.cpu
 
-		h1 = `gzip -d "#{Rails.root}/public#{memory.hprof1}"`
+	h1 = `gzip -d "#{Rails.root}/public#{memory.hprof1}"`
         h2 = `gzip -d "#{Rails.root}/public#{memory.hprof2}"`
         t = `gzip -d "#{Rails.root}/public#{cpu.trace}"`
 
@@ -29,5 +29,5 @@ class MemoryCpuWorker
         cpu.trace_methods.create(parser3.parse(trace_json))
 
         report.update_attributes(completed: true)
-	end
+end
 end

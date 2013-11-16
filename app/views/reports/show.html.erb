@@ -57,6 +57,9 @@
 			<%= render "memories/memory" %>
 		<% end  %>
 
+		<% unless @cpu.nil?  %>
+			<%= render "cpus/cpu" %>
+		<% end  %>
 
 		<% unless @network.nil?  %>
 			<%= render 'networks/network' %>

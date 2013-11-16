@@ -59,7 +59,7 @@ class Api::V1::ReportsController < ApplicationController
 
 				@report.update_attributes(osversion: params[:osversion], appversion: params[:appversion], time_for_profiling: params[:time_for_profiling], scenario_id: @scenario.id)
 
-				MemoryCpuWorker.perform_async(@report.id)
+				MemoryCpuWorker.perform_in(1.minutes, @report.id)
 				
 				@records = @scenario.records.build(JSON.parse(params[:records]))
 				Record.import @records

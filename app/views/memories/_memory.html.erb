@@ -184,14 +184,15 @@ $(document).ready(function(){
 					<table class="table table-normal">
 						<thead>
 							<tr>
-								<td>Method</td>
-								<td style="width:200px;">Leak Suspect(%)</td>
-								<td style="width:200px;">Heap Size</td>
+								<td>Instance</td>
+								<td style="width:400px;">Leak Suspect(%)</td>
+								<td style="width:400px;">Heap Size</td>
+                                <td style="width:100px;"></td>
 							</tr>
 						</thead>
 						<tbody>
 							<% @leak_instances.each do |i|  %>
-                                <tr id="click">
+                                <tr>
                                   <td><%= i.instancename %></td>
                                   <td>
                                    <div class="fancyprogress">
@@ -199,8 +200,8 @@ $(document).ready(function(){
                                    </div>
                                    </td>
                                   <td><%= i.size %></td>
+                                  <td><%= link_to "more..", "#", class: "btn btn-default btn-large" %></td>
                                 </tr>
-                                <%= render 'memories/leak_instances', object: i.children %>
 							<% end  %>
 						</tbody>
 					</table>

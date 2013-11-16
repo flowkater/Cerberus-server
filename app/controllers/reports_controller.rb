@@ -13,11 +13,11 @@ class ReportsController < ApplicationController
     @scenario = @report.scenario
 
     @memory = @report.memory
-    @leak_instances = @memory.leak_instances unless @memory.nil?
+    @leak_instances = @memory.leak_instances.includes(:children) unless @memory.nil?
 
     # CPU 
     @cpu = @report.cpu
-    @trace_methods = @cpu.trace_methods.limit(10) unless @cpu.nil?
+    @trace_methods = @cpu.trace_methods.includes(:children) unless @cpu.nil?
 
     # Network
     @network = @report.network

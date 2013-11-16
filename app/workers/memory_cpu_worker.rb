@@ -27,5 +27,7 @@ class MemoryCpuWorker
     memory.leak_instances.create(parser1.parse(instance_json))
     memory.leak_classes.create(parser2.parse(histo_json))
     cpu.trace_methods.create(parser3.parse(trace_json))
+
+    report.update_attributes(completed: true)
 	end
 end

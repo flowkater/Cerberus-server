@@ -58,7 +58,7 @@ class Api::V1::ReportsController < ApplicationController
 				Component.import @components if @battery
 				@scenario = @project.scenarios.create(profile: true)
 
-				@report.update_attributes(osversion: params[:osversion], appversion: params[:appversion], time_for_profiling: params[:time_for_profiling], completed: true, scenario_id: @scenario.id)
+				@report.update_attributes(osversion: params[:osversion], appversion: params[:appversion], time_for_profiling: params[:time_for_profiling], scenario_id: @scenario.id)
 
 				MemoryCpuWorker.perform_async(@report.id)
 				

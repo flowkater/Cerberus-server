@@ -191,17 +191,15 @@ $(document).ready(function(){
 						</thead>
 						<tbody>
 							<% @leak_instances.each do |i|  %>
-                            <tr id="click">
-                              <td><%= i.instancename %></td>
-                              <td>
-                               <div class="fancyprogress">
-                               <span class="orange" style="width: <%= i.leak_suspect %>%;"><span><%= i.leak_suspect %>%</span></span>
-                               </div>
-                               </td>
-                              <td><%= i.size %></td>
-                            </tr>
-                            
-                           
+                                <tr id="click">
+                                  <td><%= i.instancename %></td>
+                                  <td>
+                                   <div class="fancyprogress">
+                                   <span class="orange" style="width: <%= i.leak_suspect %>%;"><span><%= i.leak_suspect %>%</span></span>
+                                   </div>
+                                   </td>
+                                  <td><%= i.size %></td>
+                                </tr>
 							<% end  %>
 						</tbody>
 					</table>

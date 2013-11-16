@@ -13,7 +13,7 @@ class ReportsController < ApplicationController
     @scenario = @report.scenario
 
     @memory = @report.memory
-    @leak_instances = @memory.leak_instances unless @memory.nil?
+    @leak_instances = @memory.leak_instances.includes(:children) unless @memory.nil?
 
     # CPU 
     @cpu = @report.cpu

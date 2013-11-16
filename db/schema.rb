@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131114044622) do
+ActiveRecord::Schema.define(:version => 20131116160332) do
 
   create_table "batteries", :force => true do |t|
     t.string   "report_id"
@@ -79,6 +79,15 @@ ActiveRecord::Schema.define(:version => 20131114044622) do
   end
 
   add_index "leak_classes", ["memory_id"], :name => "index_leak_classes_on_memory_id"
+
+  create_table "leak_instance_hierarchies", :id => false, :force => true do |t|
+    t.integer "ancestor_id",   :null => false
+    t.integer "descendant_id", :null => false
+    t.integer "generations",   :null => false
+  end
+
+  add_index "leak_instance_hierarchies", ["ancestor_id", "descendant_id", "generations"], :name => "leak_instance_anc_desc_udx", :unique => true
+  add_index "leak_instance_hierarchies", ["descendant_id"], :name => "leak_instance_desc_idx"
 
   create_table "leak_instances", :force => true do |t|
     t.string   "instancename"

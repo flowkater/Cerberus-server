@@ -32,11 +32,13 @@ parser6 = Yajl::Parser.new
 @audio_memory = @audio_report.create_memory
 @photo_memory = @photo_report.create_memory
 
-@movie_memory.leak_classes.build(parser1.parse(@movie_leak_classes))
-@movie_memory.leak_instances.build(parser2.parse(@movie_sorted_instances))
+# @movie_memory.leak_classes.creat(parser1.parse(@movie_leak_classes))
+@leak_instances = @movie_memory.leak_instances.create(parser2.parse(@movie_sorted_instances))
 
-@audio_memory.leak_classes.build(parser3.parse(@audio_leak_classes))
-@audio_memory.leak_instances.build(parser4.parse(@audio_sorted_instances))
+print @leak_instances
 
-@photo_memory.leak_classes.build(parser5.parse(@photo_leak_classes))
-@photo_memory.leak_instances.build(parser6.parse(@photo_sorted_instances))
+# @audio_memory.leak_classes.create(parser3.parse(@audio_leak_classes))
+# @audio_memory.leak_instances.create(parser4.parse(@audio_sorted_instances))
+
+# @photo_memory.leak_classes.create(parser5.parse(@photo_leak_classes))
+# @photo_memory.leak_instances.create(parser6.parse(@photo_sorted_instances))

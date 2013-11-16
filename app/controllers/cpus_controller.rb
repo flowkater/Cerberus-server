@@ -4,6 +4,6 @@ class CpusController < ApplicationController
   	@report = Report.find(params[:report_id])
   	@project = @report.project
   	@cpu = @report.cpu
-  	@trace_methods = @cpu.trace_methods
+  	@trace_methods = @cpu.trace_methods.limit(10)
   end
 end

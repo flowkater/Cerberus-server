@@ -1,0 +1,107 @@
+[
+  {
+    "classname": "byte[]",
+    "differencecnt": 1,
+    "differencesize": 103688
+  },
+  {
+    "classname": "char[]",
+    "differencecnt": 2507,
+    "differencesize": 143794
+  },
+  {
+    "classname": "java.lang.Class",
+    "differencecnt": 0,
+    "differencesize": 0
+  },
+  {
+    "classname": "java.lang.String",
+    "differencecnt": 2280,
+    "differencesize": 54720
+  },
+  {
+    "classname": "int[]",
+    "differencecnt": 82,
+    "differencesize": 1980
+  },
+  {
+    "classname": "android.widget.TextView",
+    "differencecnt": 0,
+    "differencesize": 0
+  },
+  {
+    "classname": "java.util.HashMap$HashMapEntry",
+    "differencecnt": 0,
+    "differencesize": 0
+  },
+  {
+    "classname": "java.lang.ref.FinalizerReference",
+    "differencecnt": 358,
+    "differencesize": 12888
+  },
+  {
+    "classname": "java.lang.String[]",
+    "differencecnt": 699,
+    "differencesize": 9588
+  },
+  {
+    "classname": "android.app.ActivityManager$RunningAppProcessInfo",
+    "differencecnt": 675,
+    "differencesize": 37800
+  },
+  {
+    "classname": "java.lang.Object[]",
+    "differencecnt": 146,
+    "differencesize": 4476
+  },
+  {
+    "classname": "java.util.HashMap$HashMapEntry[]",
+    "differencecnt": 0,
+    "differencesize": 0
+  },
+  {
+    "classname": "android.text.TextPaint",
+    "differencecnt": 0,
+    "differencesize": 0
+  },
+  {
+    "classname": "android.graphics.Paint",
+    "differencecnt": 2,
+    "differencesize": 160
+  },
+  {
+    "classname": "android.widget.ImageView",
+    "differencecnt": 0,
+    "differencesize": 0
+  },
+  {
+    "classname": "android.view.InputEventConsistencyVerifier",
+    "differencecnt": 0,
+    "differencesize": 0
+  },
+  {
+    "classname": "android.graphics.Rect",
+    "differencecnt": 4,
+    "differencesize": 96
+  },
+  {
+    "classname": "java.lang.Integer",
+    "differencecnt": 0,
+    "differencesize": 0
+  },
+  {
+    "classname": "android.graphics.drawable.BitmapDrawable",
+    "differencecnt": 1,
+    "differencesize": 68
+  },
+  {
+    "classname": "android.widget.RelativeLayout",
+    "differencecnt": 0,
+    "differencesize": 0
+  },
+  {
+    "classname": "android.view.KeyEvent",
+    "differencecnt": 0,
+    "differencesize": 0
+  }
+]

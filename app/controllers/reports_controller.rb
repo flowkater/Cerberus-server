@@ -17,7 +17,7 @@ class ReportsController < ApplicationController
 
     # CPU 
     @cpu = @report.cpu
-    @trace_methods = @cpu.trace_methods unless @cpu.nil?
+    @trace_methods = @cpu.trace_methods.limit(10) unless @cpu.nil?
 
     # Network
     @network = @report.network

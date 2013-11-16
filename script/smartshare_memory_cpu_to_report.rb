@@ -9,7 +9,7 @@ parser4 = Yajl::Parser.new
 parser5 = Yajl::Parser.new
 parser6 = Yajl::Parser.new
 
-@project = Project.find_by_name("Today Breaker")
+@project = Project.find_by_name("Smart Share")
 
 @movie_leak_classes = File.open("#{Rails.root}/public/smartshare/movie_histo_hprof.json").read
 @movie_sorted_instances = File.open("#{Rails.root}/public/smartshare/movie_sorted_instances.json").read

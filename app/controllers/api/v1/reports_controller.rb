@@ -79,6 +79,8 @@ class Api::V1::ReportsController < ApplicationController
 		@report = Report.find(params[:id])
 		@memory = @report.memory
 		@leak_instances = @memory.leak_instances
+		@other_rate = 100 - @leak_instances.collect{|l| l.leak_suspect }.inject(&:+)
+		@others = LeakInstance.new(instancename: "others", leak_suspect: @other_rate) if @leak_instances.size == 10
 		render 'memories/v1/leak_instances'
 	end
 

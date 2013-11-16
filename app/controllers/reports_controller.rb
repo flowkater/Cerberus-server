@@ -3,7 +3,7 @@ class ReportsController < ApplicationController
   
   def index
     @project = Project.find(params[:project_id])
-    @search = @project.reports.is_completed.search(appversion_in: params[:appversions], osversion_in: params[:osversions],memory_checked_eq: params[:memory], cpu_checked_eq: params[:cpu], network_checked_eq: params[:network],battery_checked_eq: params[:battery], scenario_test_eq: params[:scenario], error_status_eq: params[:status])
+    @search = @project.reports.is_completed.search(appversion_in: params[:appversions], osversion_in: params[:osversions],memory_eq: params[:memory], cpu_eq: params[:cpu], network_eq: params[:network],battery_eq: params[:battery], scenario_test_eq: params[:scenario], error_status_eq: params[:status])
     @reports = @search.result.page(params[:page]).per(10)
   end
 
@@ -37,15 +37,15 @@ class ReportsController < ApplicationController
 
     @appversions = params[:appversions]
     @osversion = params[:osversions]
-    @memory_checked = params[:memory]
-    @cpu_checked = params[:cpu]
-    @network_checked = params[:network]
-    @battery_checked = params[:battery]
+    @memory = params[:memory]
+    @cpu = params[:cpu]
+    @network = params[:network]
+    @battery = params[:battery]
     @scenario_test = params[:scenario]
     @error_status = params[:status]
     
     respond_to do |format|
-      format.json {render json: {app: @reports_app_version_count ,os: @reports_os_version_count, appversions: @appversions,osversions: @osversion, memory_checked: @memory_checked, cpu_checked: @cpu_checked, network_checked: @network_checked, battery_checked: @battery_checked, scenario_test: @scenario_test, error_status: @error_status  }}
+      format.json {render json: {app: @reports_app_version_count ,os: @reports_os_version_count, appversions: @appversions,osversions: @osversion, memory: @memory, cpu: @cpu, network: @network, battery: @battery, scenario_test: @scenario_test, error_status: @error_status  }}
     end
   end
 end

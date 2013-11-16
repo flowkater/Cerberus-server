@@ -1,0 +1,7 @@
+<%= #render 'memories/leak_instances', object: i.children %>
+
+<%= render 'cpus/trace_methods', object: @trace_methods %>
+
+<% unless @cpu.nil?  %>
+			<%= render "cpus/cpu" %>
+		<% end  %>

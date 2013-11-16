@@ -200,6 +200,7 @@ $(document).ready(function(){
                                    </td>
                                   <td><%= i.size %></td>
                                 </tr>
+                                <%= render 'memories/leak_instances', object: i.children %>
 							<% end  %>
 						</tbody>
 					</table>

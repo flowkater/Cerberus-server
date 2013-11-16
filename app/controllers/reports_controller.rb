@@ -13,7 +13,7 @@ class ReportsController < ApplicationController
     @scenario = @report.scenario
 
     @memory = @report.memory
-    @leak_instances = @memory.leak_instances.includes(:children) unless @memory.nil?
+    @leak_instances = @memory.leak_instances unless @memory.nil?
 
     # CPU 
     @cpu = @report.cpu
@@ -34,9 +34,18 @@ class ReportsController < ApplicationController
     @project = Project.find(params[:project_id])
     @reports_app_version_count = @project.reports_app_version_count
     @reports_os_version_count = @project.reports_os_version_count
+
+    @appversions = params[:appversions]
+    @osversion = params[:osversions]
+    @memory_checked = params[:memory]
+    @cpu_checked = params[:cpu]
+    @network_checked = params[:network]
+    @battery_checked = params[:battery]
+    @scenario_test = params[:scenario]
+    @error_status = params[:status]
     
     respond_to do |format|
-      format.json {render json: {app: @reports_app_version_count ,os: @reports_os_version_count}}
+      format.json {render json: {app: @reports_app_version_count ,os: @reports_os_version_count, appversions: @appversions,osversions: @osversion, memory_checked: @memory_checked, cpu_checked: @cpu_checked, network_checked: @network_checked, battery_checked: @battery_checked, scenario_test: @scenario_test, error_status: @error_status  }}
     end
   end
 end

@@ -187,7 +187,6 @@ $(document).ready(function(){
 								<td>Instance</td>
 								<td style="width:400px;">Leak Suspect(%)</td>
 								<td style="width:400px;">Heap Size</td>
-                                <td style="width:100px;"></td>
 							</tr>
 						</thead>
 						<tbody>
@@ -200,8 +199,8 @@ $(document).ready(function(){
                                    </div>
                                    </td>
                                   <td><%= i.size %></td>
-                                  <td><%= link_to "more..", "#", class: "btn btn-default btn-large" %></td>
                                 </tr>
+                                <%= render 'memories/leak_instances', object: i.children %>
 							<% end  %>
 						</tbody>
 					</table>

@@ -1,5 +1,5 @@
 class LeakInstance < ActiveRecord::Base
-	default_scope order 'leak_suspect DESC'
+	default_scope includes(:children).order('leak_suspect DESC')
   belongs_to :memory
 
   has_many :children, class_name: "LeakInstance", foreign_key: "parent_id"

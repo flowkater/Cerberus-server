@@ -182,7 +182,7 @@ function myFunction(clicked_id)
 	if (document.getElementById("sixth").className == "blue2") { os3 = $("#"+"sixth").text()}
 
 var request = "appversions[]=1.5&appversions[]=1.4&appversions[]=1.3"
-$.getJSON('/projects/1/reports?'+  request , function(reportlist) {
+$.ajax('/projects/1/reports?'+  request , function(reportlist) {
     // you can access your data here in the "data" variable passed to this success handler
 console.log(reportlist);
 });

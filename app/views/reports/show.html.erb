@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="area-top clearfix">
 				<div class="pull-left header">
-					<h3 class="title">
+					<h3 class="title" id="topreport">
 						Report
 					</h3>
 					<h5>
@@ -56,18 +56,83 @@
 		<% unless @memory.nil? %>
 			<%= render "memories/memory" %>
 		<% end  %>
-
+		<style>
+			.hovertd:hover {
+			    cursor: pointer; cursor: hand;
+			    background: #34C9D7;
+			    font-family:arial;color:white;
+			}
+			.hovertr:hover {
+				cursor: pointer; cursor: hand;
+				background: #34C9D7;
+			}
+			.hovertd:hover a{
+				font-family:arial;color:white;
+			}
+		</style>
+		<center>
+		<table class="table table-normal" style="width:70%">
+			<thead>
+				<tr style="bgcolor:#FFFFFF">
+					<td class="hovertd"><a href="#topreport">top</a></font></td>
+					<td class="hovertd"><a href="#jumpmemory">memory</a></td>
+					<td class="hovertd"><a href="#jumptocpu">cpu</a></td>
+					<td class="hovertd"><a href="#jumptonetwork">network</a></td>
+					<td class="hovertd"><a href="#jumptobattery">battery</a></td>
+				</tr>
+			</thead>
+		</table>
+		</center>
+		<br>
 		<% unless @cpu.nil?  %>
 			<%= render "cpus/cpu" %>
 		<% end  %>
-
+		<center>
+		<table class="table table-normal" style="width:70%">
+			<thead>
+				<tr style="bgcolor:#FFFFFF">
+					<td class="hovertd"><a href="#topreport">top</a></font></td>
+					<td class="hovertd"><a href="#jumpmemory">memory</a></td>
+					<td class="hovertd"><a href="#jumptocpu">cpu</a></td>
+					<td class="hovertd"><a href="#jumptonetwork">network</a></td>
+					<td class="hovertd"><a href="#jumptobattery">battery</a></td>
+				</tr>
+			</thead>
+		</table>
+		</center>
+		<br>
 		<% unless @network.nil?  %>
 			<%= render 'networks/network' %>
 		<% end  %>
-
+		<center>
+		<table class="table table-normal" style="width:70%">
+			<thead>
+				<tr style="bgcolor:#FFFFFF">
+					<td class="hovertd"><a href="#topreport">top</a></font></td>
+					<td class="hovertd"><a href="#jumpmemory">memory</a></td>
+					<td class="hovertd"><a href="#jumptocpu">cpu</a></td>
+					<td class="hovertd"><a href="#jumptonetwork">network</a></td>
+					<td class="hovertd"><a href="#jumptobattery">battery</a></td>
+				</tr>
+			</thead>
+		</table>
+		</center>
+		<br>
 		<% unless @battery.nil?  %>
 			<%= render 'batteries/battery' %>
 		<% end  %>		
-
+		<center>
+		<table class="table table-normal" style="width:70%">
+			<thead>
+				<tr style="bgcolor:#FFFFFF">
+					<td class="hovertd"><a href="#topreport">top</a></font></td>
+					<td class="hovertd"><a href="#jumpmemory">memory</a></td>
+					<td class="hovertd"><a href="#jumptocpu">cpu</a></td>
+					<td class="hovertd"><a href="#jumptonetwork">network</a></td>
+					<td class="hovertd"><a href="#jumptobattery">battery</a></td>
+				</tr>
+			</thead>
+		</table>
+		</center>
 	</div>
 </div>

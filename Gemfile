@@ -38,6 +38,8 @@ gem 'thin'
 gem "yajl-ruby"
 
 gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim', '>= 1.3.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

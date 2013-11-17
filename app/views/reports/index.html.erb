@@ -1,4 +1,48 @@
 <style>
+.button {
+ display: inline-block;
+ outline: none;
+ cursor: pointer;
+ text-align: center;
+ text-decoration: none;
+ font: 14px/100% Arial, Helvetica, sans-serif;
+ padding: .5em 2em .55em;
+ text-shadow: 0 1px 1px rgba(0,0,0,.3);
+ -webkit-border-radius: .5em;
+ -moz-border-radius: .5em;
+ border-radius: .5em;
+ -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+ -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+ box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.button:hover {
+ text-decoration: none;
+}
+.button:active {
+ position: relative;
+ top: 1px;
+}
+.orange {
+ color: #fef4e9;
+ border: solid 1px #da7c0c;
+ background: #f78d1d;
+ background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+ background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+ filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+}
+.orange:hover {
+ background: #f47c20;
+ background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+ background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+ filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+}
+.orange:active {
+ color: #fcd3a5;
+ background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+ background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
+ filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
+}
+
 .fancyprogress {
   height: 25px;
   background: #ebebeb;
@@ -313,12 +357,27 @@ console.log(url)
 			myHash['osversions'] = new Array();
 		}
 
+		if(clicked_id == "osall") {
+
+			myHash['osversions'] = [];
+		}
+		if(clicked_id == "appall") {
+
+			myHash['appversions'] = [];
+		}
+		if(clicked_id == 'categoryall'){
+				myHash['battery'] = ""
+				myHash['cpu'] = ""
+				myHash['memory'] = ""
+				myHash['network'] = ""
+		}
 				//app version
-		if(clicked_id.substring(0,5) == 'appid'){
+		else if(clicked_id.substring(0,5) == 'appid'){
+
 					var clicked_app_index = clicked_id.substring(5,6);	
 				// if app version exist in appversions remove or not add
 				clicked_app_version = myHash['app'][clicked_app_index].appversion
-				var indexofremoveapp = myHash['app'].indexOf(clicked_app_version)
+				var indexofremoveapp = myHash['appversions'].indexOf(clicked_app_version)
 				if(indexofremoveapp != -1){
 					myHash['appversions'].splice(indexofremoveapp,1)
 				}
@@ -327,12 +386,12 @@ console.log(url)
 				}
 		}
 				//os version
-		if(clicked_id.substring(0,4) == 'osid'){
+		else if(clicked_id.substring(0,4) == 'osid'){
 
 					var clicked_os_index = clicked_id.substring(4,5);	
 				// if os version exist in osversions remove or not add
 				clicked_os_version = myHash['os'][clicked_os_index].osversion
-				var indexofremoveos = myHash['os'].indexOf(clicked_os_version)
+				var indexofremoveos = myHash['osversions'].indexOf(clicked_os_version)
 				if(indexofremoveos != -1){
 					myHash['osversions'].splice(indexofremoveos,1)
 				}
@@ -341,7 +400,7 @@ console.log(url)
 				}
 		}
 				//memory
-		if(clicked_id == 'memory') {
+		else if(clicked_id == 'memory') {
 			if(myHash['memory'] == null || myHash['memory'] == ''){
 				myHash['memory'] = 'true'
 			}
@@ -351,7 +410,7 @@ console.log(url)
 			});	
 			}
 		}
-		if(clicked_id == 'cpu') {
+		else if(clicked_id == 'cpu') {
 						if(myHash['cpu'] == null || myHash['cpu'] == ''){
 				myHash['cpu'] = 'true'
 			}
@@ -362,7 +421,7 @@ console.log(url)
 			}
 			
 		}
-		if(clicked_id == 'network') {
+		else if(clicked_id == 'network') {
 						if(myHash['network'] == null || myHash['network'] == ''){
 				myHash['network'] = 'true'
 			}
@@ -373,7 +432,7 @@ console.log(url)
 			}
 			
 		}
-		if(clicked_id == 'battery') {
+		else if(clicked_id == 'battery') {
 						if(myHash['battery'] == null || myHash['battery'] == ''){
 				myHash['battery'] = 'true'
 			}
@@ -384,7 +443,25 @@ console.log(url)
 			}
 			
 		}
-		
+		else if(clicked_id == "yes") {
+			myHash['scenario_test'] = 'true'
+		}
+		else if(clicked_id == "no") {
+			myHash['scenario_test'] = 'false'
+		}
+		else if(clicked_id == 'sceanarioall'){
+			myHash['scenario_test'] = ""
+		}
+		else if(clicked_id == 'statusall'){
+			myHash['error_status'] = ""
+
+		}
+		else if(clicked_id == 'finish'){
+				myHash['error_status'] = 'true'
+		}
+		else if(clicked_id == 'fail') {
+				myHash['error_status'] = 'false'
+		}
 		//console.log('app ' + apparray[0]['appversion'] + ' percents ' + apparray[0]['rate'])
 		//console.log('app ' + apparray[1]['appversion'])
 
@@ -404,80 +481,56 @@ console.log(url)
 
 	// console.log('CLICKEdid'+' '+clicked_id)
 	// console.log('CLICKEdid'+' '+document.getElementById(clicked_id).className)
-	if (document.getElementById(clicked_id).className == "orange"){ document.getElementById(clicked_id).className = "orange2"; }
-	else if (document.getElementById(clicked_id).className == "orange2"){ document.getElementById(clicked_id).className = "orange";}
-	else if (document.getElementById(clicked_id).className == "red"){ document.getElementById(clicked_id).className = "red2";}
-	else if (document.getElementById(clicked_id).className == "red2"){ document.getElementById(clicked_id).className = "red";}
-	else if (document.getElementById(clicked_id).className == "blue"){ document.getElementById(clicked_id).className = "blue2";}
-	else if (document.getElementById(clicked_id).className == "blue2"){ document.getElementById(clicked_id).className = "blue";}
-	else if (document.getElementById(clicked_id).className == "green"){ document.getElementById(clicked_id).className = "green2";}
-	else if (document.getElementById(clicked_id).className == "green2"){ document.getElementById(clicked_id).className = "green";}
+	// if (document.getElementById(clicked_id).className == "orange"){ document.getElementById(clicked_id).className = "orange2"; }
+	// else if (document.getElementById(clicked_id).className == "orange2"){ document.getElementById(clicked_id).className = "orange";}
+	// else if (document.getElementById(clicked_id).className == "red"){ document.getElementById(clicked_id).className = "red2";}
+	// else if (document.getElementById(clicked_id).className == "red2"){ document.getElementById(clicked_id).className = "red";}
+	// else if (document.getElementById(clicked_id).className == "blue"){ document.getElementById(clicked_id).className = "blue2";}
+	// else if (document.getElementById(clicked_id).className == "blue2"){ document.getElementById(clicked_id).className = "blue";}
+	// else if (document.getElementById(clicked_id).className == "green"){ document.getElementById(clicked_id).className = "green2";}
+	// else if (document.getElementById(clicked_id).className == "green2"){ document.getElementById(clicked_id).className = "green";}
 
 	if (clicked_id == "cpu"){
 		$("#cpuimageid").attr({
  			 src: "<%= asset_path('c2.png') %>"
 			});
-		$("#cpu").attr({
-			 id: "cpu2"
-		});	
 	}
 	else if (clicked_id == "cpu2"){
 		$("#cpuimageid").attr({
  			 src: "<%= asset_path('2.png') %>"
 			});
-		$("#cpu2").attr({
-			 id: "cpu"
-		});	
 	}
 	else if (clicked_id =="memory"){
 				$("#memimageid").attr({
  			 src: "<%= asset_path('c1-1.png') %>"
 			});
-		$("#memory").attr({
-			 id: "memory2"
-		});	
 	}
 	else if (clicked_id =="memory2"){
 				$("#memimageid").attr({
  			 src: "<%= asset_path('1.png') %>"
-			});
-		$("#memory2").attr({
-			 id: "memory"
-		});			
+			});		
 	}
 	else if (clicked_id =="network"){
 						$("#netimageid").attr({
  			 src: "<%= asset_path('c3.png') %>"
-			});
-		$("#network").attr({
-			 id: "network2"
-		});			
+			});		
 	}
 	if (clicked_id =="battery"){
 						$("#batimageid").attr({
  			 src: "<%= asset_path('c4.png') %>"
 			});
-			$("#battery").attr({
-			 id: "battery2"
-		});	
 	}
 	if (clicked_id =="network2"){
 						$("#netimageid").attr({
  			 src: "<%= asset_path('3.png') %>"
 			});
-		$("#network2").attr({
-			 id: "network"
-		});	
 	}
 	if (clicked_id =="battery2"){
 						$("#batimageid").attr({
  			 src: "<%= asset_path('4.png') %>"
 			});
-			$("#battery2").attr({
-			 id: "battery"
-		});	
 	}
-	if (clicked_id == "yesorno"){
+	if (clicked_id == "yes"){
 			$("#yeslable").attr({
  			 color:"red"
 			});
@@ -488,7 +541,7 @@ console.log(url)
 	//json request for data
 	request = "reports?"
 		for (var i = 0; i < myHash['appversions'].length; i++) {
-			request = request+"appversions[]="+apparray[i]['appversion']+"&"
+			request = request+"appversions[]="+myHash['appversions'][i]+"&"
 		}
 		for (var i = 0; i < myHash['osversions'].length; i++) {
 			request = request + 'osversions[]='+osarray[i]['osversion']+"&"
@@ -505,7 +558,12 @@ console.log(url)
 		if(myHash['network'] == 'true'){
 			request = request + 'network='+myHash['network']+'&'
 		}
-
+		if(myHash['scenario_test'] == 'true' || myHash['scenario_test'] == 'false'){
+			request = request + 'scenario='+myHash['scenario_test']+'&'
+		}
+		if(myHash['error_status'] == 'true' || myHash['error_status'] == 'false'){
+			request = request + 'status='+myHash['error_status']+'&'
+		}
 		console.log("REQUEST "+request)
 		window.location = request 
 	});
@@ -569,45 +627,36 @@ alert(url + clicked_id)
 						<tbody>
 							<tr>
 								<td>App Version</td>
-								<td class="in-checkbox">
-									<button style="width:100%" onclick="myFunction()">
-									<label for="icheck1">All</label>
-									</button>
+								<td style="width:100px">
+									<button class="button orange" id="appall" onclick="myFunction(this.id)">ALL</button>
+							<!-- 		<label for="icheck1">All</label> -->
+							<!-- 		</button> -->
 								</td>
 								<td colspan="4">
  							    <div class="fancyprogress" id='appversiontable'>
-<!-- 								  <span onclick="myFunction(this.id)" id="first" class="orange" style="width: 30%;"><span>1.5</span></span>
-							      <span onclick="myFunction(this.id)" id="second" class="red" style="width: 30%;"><span>1.6</span></span>
-							      <span onclick="myFunction(this.id)" id="third" class="blue" style="width: 30%;"><span>1.7</span></span> -->
+
 							    </div> 
 							    </td>
 							</tr>
 							<tr>
 								<td>OS Version</td>
-								<td class="in-checkbox">
-								<button style="width:100%">
+								<td>
+								
 									<!-- <input type="checkbox" class="icheck" checked id="icheck1"> -->
-									<label for="icheck1">All</label>
-									</button>
+										<button class="button orange" id="osall" onclick="myFunction(this.id)">ALL</button>
+									<!-- </button> -->
 								</td>
 								<td colspan="4">
 							    <div class="fancyprogress"  id='osversiontable'>
-							    <% firstversion = 40 %>
-							    <% secondversion = 40 %>
-							    <% thirdversion = 20 %>
-<!-- 								  <span onclick="myFunction(this.id)" id="fourth" class="green" style="width: <%= firstversion %>%;"><span>1.5</span></span>
-							      <span onclick="myFunction(this.id)" id="fifth" class="orange" style="width: <%= secondversion %>%;"><span>2.1</span></span>
-							      <span onclick="myFunction(this.id)" id="sixth" class="blue" style="width: <%= thirdversion %>%;"><span>4.1</span></span> -->
+
 							    </div>
 							    </td>
 							</tr>
 							<tr>
 								<td>Category</td>
-								<td class="in-checkbox">
+								<td >
 								<!-- 	<input type="checkbox" class="icheck" checked id="icheck1"> -->
-								<button style="width:100%">
-									<label for="icheck1">All</label>
-									</button>
+									<button class="button orange" id='categoryall' onclick="myFunction(this.id)">ALL</button>
 								</td>
 								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="memory">							
 									<center>
@@ -636,19 +685,16 @@ alert(url + clicked_id)
 							</tr>
 							<tr>
 								<td>Scenario Test</td>
-																<td class="in-checkbox">
-								<button style="width:100%">
-									<!-- <input type="checkbox" class="icheck" checked id="icheck1"> -->
-									<label for="icheck1">All</label>
-									</button>
+																<td class>
+									<button class="button orange" id='sceanarioall' onclick="myFunction(this.id)">ALL</button>
 								</td>
-								<td class="hovertd" onClick="myFunction(this.id)" id="yesorno" style="vertical-align:middle">
+								<td class="hovertd" onClick="myFunction(this.id)" id="yes" style="vertical-align:middle">
 									<!-- <input type="radio" name="optionsRadios[test]" class="icheck" checked id="iradio1"> -->
 									<center>
                 					  <label id="yeslable">Yes</label>
                 					  </center>
 								</td>
-								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
+								<td class="hovertd" onClick="myFunction(this.id)" id="no" style="vertical-align:middle">
 								<!-- 	<input type="radio" name="optionsRadios[test]" class="icheck" id="iradio2"> -->
 								<center>
                						    <label class="on">No</label>
@@ -657,19 +703,17 @@ alert(url + clicked_id)
 							</tr>
 							<tr>
 								<td>Status</td>
-								<td class="in-checkbox">
-								<button style="width:100%">
-									<!-- <input type="checkbox" class="icheck" checked id="icheck1"> -->
-									<label for="icheck1">All</label>
-									</button>
+								<td>
+								
+										<button class="button orange" id='statusall' onclick="myFunction(this.id)">ALL</button>
 								</td>
-								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
+								<td class="hovertd" onClick="myFunction(this.id)" id='finish' style="vertical-align:middle">
 								<!-- 	<input type="radio" name="optionsRadios[error]" class="icheck" id="iradio1"> -->
 								<center>
               						     <label class="on">Finish</label>
               						    </center>
 								</td>
-								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
+								<td class="hovertd" onClick="myFunction(this.id)" id='fail' style="vertical-align:middle">
 								<!-- 	<input type="radio" name="optionsRadios[error]" class="icheck" checked id="iradio4"> -->
 								<center>
              					       <label class="on">Fail</label>

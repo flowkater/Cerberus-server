@@ -7,13 +7,10 @@ class Api::V1::RecordsController < ApplicationController
 		@scenario = Scenario.find(params[:scenario_id])
 		@records = @scenario.records.build(JSON.parse(params[:records]))
 
-		@records.each_with_index do |record, index|
-			record.children.build(@records[index + 1])
-		end
-
 		Record.transaction do
 			begin
 				Record.import @records
+				RecordUpdateWorker.perform_async(@scenario.id)
 		    
 				render status: :created, json: {response: "success create"}	
 			rescue Exception => e

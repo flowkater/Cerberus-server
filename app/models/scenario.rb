@@ -41,8 +41,7 @@ class Scenario < ActiveRecord::Base
 
   def record_node_update
     (1..records.length - 1).each do |i|
-      records[i].parent_id = records[i-1].id      
-      records[i].save!
+      records[i].update_attributes(parent_id: records[i-1].id)
     end
   end
 end

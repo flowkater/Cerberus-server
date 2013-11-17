@@ -3,7 +3,7 @@
   height: 25px;
   background: #ebebeb;
   border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
+border-right: 1px solid transparent;
   border-radius: 10px;
   cursor: pointer; cursor: hand;
 }
@@ -559,9 +559,10 @@ alert(url + clicked_id)
 							</tr>
 						</thead>
 						<tbody>
+
 							<% @reports.each do |report| %>
-								<tr class="hovertr" onclick="myFunction2(<%= report.scenario_id %>)" >
-									<td><%= report.project %></td>
+								<tr class="hovertr" onclick='location.href="<%= project_report_path(@project, report) %>"'>
+									<td></td>
 									<td><%= report.appversion %></td>
 									<td>
 									<%= image_tag("1.png", :alt => "Edit Entry")  if report.categories.include? 'Memory'%>

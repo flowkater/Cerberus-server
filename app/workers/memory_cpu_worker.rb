@@ -25,7 +25,12 @@ class MemoryCpuWorker
                 parser2 = Yajl::Parser.new
                 parser3 = Yajl::Parser.new
 
-                memory.leak_instances.create(parser1.parse(instance_json))
+                @leak_instances_query = memory.leak_instances.build(parser1.parse(instance_json)).in_groups_of(10, false)
+                
+                @leak_instances_query.each do |leak_instance|
+                        leak_instance.save!
+                end
+                
                 memory.leak_classes.create(parser2.parse(histo_json))
                 cpu.trace_methods.create(parser3.parse(trace_json))
 

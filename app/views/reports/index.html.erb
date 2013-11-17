@@ -189,9 +189,9 @@ console.log(url)
 	    	//console.log(i + "  " + apparray[i]['rate'])
 	    	var width = apparray[i]['rate']
 	    	setcolor = "orange"
-	    	if(myHash['appversions'] != null && (myHash['appversions'].indexOf(apparray[i]['appversion']))){
-	    		setcolor = "orange2"
-	    	}
+	    	// if(myHash['appversions'] != null && (myHash['appversions'].indexOf(apparray[i]['appversion']))){
+	    	// 	setcolor = "orange2"
+	    	// }
 	    	spantext = '<span onclick="myFunction(this.id)" '+'id=appid'+i+' class="'+setcolor+'" style="width:'+width+'%;">'
 			$("#appversiontable").append(spantext+'<span>'+apparray[i]['appversion']+'</span>');
 		}	
@@ -207,23 +207,86 @@ console.log(url)
 
 		//check status
 		//appversions
-		console.log(myHash['appversions'])
 		if(myHash['appversions'] != null && myHash['appversions'].length > 0){ 
-			console.log()
+			//find index of appversion in myHash['app']
+			for(var i=0 ; i < myHash['appversions'].length;i++){
+			//console.log('find index of '+myHash['app'].indexOf(myHash['appversions']) )
+				for(var j=0; j <myHash['app'].length; j++){
+					if (myHash['appversions'][i] == myHash['app'][j]['appversion']){
+						//then change j index version in list
+						document.getElementById('appid'+j).className = "orange2";
+					}
+				}
+			}
 		}
 		//osversions
-		myHash['osversions']
+		if(myHash['osversions'] != null && myHash['osversions'].length > 0){ 
+			//find index of appversion in myHash['app']
+			for(var i=0 ; i < myHash['osversions'].length;i++){
+			//console.log('find index of '+myHash['app'].indexOf(myHash['appversions']) )
+				for(var j=0; j <myHash['os'].length; j++){
+					console.log(myHash['osversions'][i])
+					if (myHash['osversions'][i] == myHash['os'][j]['osversion']){
+						//then change j index version in list
+						document.getElementById('osid'+j).className = "blue2";
+					}
+				}
+			}
+		}
 		//memory
-		myHash['memory']
+		if (myHash['memory'] == 'true' ) {
+							$("#memimageid").attr({
+ 			 src: "<%= asset_path('c1-1.png') %>"
+			});
+			$("#memory").attr({
+				 id: "memory2"
+			});	
+		}
 		//cpu
-		myHash['cpu']
+		if (myHash['cpu'] == 'true' ) {
+				$("#cpuimageid").attr({
+ 			 src: "<%= asset_path('c2.png') %>"
+			});
+			$("#cpu").attr({
+				 id: "cpu2"
+			});	
+		}
 		//network
+		if (myHash['network'] == 'true' ) {
+										$("#netimageid").attr({
+ 			 src: "<%= asset_path('c3.png') %>"
+			});
+			$("#network").attr({
+				 id: "network2"
+			});	
+		}
 		//battery
-		myHash['battery']
+		if (myHash['battery'] == 'true' ) {
+										$("#batimageid").attr({
+ 			 src: "<%= asset_path('c4.png') %>"
+			});
+			$("#battery").attr({
+				 id: "battery2"
+			});	
+		}
 		//sceanario
-		myHash['scenario_test']
+		if (myHash['scenario_test'] == 'true' ) {
+										$("#scenarioid").attr({
+ 			 src: "<%= asset_path('c1-1.png') %>"
+			});
+			$("#scenario").attr({
+				 id: "scenario2"
+			});	
+		}
 		//status
-		myHash['error_status']
+		if (myHash['error_status'] == 'true' ) {
+										$("#errorimageid").attr({
+ 			 src: "<%= asset_path('c1-1.png') %>"
+			});
+			$("#error").attr({
+				 id: "error2"
+			});	
+		}
 
 	//console.log(obj);
 });
@@ -246,34 +309,95 @@ console.log(url)
 		if (myHash['appversions'] == null) {
 			myHash['appversions'] = new Array();
 		}
-		//app version
-		var clicked_app_index = clicked_id.substring(5,6);	
-		// if app version exist in appversions remove or not add
-		clicked_app_version = myHash['app'][clicked_app_index].appversion
-		alert("clicked_app_version"+clicked_app_version)
-		var indexofremoveapp = myHash['app'].indexOf(clicked_app_version)
-		if(indexofremoveapp != -1){
-			myHash['appversions'].splice(indexofremoveapp,1)
-		}
-		else{
-			myHash['appversions'].push(clicked_app_version)
+		if (myHash['osversions'] == null) {
+			myHash['osversions'] = new Array();
 		}
 
+				//app version
+		if(clicked_id.substring(0,5) == 'appid'){
+					var clicked_app_index = clicked_id.substring(5,6);	
+				// if app version exist in appversions remove or not add
+				clicked_app_version = myHash['app'][clicked_app_index].appversion
+				var indexofremoveapp = myHash['app'].indexOf(clicked_app_version)
+				if(indexofremoveapp != -1){
+					myHash['appversions'].splice(indexofremoveapp,1)
+				}
+				else{
+					myHash['appversions'].push(clicked_app_version)
+				}
+		}
+				//os version
+		if(clicked_id.substring(0,4) == 'osid'){
+
+					var clicked_os_index = clicked_id.substring(4,5);	
+				// if os version exist in osversions remove or not add
+				clicked_os_version = myHash['os'][clicked_os_index].osversion
+				var indexofremoveos = myHash['os'].indexOf(clicked_os_version)
+				if(indexofremoveos != -1){
+					myHash['osversions'].splice(indexofremoveos,1)
+				}
+				else{
+					myHash['osversions'].push(clicked_os_version)
+				}
+		}
+				//memory
+		if(clicked_id == 'memory') {
+			if(myHash['memory'] == null || myHash['memory'] == ''){
+				myHash['memory'] = 'true'
+			}
+			else {
+			 $("#memory").attr({
+			 id: "memory2"
+			});	
+			}
+		}
+		if(clicked_id == 'cpu') {
+						if(myHash['cpu'] == null || myHash['cpu'] == ''){
+				myHash['cpu'] = 'true'
+			}
+			else {
+			 $("#cpu").attr({
+			 id: "cpu2"
+			});	
+			}
+			
+		}
+		if(clicked_id == 'network') {
+						if(myHash['network'] == null || myHash['network'] == ''){
+				myHash['network'] = 'true'
+			}
+			else {
+			 $("#network").attr({
+			 id: "network2"
+			});	
+			}
+			
+		}
+		if(clicked_id == 'battery') {
+						if(myHash['battery'] == null || myHash['battery'] == ''){
+				myHash['battery'] = 'true'
+			}
+			else {
+			 $("#battery").attr({
+			 id: "battery2"
+			});	
+			}
+			
+		}
 		
-		alert("APP ARRAY " + myHash['appversions'])
 		//console.log('app ' + apparray[0]['appversion'] + ' percents ' + apparray[0]['rate'])
 		//console.log('app ' + apparray[1]['appversion'])
 
 		osarray = myHash['os']
 		//console.log('os' + osarrary[0]['osversion']+ ' percents ' + osarrary[0]['rate'])
 
-		appversions = myHash['appversions']
-		osversions = myHash['osversions']
-		batterystatus = myHash['battery']
-		cpustatus = myHash['cpu']
-		error_status = myHash['error_status']
-		memory_status = myHash['memory']
-		scenario_status = myHash['scenario_test']
+		// appversions = myHash['appversions']
+		// osversions = myHash['osversions']
+		// batterystatus = myHash['battery']
+		// cpustatus = myHash['cpu']
+		// error_status = myHash['error_status']
+		// memory_status = myHash['memory']
+		// scenario_status = myHash['scenario_test']
 		
 
 
@@ -361,13 +485,27 @@ console.log(url)
 
 		console.log(data)
 
-		alert(myHash['appversions'])
 	//json request for data
 	request = "reports?"
 		for (var i = 0; i < myHash['appversions'].length; i++) {
 			request = request+"appversions[]="+apparray[i]['appversion']+"&"
 		}
-		alert(request)
+		for (var i = 0; i < myHash['osversions'].length; i++) {
+			request = request + 'osversions[]='+osarray[i]['osversion']+"&"
+		}
+		if(myHash['memory'] == 'true'){
+			request = request + 'memory='+myHash['memory']+'&'
+		}
+		if(myHash['battery'] == 'true'){
+			request = request + 'battery='+myHash['battery']+'&'
+		}
+		if(myHash['cpu'] == 'true'){
+			request = request + 'cpu='+myHash['cpu']+'&'
+		}
+		if(myHash['network'] == 'true'){
+			request = request + 'network='+myHash['network']+'&'
+		}
+
 		console.log("REQUEST "+request)
 		window.location = request 
 	});
@@ -473,7 +611,7 @@ alert(url + clicked_id)
 								</td>
 								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="memory">							
 									<center>
-										<img class="on" id="memimageid" src="/assets/1.png" height = '32' width = '32'>
+										<img id="memimageid" src="/assets/1.png" height = '32' width = '32'>
 	 								   	<br> Memory
 									</center>
 								</td>

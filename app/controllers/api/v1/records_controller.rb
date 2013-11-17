@@ -12,7 +12,7 @@ class Api::V1::RecordsController < ApplicationController
 				Record.import @records
 				@records = @scenario.records
 				(1..@records.length - 1).each do |i|
-		      @records[i].update_attributes(parent_id: @records[i-1].id)
+		      @records[i].parent_id = @records[i-1].id
 		    end
 				render status: :created, json: {response: "success create"}	
 			rescue Exception => e

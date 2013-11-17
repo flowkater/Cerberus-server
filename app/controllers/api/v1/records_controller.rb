@@ -10,7 +10,7 @@ class Api::V1::RecordsController < ApplicationController
 		Record.transaction do
 			begin
 				Record.import @records
-				@scenario.record_node_update
+				# @scenario.record_node_update
 				render status: :created, json: {response: "success create"}	
 			rescue Exception => e
 				print e

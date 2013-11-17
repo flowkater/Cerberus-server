@@ -86,6 +86,18 @@ $(document).ready(function(){
     $.getJSON( "/api/v1/reports/"+ <%= @report.id %>+"/memory_leak_class", function( data ) {
       myjson = data;
       // SERIAL CHART
+      var innerArray = [];
+    for (property in myjson) {
+    innerArray.push(myjson[property]);
+    console.log(myjson[property])
+    if ( myjson[property]['differencesize'] < 0 ){
+       myjson[property]['color'] = '#34C9D7'
+   }
+   else {myjson[property]['color'] = '#bf1c25'}
+    }
+    //datafield hash
+    //{date:2010, value:100, color:"#CC0000"}
+      $("#chartdiv").height(innerArray.length * 25)
     chart = new AmCharts.AmSerialChart();
     chart.dataProvider = myjson;
     chart.categoryField = "classname";
@@ -117,9 +129,10 @@ $(document).ready(function(){
     graph.title = "Differencesize";
     graph.valueField = "differencesize";
     graph.type = "column";
+    graph.colorField = "color";
     graph.balloonText = "Leak in [[category]]:[[value]]";
     graph.lineAlpha = 0;
-    graph.fillColors = "#bf1c25";
+  //  graph.fillColors = "#34C9D7" //"#bf1c25"; 
     graph.fillAlphas = 1;
     chart.addGraph(graph);
 
@@ -172,7 +185,7 @@ $(document).ready(function(){
 
 		<div class="container" >
 			<div class="row">
-				<div id="chartdiv" style=" height: 400px;">
+				<div id="chartdiv">
 					</div>
        			 <div id="chartdiv2" style="height: 400px; width: 100%;"></div>	
 			</div>

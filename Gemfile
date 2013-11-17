@@ -40,6 +40,7 @@ gem "yajl-ruby"
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim', '>= 1.3.0'
+gem 'sidekiq-limit_fetch'
 
 
 # Tree..

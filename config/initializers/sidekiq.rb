@@ -1,0 +1,1 @@
+Sidekiq::Queue['memory_deadlock'].limit = 1

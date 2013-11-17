@@ -1,6 +1,7 @@
 class MemoryCpuWorker
         require 'yajl'
         include Sidekiq::Worker
+        sidekiq_options queue: "memory_deadlock"
 
         def perform(report_id)
         	report = Report.find(report_id)
@@ -30,7 +31,7 @@ class MemoryCpuWorker
                 @leak_instances_query.each do |leak_instance|
                         leak_instance.save!
                 end
-                
+
                 memory.leak_classes.create(parser2.parse(histo_json))
                 cpu.trace_methods.create(parser3.parse(trace_json))
 

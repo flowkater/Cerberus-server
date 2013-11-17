@@ -66,7 +66,7 @@ class Api::V1::ReportsController < ApplicationController
 				
 				@scenario.record_node_update
 
-				render status: :created, json: {response: "success profiling update", trace:  params[:trace], hprof: params[:hprof]}
+				render status: :created, json: {response: "success profiling update"}
 			rescue Exception => e
 				print e
 				render status: :unprocessable_entity, json: {response: "error #{e}"}

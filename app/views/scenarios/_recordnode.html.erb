@@ -1,11 +1,51 @@
+<style>
+#sticky {
+  padding: 0.5ex;
+  background-color: #FFF;
+  color: #fff;
+  font-size: 2em;
+  border-radius: 0.5ex;
+}
+#sticky.stick {
+  position: fixed;
+  top: 70px;
+  z-index: 10000;
+  width: 92%;
+  border-radius: 0 0 0.5em 0.5em;
+}
+</style>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+<script>
+function sticky_relocate() {
+  var window_top = $(window).scrollTop();
+  var div_top = $('#sticky-anchor').offset().top;
+  if (window_top > div_top) {
+    $('#sticky').addClass('stick');
+  } 
+  else {
+    $('#sticky').removeClass('stick');
+  }
+  if (window_top > 9000){
+    $('#sticky').removeClass('stick');
+  }
+  
+}
+
+$(function() {
+  $(window).scroll(sticky_relocate);
+  sticky_relocate();
+});
+</script>
+
 <div class="container">
 	<div class="row">
 			<div class="col-md-12">
                 <h2>Event path</h2>
 				<div class="box">
                     <div class="box-content">
-                        
-                        <div id="report-record-node" style="overflow:scroll"></div>
+                                <div id="sticky-anchor"></div>
+<div id="sticky"> <div id="report-record-node" style="overflow:scroll"></div></div>
+                       
                     </div>
                 </div>
 			</div>
@@ -17,7 +57,7 @@
 $(document).ready(function(){
     var m = [20, 120, 20, 120],
     w = $("#report-record-node").width() - m[1] - m[3],
-    h = 200 - m[0] - m[2],
+    h = 100 - m[0] - m[2],
     i = 0,
     root;
 

@@ -203,17 +203,16 @@ $(document).ready(function(){
 						</thead>
 						<tbody>
 							<% @leak_instances.each do |i|  %>
-                                <tr>
-                                  <td><%= i.instancename %></td>
-                                  <td>
-                                   <div class="fancyprogress">
-                                   <span class="orange" style="width: <%= i.leak_suspect %>%;"><span><%= i.leak_suspect %>%</span></span>
-                                   </div>
-                                   </td>
-                                  <td><%= i.size %></td>
-                                </tr>
-                                <%= i.hash_to_html.html_safe %>
-							<% end  %>
+                <tr>
+                  <td><%= i.instancename %></td>
+                  <td>
+                   <div class="fancyprogress">
+                   <span class="orange" style="width: <%= i.leak_suspect %>%;"><span><%= i.leak_suspect %>%</span></span>
+                   </div>
+                   </td>
+                  <td><%= i.size %></td>
+                </tr>
+							<% end %>
 						</tbody>
 					</table>
 				</div>

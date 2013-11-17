@@ -43,7 +43,7 @@ class Api::V1::ReportsController < ApplicationController
 		@battery = @report.battery
 
 		if @memory
-			@memory.hprof1 = params[:hprof1]  
+			@memory.hprof1 = params[:hprof1]
 			@memory.hprof2 = params[:hprof2]
 		end
 		
@@ -59,12 +59,12 @@ class Api::V1::ReportsController < ApplicationController
 
 				@report.update_attributes(osversion: params[:osversion], appversion: params[:appversion], time_for_profiling: params[:time_for_profiling], scenario_id: @scenario.id)
 
-				MemoryCpuWorker.perform_in(1.minutes, @report.id)
+				MemoryCpuWorker.perform_in(20.seconds, @report.id)
 				
 				@records = @scenario.records.build(JSON.parse(params[:records]))
 				Record.import @records
-				
-				@scenario.record_node_update
+
+				RecordUpdateWorker.perform_async(@scenario.id)
 
 				render status: :created, json: {response: "success profiling update"}
 			rescue Exception => e

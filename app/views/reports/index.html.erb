@@ -154,8 +154,13 @@ table td:hover label.on{
 }
 </style>
 <script type="text/javascript" >
+url = ""
+if(document.URL.indexOf("?") != -1){
+url = document.URL.substring(document.URL.indexOf("?"),document.URL.length-1);
+console.log(url)
+}
 
- $.getJSON('reports/app_os_version_count.json', function(data) {
+ $.getJSON('reports/app_os_version_count.json'+url, function(data) {
      // you can accss your data here in the "data" variable passed to this success handler
 		var myHash = {};
 		myHash = data;
@@ -179,12 +184,16 @@ table td:hover label.on{
 
 		//APP version
 		for (var i = 0; i < apparray.length; i++) {
-    	apparray[i]['appversion']
-    	apparray[i]['rate']
-    	//console.log(i + "  " + apparray[i]['rate'])
-    	var width = apparray[i]['rate']
-    	spantext = '<span onclick="myFunction(this.id)" '+'id=appid'+i+' class="orange" style="width:'+width+'%;">'
-		$("#appversiontable").append(spantext+'<span>'+apparray[i]['appversion']+'</span>');
+	    	apparray[i]['appversion']
+	    	apparray[i]['rate']
+	    	//console.log(i + "  " + apparray[i]['rate'])
+	    	var width = apparray[i]['rate']
+	    	setcolor = "orange"
+	    	if(myHash['appversions'] != null && (myHash['appversions'].indexOf(apparray[i]['appversion']))){
+	    		setcolor = "orange2"
+	    	}
+	    	spantext = '<span onclick="myFunction(this.id)" '+'id=appid'+i+' class="'+setcolor+'" style="width:'+width+'%;">'
+			$("#appversiontable").append(spantext+'<span>'+apparray[i]['appversion']+'</span>');
 		}	
 
 		//OS version
@@ -199,6 +208,9 @@ table td:hover label.on{
 		//check status
 		//appversions
 		console.log(myHash['appversions'])
+		if(myHash['appversions'] != null && myHash['appversions'].length > 0){ 
+			console.log()
+		}
 		//osversions
 		myHash['osversions']
 		//memory
@@ -218,8 +230,13 @@ table td:hover label.on{
 
 function myFunction(clicked_id)
 {
+url = ""
+if(document.URL.indexOf("?") != -1){
+url = document.URL.substring(document.URL.indexOf("?"),document.URL.length-1);
+console.log(url)
+}
 	var data
- $.getJSON('reports/app_os_version_count.json', function(jsondata) {
+ $.getJSON('reports/app_os_version_count.json'+url, function(jsondata) {
 
 
  		data = jsondata
@@ -233,7 +250,7 @@ function myFunction(clicked_id)
 		var clicked_app_index = clicked_id.substring(5,6);	
 		// if app version exist in appversions remove or not add
 		clicked_app_version = myHash['app'][clicked_app_index].appversion
-		console.log("clicked_app_version"+clicked_app_version)
+		alert("clicked_app_version"+clicked_app_version)
 		var indexofremoveapp = myHash['app'].indexOf(clicked_app_version)
 		if(indexofremoveapp != -1){
 			myHash['appversions'].splice(indexofremoveapp,1)
@@ -243,7 +260,7 @@ function myFunction(clicked_id)
 		}
 
 		
-		console.log("APP ARRAY " + myHash['appversions'])
+		alert("APP ARRAY " + myHash['appversions'])
 		//console.log('app ' + apparray[0]['appversion'] + ' percents ' + apparray[0]['rate'])
 		//console.log('app ' + apparray[1]['appversion'])
 
@@ -342,27 +359,49 @@ function myFunction(clicked_id)
 			});
 	}
 
+		console.log(data)
+
+		alert(myHash['appversions'])
 	//json request for data
 	request = "reports?"
 		for (var i = 0; i < myHash['appversions'].length; i++) {
 			request = request+"appversions[]="+apparray[i]['appversion']+"&"
 		}
+		alert(request)
 		console.log("REQUEST "+request)
-
-	    $.ajax({
-        url: request, 
-        dataType: 'json',
-        data: { appversions: myHash['appversions'] },
-        success: function(data) {
-        	console.log("FFFF")
-        }
-   		 });
-
+		window.location = request 
 	});
 
 		//
 
 }
+
+
+function myFunction2(clicked_id)
+{
+url = ""
+if(document.URL.indexOf("?") != -1){
+url = document.URL.substring(0,document.URL.indexOf("?"));
+alert(url + clicked_id)
+	}
+}
+//         
+
+
+
+    	// var w = window.open();
+        // $(w.document.body).html(data)
+
+// $.ajax('/projects/1/reports?'+  request , function(reportlist) {
+//     // you can access your data here in the "data" variable passed to this success handler
+// console.log(reportlist);
+// });
+
+// $.getJSON('/projects/1/reports/app_os_version_count.json', function(data) {
+//     // you can access your data here in the "data" variable passed to this success handler
+// console.log(data);
+// });
+// }
 
 </script>
 <div class="container" id="update-div">
@@ -521,8 +560,8 @@ function myFunction(clicked_id)
 						</thead>
 						<tbody>
 							<% @reports.each do |report| %>
-								<tr class="hovertr" onclick="myFunction2(<%= report.appversion %>)" >
-									<td></td>
+								<tr class="hovertr" onclick="myFunction2(<%= report.scenario_id %>)" >
+									<td><%= report.project %></td>
 									<td><%= report.appversion %></td>
 									<td>
 									<%= image_tag("1.png", :alt => "Edit Entry")  if report.categories.include? 'Memory'%>

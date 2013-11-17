@@ -133,12 +133,39 @@ table td:hover label.on{
 
 .hovertd:hover {
     cursor: pointer; cursor: hand;
+    background: #34C9D7;
+    font-family:arial;color:white;
+}
+.hovertd:hover label{
+    cursor: pointer; cursor: hand;
+    background: #34C9D7;
+    font-family:arial;color:white;
+}
+.hovertr:hover {
+	cursor: pointer; cursor: hand;
+	background: #34C9D7;
+	font-family:arial;color:white;
+	
+}
+.table-normal tbody tr:hover td {
+	background-color: transparent;
+	background: #34C9D7;
+	font-family:arial;color:white;
 }
 </style>
 <script type="text/javascript" >
+function myFunction2(clicked_id)
+{
+	alert(<%= @projects.class %> )
+	
+}
+
 function myFunction(clicked_id)
 {
-
+	<% @reports.each do |report| %>
+	var reportvar = <%= report.appversion || 'null' %>
+	console.log(reportvar);
+	<% end %>
 	if (document.getElementById(clicked_id).className == "orange"){ document.getElementById(clicked_id).className = "orange2"; }
 	else if (document.getElementById(clicked_id).className == "orange2"){ document.getElementById(clicked_id).className = "orange";}
 	else if (document.getElementById(clicked_id).className == "red"){ document.getElementById(clicked_id).className = "red2";}
@@ -150,13 +177,11 @@ function myFunction(clicked_id)
 	else if (document.getElementById(clicked_id).className == "in-checkbox"){alert("memroy clicked");}
 
 	if (clicked_id == "cpu"){
-		if (document.getElementById("testid").src == "http://localhost:3000/assets/c2.png"){
-		document.getElementById("testid").src = "/assets/2.png"	;
-		} 
-	else if (document.getElementById("testid").src == "http://localhost:3000/assets/2.png"){
-		document.getElementById("testid").src = "/assets/c2.png"	;
-		} 
+		alert("clicked cpu")
 		
+	}
+	if (clicked_id =="memory"){
+		alert("clicked memory")
 	}
 
 	var app1, app2, app3, os1, os2, os3
@@ -167,18 +192,33 @@ function myFunction(clicked_id)
 	if (document.getElementById("fifth").className == "orange2") { os2 = $("#"+"fifth").text()}
 	if (document.getElementById("sixth").className == "blue2") { os3 = $("#"+"sixth").text()}
 
-$.ajax({
-  url: "http://127.0.0.1:3000/projects/1/reports?appversions[]=1.5&appversions[]=1.6&appversions[]=1.7" ,
-  type: "GET"
-});
-$.getJSON('http://127.0.0.1:3000/projects/1/reports/app_os_version_count.json', function(data) {
-    // you can access your data here in the "data" variable passed to this success handler
-    console.log(data);
-});
-}
+var request = "appversions[]=1.5"
 
+$.ajax({
+    url: '/projects/1/reports?'+  request ,
+    success: function(data){
+		console.log(data);
+		var target = $('#update-div').data('update-target');
+        $('#' + target).html(data);}
+
+});
+
+    	// var w = window.open();
+        // $(w.document.body).html(data)
+
+// $.ajax('/projects/1/reports?'+  request , function(reportlist) {
+//     // you can access your data here in the "data" variable passed to this success handler
+// console.log(reportlist);
+// });
+
+// $.getJSON('/projects/1/reports/app_os_version_count.json', function(data) {
+//     // you can access your data here in the "data" variable passed to this success handler
+// console.log(data);
+// });
+// }
+}
 </script>
-<div class="container">
+<div class="container" id="update-div">
 	<div class="container">
 		<div class="row">
 			<div class="area-top clearfix">
@@ -247,30 +287,25 @@ $.getJSON('http://127.0.0.1:3000/projects/1/reports/app_os_version_count.json', 
 								</td>
 								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="memory">							
 									<center>
-										<img class="off" src="/assets/c1-1.png" height = '32' width = '32'>
 										<img class="on" src="/assets/1.png" height = '32' width = '32'>
 	 								   	<br> Memory
 									</center>
 								</td>
 								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="cpu">
 									<center>
-									<img id="testid" className = "on" src="/assets/2.png" height = '32' width = '32'>
-<!-- 										<img class="off" src="/assets/c2.png" height = '32' width = '32'>
-										<img class="on" src="/assets/2.png" height = '32' width = '32'> -->
+									<img id="cpuimageid" className = "on" src="/assets/2.png" height = '32' width = '32'>
 									<br> CPU
 									</center>
 								</td>
 								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="network">
 									<center>
-										<img class="off" src="/assets/c3.png" height = '32' width = '32'>
-										<img class="on" src="/assets/3.png" height = '32' width = '32'>
+										<img class="off" src="/assets/3.png" height = '32' width = '32'>
 									<br>Network
 									</center>
 								</td>
 								<td class="hovertd" style="vertical-align:middle" onClick="myFunction(this.id)" id="battery">
 									<center>
-										<img class="off" src="/assets/c4.png" height = '32' width = '32'>
-										<img class="on" src="/assets/4.png" height = '32' width = '32'>
+										<img class="off" src="/assets/4.png" height = '32' width = '32'>
 									 <br>Battery
 									 </center>
 								</td>
@@ -286,14 +321,12 @@ $.getJSON('http://127.0.0.1:3000/projects/1/reports/app_os_version_count.json', 
 								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
 									<!-- <input type="radio" name="optionsRadios[test]" class="icheck" checked id="iradio1"> -->
 									<center>
-                					  <label class="off">Yes</label>
                 					  <label class="on">Yes</label>
                 					  </center>
 								</td>
 								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
 								<!-- 	<input type="radio" name="optionsRadios[test]" class="icheck" id="iradio2"> -->
 								<center>
-               						   <label class="off">No</label>
                						    <label class="on">No</label>
                						    </center>
 								</td>
@@ -309,14 +342,12 @@ $.getJSON('http://127.0.0.1:3000/projects/1/reports/app_os_version_count.json', 
 								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
 								<!-- 	<input type="radio" name="optionsRadios[error]" class="icheck" id="iradio1"> -->
 								<center>
-              						    <label class="off">Success</label>
-              						     <label class="on">Success</label>
+              						     <label class="on">Finish</label>
               						    </center>
 								</td>
 								<td class="hovertd" onClick="valid(this.form)" style="vertical-align:middle">
 								<!-- 	<input type="radio" name="optionsRadios[error]" class="icheck" checked id="iradio4"> -->
 								<center>
-             					     <label class="off">Fail</label>
              					       <label class="on">Fail</label>
              					     </center>
 								</td>
@@ -343,9 +374,9 @@ $.getJSON('http://127.0.0.1:3000/projects/1/reports/app_os_version_count.json', 
 						</thead>
 						<tbody>
 							<% @reports.each do |report| %>
-								<tr>
-									<td></td>
+								<tr class="hovertr" onclick="myFunction2(<%= report.appversion %>)" >
 									<td><%= link_to report.appversion, [@project, report] %></td>
+									<td><%= report.appversion %></td>
 									<td>
 									<%= image_tag("1.png", :alt => "Edit Entry")  if report.categories.include? 'Memory'%>
 									<%= image_tag("2.png", :alt => "Edit Entry")  if report.categories.include? 'CPU'%>

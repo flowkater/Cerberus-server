@@ -24,17 +24,19 @@ class Project < ActiveRecord::Base
 
   def reports_app_version_count
     arr = reports.collect{|r| r.appversion }
+    arr_total_size = arr.size
     arr_uniq = arr.uniq
     result = []
-    arr_uniq.each {|a| result << {appversion: a, count: arr.select{|i| i==a}.size}} 
+    arr_uniq.each {|a| result << {appversion: a, rate: arr.select{|i| i==a}.size * (100.0 / arr_total_size)}}
     result
   end
 
   def reports_os_version_count
     arr = reports.collect{|r| r.osversion }
+    arr_total_size = arr.size
     arr_uniq = arr.uniq
     result = []
-    arr_uniq.each {|a| result << {osversion: a, count: arr.select{|i| i==a}.size}} 
+    arr_uniq.each {|a| result << {osversion: a, rate: arr.select{|i| i==a}.size * (100.0 / arr_total_size)}} 
     result
   end
 

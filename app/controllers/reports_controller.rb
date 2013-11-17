@@ -3,7 +3,7 @@ class ReportsController < ApplicationController
   
   def index
     @project = Project.find(params[:project_id])
-    @search = @project.reports.is_completed.search(appversion_in: params[:appversions], osversion_in: params[:osversions],memory_checked_eq: params[:memory], cpu_checked_eq: params[:cpu], network_checked_eq: params[:network],battery_checked_eq: params[:battery], scenario_test_eq: params[:scenario], error_status_eq: params[:status])
+    @search = @project.reports.is_completed.search(appversion_in: params[:appversions], osversion_in: params[:osversions],memory_eq: params[:memory], cpu_eq: params[:cpu], network_eq: params[:network],battery_eq: params[:battery], scenario_test_eq: params[:scenario], error_status_eq: params[:status])
     @reports = @search.result.page(params[:page]).per(10)
   end
 
@@ -13,11 +13,11 @@ class ReportsController < ApplicationController
     @scenario = @report.scenario
 
     @memory = @report.memory
-    @leak_instances = @memory.leak_instances unless @memory.nil?
+    @leak_instances = @memory.leak_instances.includes(:children) unless @memory.nil?
 
     # CPU 
     @cpu = @report.cpu
-    @trace_methods = @cpu.trace_methods.limit(10) unless @cpu.nil?
+    @trace_methods = @cpu.trace_methods.includes(:children) unless @cpu.nil?
 
     # Network
     @network = @report.network
@@ -34,9 +34,18 @@ class ReportsController < ApplicationController
     @project = Project.find(params[:project_id])
     @reports_app_version_count = @project.reports_app_version_count
     @reports_os_version_count = @project.reports_os_version_count
+
+    @appversions = params[:appversions]
+    @osversion = params[:osversions]
+    @memory = params[:memory]
+    @cpu = params[:cpu]
+    @network = params[:network]
+    @battery = params[:battery]
+    @scenario_test = params[:scenario]
+    @error_status = params[:status]
     
     respond_to do |format|
-      format.json {render json: {app: @reports_app_version_count ,os: @reports_os_version_count}}
+      format.json {render json: {app: @reports_app_version_count ,os: @reports_os_version_count, appversions: @appversions,osversions: @osversion, memory: @memory, cpu: @cpu, network: @network, battery: @battery, scenario_test: @scenario_test, error_status: @error_status  }}
     end
   end
 end

@@ -9,6 +9,7 @@ development:
   database: mydb
   username: profileadmin
   password: password
+  pool: 10
   host: localhost
   port: 3306
 
@@ -27,5 +28,6 @@ production:
   database: mydb
   username: profileadmin
   password: password
+  pool: 10
   host: localhost
   port: 3306

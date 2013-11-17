@@ -153,16 +153,16 @@ $(document).ready(function(){
 
 </script>
 
-<div class="container">
+<div class="container"  >
 	<div class="container">
 		<div class="row">
 			<div class="area-top clearfix">
 				<div class="pull-left header">
-					<h3 class="title">
+					<h3 class="title" id="jumpmemory">
 						Memory
 					</h3>
 					<h5>
-						<span>
+						<span >
 							Memory
 						</span>
 					</h5>
@@ -170,7 +170,7 @@ $(document).ready(function(){
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="container" >
 			<div class="row">
 				<div id="chartdiv" style=" height: 400px;">
 					</div>
@@ -184,14 +184,14 @@ $(document).ready(function(){
 					<table class="table table-normal">
 						<thead>
 							<tr>
-								<td>Method</td>
-								<td style="width:200px;">Leak Suspect(%)</td>
-								<td style="width:200px;">Heap Size</td>
+								<td>Instance</td>
+								<td style="width:400px;">Leak Suspect(%)</td>
+								<td style="width:400px;">Heap Size</td>
 							</tr>
 						</thead>
 						<tbody>
 							<% @leak_instances.each do |i|  %>
-                                <tr id="click">
+                                <tr>
                                   <td><%= i.instancename %></td>
                                   <td>
                                    <div class="fancyprogress">
@@ -200,7 +200,8 @@ $(document).ready(function(){
                                    </td>
                                   <td><%= i.size %></td>
                                 </tr>
-                                <%= render 'memories/leak_instances', object: i.children %>
+                                <%= i.hash_to_html.html_safe %>
+                                
 							<% end  %>
 						</tbody>
 					</table>

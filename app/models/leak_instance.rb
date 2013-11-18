@@ -21,7 +21,7 @@ class LeakInstance < ActiveRecord::Base
   end
 
   def leak_tree_html
-    "<div class='container'><div class='box'><div class='box-content'><table class='table table-normal'><thead><tr><td>Instance</td><td style='width:400px;'>Leak Suspect(%)</td><td style='width:400px;'>Heap Size</td></tr></thead><tbody>" + hash_to_html + "</tbody></table></div></div></div>".html_safe
+    "<div class='container'><div class='box'><div class='box-content'><table class='table table-normal'><thead><tr><td>Instance</td><td style='width:400px;'>Leak Suspect(%)</td><td style='width:400px;'>Heap Size</td></tr></thead><tbody>" + hash_to_html + "</tbody></table></div></div></div>"
   end
 
   def parent_level(count = 0)

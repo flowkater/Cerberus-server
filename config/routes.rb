@@ -34,7 +34,11 @@ CerberusServer::Application.routes.draw do
   end
 
   resources 'reports',only: [:index, :show] do
-    resource 'memory', only: [:show]
+    resource 'memory', only: [:show] do
+      member do
+        get 'leak_instance_show'
+      end
+    end
     resource 'cpu', only: [:show]
     resource 'network', only: [:show]
     resource 'battery', only: [:show]

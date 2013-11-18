@@ -5,4 +5,8 @@ class MemoriesController < ApplicationController
   	@project = @report.project
   	@memory = @report.memory
   end
+
+  def leak_instance_show
+  	@leak_instance = LeakInstance.find(params[:leak_instance_id])
+  end
 end

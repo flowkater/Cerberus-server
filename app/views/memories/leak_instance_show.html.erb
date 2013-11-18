@@ -5,12 +5,10 @@
 				<thead>
 					<tr>
 						<td>Instance</td>
-						<td style='width:400px;'>Leak Suspect(%)</td>
-						<td style='width:400px;'>Heap Size</td>
 					</tr>
 				</thead>
 				<tbody>
-						<%= render 'memories/leak_instances', object: @leak_instance.children %>
+						<%= @leak_instance.hash_to_html.html_safe %>
 				</tbody>
 			</table>
 		</div>

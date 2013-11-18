@@ -140,9 +140,17 @@
                    <td style="vertical-align:middle"><strong style="font-size: 25px;"><%= s.name %></strong>
 										<p><%= s.description %></p>
 									</td>
+									<style>
+									 #name {
+   									font-size: 30px;
+   									 }
+   									 #aftername {
+   									font-size: 20px;
+  								  }</style>
                   <td><div id="g<%= i %>1" class='g'><%= s.dashboard_top_leak_suspect %></div></td>
-                   <td><%= s.dashboard_top_cpu_excl %></td>
-                   <td><%= s.dashboard_top_latency %></td>
+                   <td style='vertical-align:middle'><center><label id='name'><%= (s.dashboard_top_cpu_excl / 1000).ceil %></label>
+                   <label id='aftername'>S</label></center></td>
+                   <td style='vertical-align:middle'><center><label  id='name'><%= (s.dashboard_top_latency).ceil %><label id='aftername'>MS</label></label></center></td>
                    <td><div id="g<%= i %>2" class='g'><%= s.dashboard_top_joule %></div></td>
                    <td>
                    <div>

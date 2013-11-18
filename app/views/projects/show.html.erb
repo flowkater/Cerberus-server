@@ -148,9 +148,9 @@
    									font-size: 20px;
   								  }</style>
                   <td><div id="g<%= i %>1" class='g'><%= s.dashboard_top_leak_suspect %></div></td>
-                   <td style='vertical-align:middle'><center><label id='name'><%= (s.dashboard_top_cpu_excl / 1000).ceil %></label>
+                   <td style='vertical-align:middle'><center><label id='name'><%= s.dashboard_top_cpu_excl %></label>
                    <label id='aftername'>S</label></center></td>
-                   <td style='vertical-align:middle'><center><label  id='name'><%= (s.dashboard_top_latency).ceil %><label id='aftername'>MS</label></label></center></td>
+                   <td style='vertical-align:middle'><center><label  id='name'><%= s.dashboard_top_latency %><label id='aftername'>MS</label></label></center></td>
                    <td><div id="g<%= i %>2" class='g'><%= s.dashboard_top_joule %></div></td>
                    <td>
                    <div>

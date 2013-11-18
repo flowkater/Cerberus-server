@@ -8,7 +8,7 @@ class LeakInstance < ActiveRecord::Base
   accepts_nested_attributes_for :children
   attr_accessible :instancename, :instanceid, :size, :leak_suspect, :parent_id, :children_attributes
 
-  acts_as_tree
+  # acts_as_tree
 
   def hash_to_html(hash = hash_tree, level=0)
     result = []
@@ -21,7 +21,7 @@ class LeakInstance < ActiveRecord::Base
   end
 
   def leak_tree_html
-    "<div class='container'><div class='box'><div class='box-content'><table class='table table-normal'><thead><tr><td>Instance</td><td style='width:400px;'>Leak Suspect(%)</td><td style='width:400px;'>Heap Size</td></tr></thead><tbody>" + hash_to_html + "</tbody></table></div></div></div>"
+    ""
   end
 
   def parent_level(count = 0)

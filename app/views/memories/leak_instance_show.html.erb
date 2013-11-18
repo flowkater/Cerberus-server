@@ -1,1 +1,18 @@
-<%= @leak_instance.leak_tree_html.html_safe %>
+<div class='container'>
+	<div class='box'>
+		<div class='box-content'>
+			<table class='table table-normal'>
+				<thead>
+					<tr>
+						<td>Instance</td>
+						<td style='width:400px;'>Leak Suspect(%)</td>
+						<td style='width:400px;'>Heap Size</td>
+					</tr>
+				</thead>
+				<tbody>
+						<%= render 'memories/leak_instances', object: @leak_instance.children %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

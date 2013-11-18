@@ -162,6 +162,28 @@ $(document).ready(function(){
 });
 });
 
+function spanpopup(index) {
+    var mywindow;
+  var w=600;
+  var h=400;
+  var l=(screen.width-w)/2;
+  var t=(screen.height-h)/2; 
+  var features='width='+w+',height='+h+',left='+l+',top='+t+',scrollbars=yes';
+
+
+
+  html = '<%= @leak_instances[0].leak_tree_html %>'
+
+mywindow=window.open('','',features);
+
+
+  $(mywindow.document.body).html(html);
+
+        
+   mywindow.focus();
+
+}
+
 
 </script>
 
@@ -202,9 +224,9 @@ $(document).ready(function(){
 							</tr>
 						</thead>
 						<tbody>
-							<% @leak_instances.each do |i|  %>
+							<% @leak_instances.each_with_index do |i, index|  %>
                 <tr>
-                  <td><%= i.instancename %></td>
+                  <td><span class="label label-info" onClick="spanpopup(<%= index %>)" >Click</span><%= i.instancename %></td>
                   <td>
                    <div class="fancyprogress">
                    <span class="orange" style="width: <%= i.leak_suspect %>%;"><span><%= i.leak_suspect %>%</span></span>

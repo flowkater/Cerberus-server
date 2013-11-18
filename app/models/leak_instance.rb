@@ -13,10 +13,11 @@ class LeakInstance < ActiveRecord::Base
   def hash_to_html(hash = hash_tree, level=0)
     result = []
     hash.each do |key,value|
-      result << "<tr><td><div style='margin-left:#{(level * 20)}px;'>#{key.instancename}</div></td> <td></td><td></td></tr>"
+      result << "<tr><td><div style='margin-left:#{(level * 20)}px;'>#{key.instancename}</div></td><td></td><td></td></tr>"
       result << hash_to_html(value, level + 1) if value.is_a?(Hash)
     end
-    result.join("\n")
+
+   result.join("")
   end
 
   def leak_tree_html

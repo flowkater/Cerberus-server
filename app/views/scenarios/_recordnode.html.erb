@@ -5,6 +5,7 @@
   color: #fff;
   font-size: 2em;
   border-radius: 0.5ex;
+  opacity: 0.6;
 }
 #sticky.stick {
   position: fixed;
@@ -23,9 +24,6 @@ function sticky_relocate() {
     $('#sticky').addClass('stick');
   } 
   else {
-    $('#sticky').removeClass('stick');
-  }
-  if (window_top > 9000){
     $('#sticky').removeClass('stick');
   }
   
@@ -69,7 +67,7 @@ $(document).ready(function(){
 
     var vis = d3.select("#report-record-node").append("svg:svg")
         .attr("width", w + m[1] + m[3])
-        .attr("height", h + m[0] + m[2])
+        .attr("height", h + m[0] + m[2] * 0.6)
         .append("svg:g")
         .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 

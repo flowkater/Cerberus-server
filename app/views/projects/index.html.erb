@@ -42,31 +42,32 @@
 							<div class="box">
 								<div class="box-content padded">
 									<div class="row">
-										 <div id="item" class="col-md-6">
+										 <div id="item" class="col-md-4">
 										 	<% if p.reports.first  %>
 										 		<%= image_tag p.reports.first.app_icon, size: "50x50" %>
 										 	<% end  %>
                     					   <p style="font-size: 15pt"><b><%= p.name %></b></p>
 										</div>
-										<div class="col-md-4">
-											+<!--                       <i class="icon-signal"></i> -->
-                       <span>App Version</span><br>
-                       <span>Scenario ID</span><br>
-                       <span>Profiling Time</span><br>
-                       <span>Os Version</span><br>
-                       <span>Status</span>
-                     </div>
-                     <div class="col-md-2">    
-                       <span><%= p.reports[0].appversion unless p.reports.count == 0 %></span><br>
-                       <span><%= p.reports[0].scenario_id unless p.reports.count == 0 %></span><br>
-                       <span><%= p.reports[0].time_for_profiling unless p.reports.count == 0 %></span><br>
-                       <span><%= p.reports[0].osversion unless p.reports.count == 0 %></span>  <br>  
-                       <span>Success</span>  
- 
- <!--                       <div class="button btn btn-large btn-default" style="width: 100%;margin-top: 30px;">
-												<a href="../profile/profile_1depth.html">Profile now(프로파일 바로가기 버튼)</a>
+										<div class="col-md-8">
+											<div class="row">
+												<div class="col-md-4">
+							                       <span><label>App Version</label></span><br>
+							                       <span><p class="text-warning"><%= p.reports[0].appversion unless p.reports.count == 0 %></p></span>
+							                       <span><label>Profiling Time</span><br>
+							                       <span><p class="text-danger"><%= p.reports[0].time_for_profiling unless p.reports.count == 0 %></p></span><br>
+							                       
+							                     </div>
+							                     <div class="col-md-4">    
+							                       <span><label>Os Version</label></span><br>
+							                       <span><p class="text-success"><%= p.reports[0].osversion unless p.reports.count == 0 %></p></span>
+							                       <span><label>Status</label></span><br>
+							 					   <span><p class="text-info"><%= p.reports[0].error_status unless p.reports.count == 0 %></p></span>  
+												</div>
+												 <div class="col-md-4"></div>
+												 <span><label>Scenario ID</label></span><br>
+												 <span><p class="text-muted"><%= p.reports[0].scenario_id unless p.reports.count == 0 %></p></span><br>
+
 											</div>
-											</div> -->
 										</div>
 									</div>
 								</div>
